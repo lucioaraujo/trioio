@@ -1,0 +1,516 @@
+# Arquivo de cadências do Trioio
+# Escrito pelo Trioio a partir da teoria publicada, com a fonte em cada cadência.
+# Gerado por tools/gerar_arquivo_de_cadencias.py; formato descrito ali.
+# 51 cadências.
+
+= autêntica perfeita
+família: funcional
+linguagem: funcional
+graus: IV – V – I
+acordes: 5 M | 7 M | 0 M
+soprano: 1 – 2 – 1
+baixo: 4 – 5 – 1
+efeito: o ponto final: fundamental no baixo, tônica em cima
+fonte: W. Piston, Harmony, 1941 (5ª ed., M. DeVoto, 1987); A. Schoenberg, Harmonielehre, 1911
+
+= autêntica perfeita com cadencial 6/4
+família: funcional
+linguagem: funcional
+graus: ii6 – I6/4 – V7 – I
+acordes: 2 m /5 | 0 M /7 | 7 M 7 | 0 M
+soprano: 4 – 3 – 2 – 1
+baixo: 4 – 5 – 5 – 1
+efeito: o I6/4 adia a dominante; o fim mais solene
+fonte: E. Aldwell e C. Schachter, Harmony and Voice Leading, 4ª ed., 2011
+saliência: 7:2, 11:3, 2:1, 5:2
+
+= autêntica imperfeita
+família: funcional
+linguagem: funcional
+graus: V – I6
+acordes: 7 M | 0 M /4
+soprano: 2 – 1
+baixo: 5 – 3
+efeito: a vírgula forte: a terça no baixo
+fonte: W. Piston, Harmony, 1941 (5ª ed., M. DeVoto, 1987); A. Schoenberg, Harmonielehre, 1911
+
+= suspensiva (meia cadência)
+família: funcional
+linguagem: funcional
+graus: ii – V
+acordes: 2 m | 7 M
+soprano: 4 – 2
+baixo: 2 – 5
+efeito: a pergunta
+fonte: W. Piston, Harmony, 1941 (5ª ed., M. DeVoto, 1987); A. Schoenberg, Harmonielehre, 1911
+
+= frígia
+família: funcional
+linguagem: funcional
+graus: iv6 – V
+acordes: 5 m /8 | 7 M
+soprano: 1 – 2
+baixo: ♭6 – 5
+efeito: a pergunta arcaica, barroca, no menor
+fonte: E. Aldwell e C. Schachter, Harmony and Voice Leading, 4ª ed., 2011
+
+= frígia modal (século XV)
+família: modal
+linguagem: modal
+graus: ♭vii – I
+acordes: 10 m /1 | 0 M
+soprano: 2 – 1
+baixo: ♭2 – 1
+efeito: o ♭2 que desce à tônica: a sensível de cima, sem a de baixo
+fonte: E. Cambouropoulos et al., a cadência frígia como entrada da mistura conceitual (ISMIR 2015); ver MAQUINA_DE_HARMONIA §11
+saliência: 10:1, 1:3, 5:2
+
+= plagal
+família: funcional
+linguagem: funcional
+graus: IV – I
+acordes: 5 M | 0 M
+soprano: 1 – 1
+baixo: 4 – 1
+efeito: o "amém"
+fonte: W. Piston, Harmony, 1941 (5ª ed., M. DeVoto, 1987); A. Schoenberg, Harmonielehre, 1911
+
+= plagal menor
+família: funcional
+linguagem: funcional
+graus: iv – I
+acordes: 5 m | 0 M
+soprano: 1 – 1
+baixo: 4 – 1
+efeito: o "amém" com o empréstimo do menor: o ♭6 que desce
+fonte: E. Aldwell e C. Schachter, Harmony and Voice Leading, 4ª ed., 2011
+
+= de engano
+família: funcional
+linguagem: funcional
+graus: V – vi
+acordes: 7 M | 9 m
+soprano: 2 – 1
+baixo: 5 – 6
+efeito: a surpresa: o ouvido espera a tônica
+fonte: W. Piston, Harmony, 1941 (5ª ed., M. DeVoto, 1987); A. Schoenberg, Harmonielehre, 1911
+
+= evitada
+família: funcional
+linguagem: funcional
+graus: V7 – V7/IV
+acordes: 7 M 7 | 0 M 7
+soprano: 4 – 3
+baixo: 5 – 1
+efeito: o fim adiado: a tônica vira dominante
+fonte: W. Piston, Harmony, 1941 (5ª ed., M. DeVoto, 1987); A. Schoenberg, Harmonielehre, 1911
+
+= picarda
+família: funcional
+linguagem: funcional
+graus: V – I (no menor)
+acordes: 7 M | 0 M
+soprano: 2 – 3
+baixo: 5 – 1
+efeito: uma peça menor que termina no I maior: a luz no fim
+fonte: E. Aldwell e C. Schachter, Harmony and Voice Leading, 4ª ed., 2011
+
+= napolitana
+família: funcional
+linguagem: funcional
+graus: ♭II6 – V – i
+acordes: 1 M /5 | 7 M | 0 m
+soprano: ♭2 – 7 – 1
+baixo: 4 – 5 – 1
+efeito: o ♭2 que desce à sensível
+fonte: E. Aldwell e C. Schachter, Harmony and Voice Leading, 4ª ed., 2011
+
+= sexta aumentada alemã
+família: funcional
+linguagem: funcional
+graus: Ger+6 – I6/4 – V – i
+acordes: 8 M 7 | 0 m /7 | 7 M | 0 m
+soprano: 1 – 1 – 7 – 1
+baixo: ♭6 – 5 – 5 – 1
+efeito: as duas notas que abrem para a oitava da dominante
+fonte: E. Aldwell e C. Schachter, Harmony and Voice Leading, 4ª ed., 2011
+
+= ii–V–I
+família: jazz
+linguagem: jazz
+graus: IIm7 – V7 – I7M
+acordes: 2 m 7 | 7 M 7 | 0 M 7M
+soprano: 1 – 7 – 7
+baixo: 2 – 5 – 1
+efeito: a cadência do jazz: as 7ªs que descem às 3ªs
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= ii–V–i menor
+família: jazz
+linguagem: jazz
+graus: IIm7(♭5) – V7(♭9) – Im7
+acordes: 2 dim 7 | 7 M 7 b9 | 0 m 7
+soprano: ♭6 – ♭6 – 5
+baixo: 2 – 5 – 1
+efeito: o ii–V do menor, com a ♭9
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= substituição de trítono
+família: jazz
+linguagem: jazz
+graus: IIm7 – ♭II7 – I7M
+acordes: 2 m 7 | 1 M 7 | 0 M 7M
+soprano: 1 – 7 – 7
+baixo: 2 – ♭2 – 1
+efeito: o baixo desce por semitom
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= backdoor
+família: jazz
+linguagem: jazz
+graus: IVm7 – ♭VII7 – I7M
+acordes: 5 m 7 | 10 M 7 | 0 M 7M
+soprano: ♭6 – ♭6 – 5
+baixo: 4 – ♭7 – 1
+efeito: a dominante pela porta dos fundos
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= turnaround
+família: jazz
+linguagem: jazz
+graus: I – VI7 – IIm7 – V7
+acordes: 0 M 6 | 9 M 7 | 2 m 7 | 7 M 7
+soprano: 3 – ♯1 – 1 – 7
+baixo: 1 – 6 – 2 – 5
+efeito: a volta ao começo
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= ii–V–I6/9
+família: brasileira
+linguagem: brasileira
+graus: IIm7 – V7(♭9) – I6(9)
+acordes: 2 m 7 | 7 M 7 b9 | 0 M 6 9
+soprano: 1 – ♭6 – 5
+baixo: 2 – 5 – 1
+efeito: a cadência do samba e da bossa
+fonte: A. Chediak, Harmonia e improvisação, Lumiar, 1986
+
+= diminuto de passagem
+família: brasileira
+linguagem: brasileira
+graus: I – ♯I° – IIm7 – V7
+acordes: 0 M | 1 dim 6 | 2 m 7 | 7 M 7
+soprano: 5 – 5 – 4 – 4
+baixo: 1 – ♯1 – 2 – 5
+efeito: o baixo cromático do choro
+fonte: M. Sève, Vocabulário do choro, Lumiar, 1999
+
+= V7/IV do choro
+família: brasileira
+linguagem: brasileira
+graus: I7 – IV – ♯IV° – I/5
+acordes: 0 M 7 | 5 M | 6 dim 6 | 0 M /7
+soprano: ♭7 – 6 – 6 – 5
+baixo: 1 – 4 – ♯4 – 5
+efeito: a ida à subdominante e a volta pela baixaria
+fonte: M. Sève, Vocabulário do choro, Lumiar, 1999
+
+= 7M(♯11) de chegada
+família: brasileira
+linguagem: brasileira
+graus: ♭VII7 – I7M(♯11)
+acordes: 10 M 7 | 0 M 7M #11
+soprano: 4 – ♯4
+baixo: ♭7 – 1
+efeito: o empréstimo do menor e a cor lídia
+fonte: A. Chediak, Harmonia e improvisação, Lumiar, 1986
+
+= baião ♭VII → I7
+família: nordestina
+linguagem: nordestina
+graus: ♭VII – I7
+acordes: 10 M | 0 M 7
+soprano: 2 – 1
+baixo: ♭7 – 1
+efeito: o mixolídio: a tônica com a 7ª menor
+fonte: J. Siqueira, O Sistema Modal na Música Folclórica do Brasil, João Pessoa, 1981
+
+= IV7 → I7
+família: nordestina
+linguagem: nordestina
+graus: IV7 – I7
+acordes: 5 M 7 | 0 M 7
+soprano: ♭7 – 1
+baixo: 4 – 1
+efeito: o plagal do baião, com os dois acordes de 7ª
+fonte: J. Siqueira, O Sistema Modal na Música Folclórica do Brasil, João Pessoa, 1981
+
+= lídia II → I
+família: nordestina
+linguagem: nordestina
+graus: II – I
+acordes: 2 M | 0 M
+soprano: ♯4 – 3
+baixo: 2 – 1
+efeito: o modo nordestino (lídio-mixolídio): a quarta aumentada
+fonte: J. Siqueira, O Sistema Modal na Música Folclórica do Brasil, João Pessoa, 1981
+
+= Vm7 → I
+família: mineira
+linguagem: mineira
+graus: Vm7 – I
+acordes: 7 m 7 | 0 M
+soprano: ♭7 – 1
+baixo: 5 – 1
+efeito: a dominante sem sensível do Clube da Esquina
+fonte: ver MAQUINA_DE_HARMONIA §6 (o Clube da Esquina)
+
+= IVsus(9) → I
+família: mineira
+linguagem: mineira
+graus: IVsus(9) – I
+acordes: 5 M sus4 9 | 0 M
+soprano: 5 – 5
+baixo: 4 – 1
+efeito: o plagal suspenso
+fonte: ver MAQUINA_DE_HARMONIA §6
+
+= ♭II7M(♯11) → I
+família: mineira
+linguagem: mineira
+graus: ♭II7M(♯11) – I7M(9)
+acordes: 1 M 7M #11 | 0 M 7M 9
+soprano: 5 – 5
+baixo: ♭2 – 1
+efeito: a chegada meio tom acima, sem dominante
+fonte: ver MAQUINA_DE_HARMONIA §6
+
+= ♭VI7M(♯11) → I
+família: Hermeto
+linguagem: hermeto
+graus: ♭VI7M(♯11) – I7M(9)
+acordes: 8 M 7M #11 | 0 M 7M 9
+soprano: 2 – 2
+baixo: ♭6 – 1
+efeito: a mediante com a cor lídia
+fonte: A. G. Arrais, A música de Hermeto Pascoal, USP; ver MAQUINA_DE_HARMONIA §6
+
+= vamp dórico
+família: modal
+linguagem: modal
+graus: im7 – IV7
+acordes: 0 m 7 | 5 M 7
+soprano: ♭3 – 3
+baixo: 1 – 4
+efeito: o IV maior do dórico: a 6ª maior no menor
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= vamp mixolídio
+família: modal
+linguagem: modal
+graus: I – ♭VII
+acordes: 0 M | 10 M
+soprano: 3 – 2
+baixo: 1 – ♭7
+efeito: a tônica sem sensível
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= vamp frígio
+família: modal
+linguagem: modal
+graus: i – ♭II7M
+acordes: 0 m | 1 M 7M
+soprano: 1 – 1
+baixo: 1 – ♭2
+efeito: o ♭2 do frígio
+fonte: M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= andaluza
+família: andaluza
+linguagem: andaluza
+graus: i – ♭VII – ♭VI – V
+acordes: 0 m | 10 M | 8 M | 7 M b9
+soprano: 1 – 1 – 1 – 7
+baixo: 1 – ♭7 – ♭6 – 5
+efeito: o baixo que desce ao V: a dupla tonicidade do flamenco
+fonte: P. Manuel, "From Scarlatti to 'Guantanamera'", JAMS 55(2), 2002
+
+= mediante cromática
+família: cromática romântica
+linguagem: cromatica
+graus: ♭VI – I
+acordes: 8 M | 0 M
+soprano: 1 – 1
+baixo: ♭6 – 1
+efeito: uma nota comum, as outras por semitom
+fonte: R. Cohn, Audacious Euphony, Oxford UP, 2012
+
+= ciclo hexatônico
+família: cromática romântica
+linguagem: cromatica
+graus: I – i – ♭VI – ♭vi
+acordes: 0 M | 0 m | 8 M | 8 m
+soprano: 3 – ♭3 – ♭3 – ♭3
+baixo: 1 – 1 – ♭6 – ♭6
+efeito: P e L alternados: a máxima parcimônia
+fonte: R. Cohn, Audacious Euphony, Oxford UP, 2012
+
+= ciclo octatônico
+família: cromática romântica
+linguagem: cromatica
+graus: I – i – ♭III – ♭iii
+acordes: 0 M | 0 m | 3 M | 3 m
+soprano: 5 – 5 – 5 – 5
+baixo: 1 – 1 – ♭3 – ♭3
+efeito: P e R alternados
+fonte: R. Cohn, Audacious Euphony, Oxford UP, 2012
+
+= planing de nonas
+família: impressionista
+linguagem: impressionista
+graus: I(9) – II(9) – I(9)
+acordes: 0 M 7 9 | 2 M 7 9 | 0 M 7 9
+soprano: 2 – 3 – 2
+baixo: 1 – 2 – 1
+efeito: o acorde movido em bloco ("Nuages", "La cathédrale engloutie")
+fonte: M. DeVoto, Debussy and the Veil of Tonality, Pendragon, 2004
+
+= tons inteiros
+família: impressionista
+linguagem: impressionista
+graus: I+ – II+ – I
+acordes: 0 aug | 2 aug | 0 M
+soprano: 3 – ♯4 – 3
+baixo: 1 – 2 – 1
+efeito: a escala de tons inteiros: nenhuma função
+fonte: M. DeVoto, Debussy and the Veil of Tonality, Pendragon, 2004
+
+= quartal ♭VII → I
+família: quartal
+linguagem: quartal
+graus: ♭VII7sus4 – I7sus4(9)
+acordes: 10 M sus4 7 | 0 M sus4 7 9
+soprano: 4 – 4
+baixo: ♭7 – 1
+efeito: as quartas empilhadas (So What)
+fonte: P. Hindemith, Unterweisung im Tonsatz, 1937; M. Levine, The Jazz Theory Book, Sher Music, 1995
+
+= Petrushka
+família: politonal
+linguagem: politonal
+graus: I7(♭9)(♯11)
+acordes: 0 M 7 b9 #11
+soprano: ♯4
+baixo: 1
+efeito: duas tríades a um trítono ao mesmo tempo
+fonte: I. Stravinsky, Petrushka, 1911; D. Tymoczko, A Geometry of Music, Oxford UP, 2011
+
+= dominantes octatônicas
+família: octatônica
+linguagem: octatonica
+graus: I7(♭9) – ♭III7(♭9) – ♯IV7(♭9) – VI7(♭9)
+acordes: 0 M 7 b9 | 3 M 7 b9 | 6 M 7 b9 | 9 M 7 b9
+soprano: —
+baixo: 1 – ♭3 – ♯4 – 6
+efeito: a coleção octatônica (modo 2): as raízes por 3ªs menores
+fonte: O. Messiaen, Technique de mon langage musical, 1944
+
+= eixo de Bartók
+família: Bartók
+linguagem: bartok
+graus: ♭II7(♯11) – I7(♯11)
+acordes: 1 M 7 #11 | 0 M 7 #11
+soprano: 5 – 5
+baixo: ♭2 – 1
+efeito: a dominante do contrapolo; a escala acústica
+fonte: E. Lendvai, Béla Bartók: An Analysis of His Music, Kahn & Averill, 1971
+
+= acorde místico
+família: Scriabin
+linguagem: scriabin
+graus: I7(9)(♯11)(13) – ♯IV7(9)(♯11)(13)
+acordes: 0 M 7 9 #11 13 | 6 M 7 9 #11 13
+soprano: —
+baixo: 1 – ♯4
+efeito: o acorde de Prometeu, andando ao trítono, sem resolver
+fonte: J. Baker, The Music of Alexander Scriabin, Yale UP, 1986
+
+= Bachianas: quintas descendentes
+família: Villa-Lobos
+linguagem: villa-lobos
+graus: VI7 – II7 – V7 – I
+acordes: 9 M 7 | 2 M 7 | 7 M 7 | 0 M
+soprano: —
+baixo: 6 – 2 – 5 – 1
+efeito: a sequência barroca à brasileira
+fonte: H. Villa-Lobos, Bachianas Brasileiras, 1930–45; ver MAQUINA_DE_HARMONIA §6
+
+= Moacir Santos: dórico
+família: Moacir Santos
+linguagem: moacir
+graus: im7(9) – IV7(9)
+acordes: 0 m 7 9 | 5 M 7 9
+soprano: 2 – 2
+baixo: 1 – 4
+efeito: o modal afro-brasileiro sobre o ostinato
+fonte: M. Santos, Coisas, Forma, 1965; ver MAQUINA_DE_HARMONIA §6
+
+= Guinga: meio tom acima
+família: Guinga
+linguagem: guinga
+graus: I7M(♯5) – ♭II7(♯11) – I7M(9)
+acordes: 0 aug 7M | 1 M 7 #11 | 0 M 7M 9
+soprano: ♯5 – 5 – 5
+baixo: 1 – ♭2 – 1
+efeito: as vozes internas cromáticas
+fonte: ver MAQUINA_DE_HARMONIA §6
+
+= frevo: ii–V7(♭9)–I6
+família: frevo
+linguagem: frevo
+graus: IIm7 – V7(♭9) – I6
+acordes: 2 m 7 | 7 M 7 b9 | 0 M 6
+soprano: 4 – ♭6 – 5
+baixo: 2 – 5 – 1
+efeito: a chegada das orquestras de frevo, depois das dominantes encadeadas
+fonte: V. de Oliveira, Frevo, capoeira e passo, Recife, 1971; ver MAQUINA_DE_HARMONIA §9
+
+= frevo: diminuto de passagem
+família: frevo
+linguagem: frevo
+graus: I – ♯I° – IIm7 – V7
+acordes: 0 M | 1 dim 6 | 2 m 7 | 7 M 7
+soprano: 3 – 3 – 4 – 4
+baixo: 1 – ♯1 – 2 – 5
+efeito: o baixo cromático das fanfarras
+fonte: V. de Oliveira, Frevo, capoeira e passo, Recife, 1971
+
+= maracatu: ♭VII → i
+família: maracatu
+linguagem: maracatu
+graus: ♭VII – i
+acordes: 10 M | 0 m
+soprano: 2 – 1
+baixo: ♭7 – 1
+efeito: a toada eólia sobre a alfaia: a tônica sem sensível
+fonte: C. Guerra-Peixe, Os Maracatus do Recife, 1955 (2ª ed., Irmãos Vitale, 1980)
+
+= maracatu: ♭VI–♭VII–i
+família: maracatu
+linguagem: maracatu
+graus: ♭VI – ♭VII – i
+acordes: 8 M | 10 M | 0 m
+soprano: 1 – 2 – 1
+baixo: ♭6 – ♭7 – 1
+efeito: a subida eólia
+fonte: C. Guerra-Peixe, Os Maracatus do Recife, 1955 (2ª ed., Irmãos Vitale, 1980)
+
+= Gismonti: ♭VI7M(♯11) → I(9)
+família: Gismonti
+linguagem: gismonti
+graus: ♭VI7M(♯11) – I(9)
+acordes: 8 M 7M #11 /0 | 0 M 9
+soprano: 2 – 2
+baixo: 1 – 1
+efeito: a mistura de modos sobre o pedal da corda solta
+fonte: E. Gismonti, Água e vinho, Odeon, 1972; Dança das cabeças, ECM, 1977 (as gravações)

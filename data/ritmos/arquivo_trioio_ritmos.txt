@@ -1,0 +1,214 @@
+# Arquivo de ciclos rítmicos do Trioio
+# Escrito pelo Trioio a partir do conhecimento publicado, com a fonte em cada ciclo.
+# Gerado por tools/gerar_arquivo_de_ritmos.py; formato descrito ali.
+# 26 ciclos.
+
+= maqsum
+família: iqa' árabe
+unidade: colcheia
+golpes: D T - T D - T -
+acentos: 1
+fonte: J. Farraj e S. Abu Shumays, Inside Arabic Music, Oxford UP, 2019 (os iqa'at); A. J. Racy, Making Music in the Arab World, Cambridge UP, 2003
+nota: o esqueleto do iqa' (dum e tak); a percussão real preenche com golpes leves e ornamentos
+
+= baladi
+família: iqa' árabe
+unidade: colcheia
+golpes: D D - T D - T -
+acentos: 1
+fonte: J. Farraj e S. Abu Shumays, Inside Arabic Music, Oxford UP, 2019 (os iqa'at); A. J. Racy, Making Music in the Arab World, Cambridge UP, 2003
+nota: o esqueleto do iqa' (dum e tak); a percussão real preenche com golpes leves e ornamentos
+
+= sa'idi
+família: iqa' árabe
+unidade: colcheia
+golpes: D T - D D - T -
+acentos: 1
+fonte: J. Farraj e S. Abu Shumays, Inside Arabic Music, Oxford UP, 2019 (os iqa'at); A. J. Racy, Making Music in the Arab World, Cambridge UP, 2003
+nota: o esqueleto do iqa' (dum e tak); a percussão real preenche com golpes leves e ornamentos
+
+= wahda
+família: iqa' árabe
+unidade: colcheia
+golpes: D - - - T - - -
+acentos: 1
+fonte: J. Farraj e S. Abu Shumays, Inside Arabic Music, Oxford UP, 2019 (os iqa'at); A. J. Racy, Making Music in the Arab World, Cambridge UP, 2003
+nota: o esqueleto do iqa' (dum e tak); a percussão real preenche com golpes leves e ornamentos
+
+= samai thaqil
+família: iqa' árabe
+unidade: colcheia
+golpes: D - - T - D D T - -
+acentos: 1
+fonte: J. Farraj e S. Abu Shumays, Inside Arabic Music, Oxford UP, 2019 (os iqa'at); A. J. Racy, Making Music in the Arab World, Cambridge UP, 2003
+nota: o esqueleto do iqa' (dum e tak); a percussão real preenche com golpes leves e ornamentos; o ciclo de 10 do samai (forma instrumental)
+
+= tīntāl
+família: tala hindustani
+unidade: tempo
+golpes: B B B B B B B B B T T T T B B B
+divisões: 4 4 4 4
+acentos: 1 5 13
+vazios: 9
+fonte: M. Clayton, Time in Indian Music: Rhythm, Metre and Form in North Indian Rāg Performance, Oxford UP, 2000
+nota: o ṭhekā simplificado em grave/agudo (dha = B, dhin = B, tin/ta/na = T, ge = D, ke = k); sam (1) é o tempo forte; khālī é o tempo 'vazio', sem grave; no tīntāl o 9 é dhā no ṭhekā usual, e o khālī se ouve pela falta do grave em tin tin tā tā (10 a 13)
+
+= jhaptāl
+família: tala hindustani
+unidade: tempo
+golpes: B T B B T T T B B T
+divisões: 2 3 2 3
+acentos: 1 3 8
+vazios: 6
+fonte: M. Clayton, Time in Indian Music: Rhythm, Metre and Form in North Indian Rāg Performance, Oxford UP, 2000
+nota: o ṭhekā simplificado em grave/agudo (dha = B, dhin = B, tin/ta/na = T, ge = D, ke = k); sam (1) é o tempo forte; khālī é o tempo 'vazio', sem grave
+
+= rūpak
+família: tala hindustani
+unidade: tempo
+golpes: T T T B T B T
+divisões: 3 2 2
+acentos: 1 4 6
+vazios: 1
+fonte: M. Clayton, Time in Indian Music: Rhythm, Metre and Form in North Indian Rāg Performance, Oxford UP, 2000
+nota: o ṭhekā simplificado em grave/agudo (dha = B, dhin = B, tin/ta/na = T, ge = D, ke = k); sam (1) é o tempo forte; khālī é o tempo 'vazio', sem grave; no rūpak o próprio sam é khālī
+
+= ektāl
+família: tala hindustani
+unidade: tempo
+golpes: B B B k T T k T B k B T
+divisões: 2 2 2 2 2 2
+acentos: 1 5 9 11
+vazios: 3 7
+fonte: M. Clayton, Time in Indian Music: Rhythm, Metre and Form in North Indian Rāg Performance, Oxford UP, 2000
+nota: o ṭhekā simplificado em grave/agudo (dha = B, dhin = B, tin/ta/na = T, ge = D, ke = k); sam (1) é o tempo forte; khālī é o tempo 'vazio', sem grave
+
+= ādi tāla
+família: tala carnático
+unidade: tempo
+golpes: B T T T B T B T
+divisões: 4 2 2
+acentos: 1 5 7
+fonte: P. Sambamoorthy, South Indian Music, Indian Music Publishing House, 1958–1969
+nota: o laghu de 4 e dois drutam de 2 (4+2+2); contado com palma (grave) e dedos ou aceno (agudo)
+
+= sofyan
+família: usul turco
+unidade: colcheia
+golpes: D - T k
+acentos: 1
+fonte: K. Signell, Makam: Modal Practice in Turkish Art Music, Asian Music Publications, 1977
+nota: düm, te-ke, tek: o usul de 4
+
+= curcuna
+família: usul turco
+unidade: colcheia
+golpes: D - k T - D - T - -
+divisões: 3 2 2 3
+acentos: 1 4 6 8
+fonte: K. Signell, Makam: Modal Practice in Turkish Art Music, Asian Music Publications, 1977
+nota: 10/8 em 3+2+2+3
+
+= aksak (9/8)
+família: usul turco / aksak
+unidade: colcheia
+golpes: D - T - D - T - -
+divisões: 2 2 2 3
+acentos: 1 3 5 7
+fonte: K. Signell, Makam: Modal Practice in Turkish Art Music, Asian Music Publications, 1977; C. Brăiloiu, "Le rythme aksak", Revue de musicologie 33, 1951
+nota: 9/8 em 2+2+2+3: o tempo 'manco'
+
+= ruchenitsa (7/8)
+família: aksak balcânico
+unidade: colcheia
+golpes: D - T - D - -
+divisões: 2 2 3
+acentos: 1 3 5
+fonte: C. Brăiloiu, "Le rythme aksak", Revue de musicologie 33, 1951
+nota: 7/8 em 2+2+3 (Bulgária)
+
+= kopanitsa (11/8)
+família: aksak balcânico
+unidade: colcheia
+golpes: D - T - D - - T - D -
+divisões: 2 2 3 2 2
+acentos: 1 3 5 8 10
+fonte: C. Brăiloiu, "Le rythme aksak", Revue de musicologie 33, 1951
+nota: 11/8 em 2+2+3+2+2
+
+= clave son 3-2
+família: clave afro-cubana
+unidade: semicolcheia
+golpes: x - - x - - x - - - x - x - - -
+fonte: G. T. Toussaint, The Geometry of Musical Rhythm, CRC Press, 2013; K. Agawu, The African Imagination in Music, Oxford UP, 2016
+
+= clave rumba 3-2
+família: clave afro-cubana
+unidade: semicolcheia
+golpes: x - - x - - - x - - x - x - - -
+fonte: G. T. Toussaint, The Geometry of Musical Rhythm, CRC Press, 2013; K. Agawu, The African Imagination in Music, Oxford UP, 2016
+
+= clave bossa nova
+família: Brasil (bossa nova)
+unidade: semicolcheia
+golpes: x - - x - - x - - - x - - x - -
+fonte: G. T. Toussaint, The Geometry of Musical Rhythm, CRC Press, 2013; K. Agawu, The African Imagination in Music, Oxford UP, 2016
+nota: a 'clave' da bossa nova (o padrão do aro da caixa)
+
+= tresillo
+família: linha-guia afro-americana
+unidade: semicolcheia
+golpes: x - - x - - x -
+fonte: G. T. Toussaint, The Geometry of Musical Rhythm, CRC Press, 2013; K. Agawu, The African Imagination in Music, Oxford UP, 2016
+nota: 3+3+2: o tresillo
+
+= cinquillo
+família: linha-guia afro-cubana
+unidade: semicolcheia
+golpes: x - x x - x x -
+fonte: G. T. Toussaint, The Geometry of Musical Rhythm, CRC Press, 2013; K. Agawu, The African Imagination in Music, Oxford UP, 2016
+
+= sino padrão (12/8)
+família: linha-guia oeste-africana
+unidade: colcheia-ternária
+golpes: x - x - x x - x - x - x
+fonte: G. T. Toussaint, The Geometry of Musical Rhythm, CRC Press, 2013; K. Agawu, The African Imagination in Music, Oxford UP, 2016
+nota: o 'standard pattern' de 7 golpes em 12, do sino (gankogui, agogô)
+
+= baião
+família: Brasil (Nordeste)
+unidade: semicolcheia
+golpes: D - - D - - T - D - - D - - T -
+fonte: J. Siqueira, O sistema modal na música folclórica do Brasil, 1981; o baião de Luiz Gonzaga (anos 1940)
+nota: o desenho da zabumba (tresillo no grave, o bacalhau no agudo), simplificado
+
+= lancaran
+família: gamelão (colotomia)
+unidade: tempo
+golpes: t - t N t P t N t P t N t P t G
+acentos: 16
+fonte: J. Lindsay, Javanese Gamelan, Oxford UP, 1979; J. Becker, Gamelan Stories, 1993
+nota: estrutura colotômica: os gongs marcam o ciclo; a melodia-núcleo corre por cima; o kenong também soa no 16 junto com o gong
+
+= ketawang
+família: gamelão (colotomia)
+unidade: tempo
+golpes: - - t - - - t N - - t P - - t G
+acentos: 16
+fonte: J. Lindsay, Javanese Gamelan, Oxford UP, 1979; J. Becker, Gamelan Stories, 1993
+nota: estrutura colotômica: os gongs marcam o ciclo; a melodia-núcleo corre por cima; ciclo de 16 com kenong em 8 e 16, kempul em 12
+
+= compás de 12 (soleá, bulerías)
+família: flamenco
+unidade: tempo
+golpes: x - x - - x - x - x - x
+acentos: 1 4 7 9 11
+fonte: P. Manuel, "Evolution and Structure in Flamenco Harmony", Current Musicology 42, 1986
+nota: a contagem de 12 com acentos em 12, 3, 6, 8 e 10 (aqui a partir do 12)
+
+= shuffle
+família: blues
+unidade: colcheia-ternária
+golpes: D - T D - T D - T D - T
+fonte: G. Kubik, Africa and the Blues, 1999
+nota: a divisão ternária (12/8) do shuffle: golpe longo e curto; simplificado

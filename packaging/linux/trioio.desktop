@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Trioio
+GenericName=Listening and response instrument
+Comment=Listens to a recording and composes a synthesised response (RASGO)
+Comment[pt]=Escuta uma gravação e compõe uma resposta sintetizada (RASGO)
+Comment[fr]=Écoute un enregistrement et compose une réponse synthétisée (RASGO)
+Comment[es]=Escucha una grabación y compone una respuesta sintetizada (RASGO)
+Exec=trioio
+Icon=trioio
+Terminal=false
+Categories=AudioVideo;Audio;Music;

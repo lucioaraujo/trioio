@@ -1,0 +1,30 @@
+# As fontes da ponte semântica do Trioio (src/library/SemanticBridge.h).
+# Uma fonte por linha:   <papel> <formato> <endereço-modelo> [peso]
+#
+#   papel     ortografia — a grafia sugerida para a palavra que nenhuma
+#                          fonte traduziu ("janaese" → "japanese"; só a 1–2 letras)
+#             traducao   — a palavra (qualquer língua) → o conceito em inglês
+#             associacao — o conceito → as palavras que ele evoca, com peso
+#   formato   como ler a resposta: wikidata-lexema, datamuse-sug, datamuse, conceptnet
+#   endereço  {palavra} = a palavra do autor; {en} = o conceito em inglês;
+#             {lingua} = cada língua de "linguas=" (só wikidata-lexema)
+#   peso      quanto as associações desta fonte contam (padrão 1)
+#
+# As fontes de um papel são consultadas EM PARALELO, dentro do mesmo tempo
+# limite: a tradução fica com a primeira que responder; as associações
+# somam todas as que responderem. Uma fonte fora do ar não atrasa as outras.
+# Para tirar uma fonte, comente a linha (#); para acrescentar outra, escreva
+# uma linha num formato conhecido. Só serviços públicos de uso livre:
+#
+#   Wikidata — dados CC0 (https://www.wikidata.org/wiki/Wikidata:Licensing)
+#   Datamuse — API gratuita, sem chave, até 100 000 consultas/dia
+#              (https://www.datamuse.com/api/)
+#   ConceptNet 5 — CC BY-SA 4.0, citar Speer, Chin & Havasi (2017)
+#              (https://conceptnet.io); a API pública esteve fora do ar em
+#              2026-10-18 (502): fica comentada até voltar.
+
+ortografia datamuse-sug      https://api.datamuse.com/sug?max=1&s={palavra}
+traducao   wikidata-lexema  https://www.wikidata.org/w/api.php  linguas=pt,es,fr,it,de,en
+associacao datamuse         https://api.datamuse.com/words?max=25&rel_jjb={en}  1.0
+associacao datamuse         https://api.datamuse.com/words?max=20&ml={en}       0.6
+# associacao conceptnet     https://api.conceptnet.io/related/c/en/{en}?filter=/c/en&limit=25  0.8

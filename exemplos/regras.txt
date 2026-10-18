@@ -1,0 +1,11 @@
+# regras de exemplo (docs/REGRAS.md)
+proibido timbre chip AY        # nada de 8 bits nesta peça
+proibido olho silêncio súbito
+obrigatório olho corpo da referência
+proibido sala trioio           # só HALL ou SPACE
+máximo salto 7
+âmbito 48 84
+mínimo memória 2
+exceção 0.1
+condicionado olho cluster se energia alta
+incompatível olho drone e nuvem granular

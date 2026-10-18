@@ -1,0 +1,445 @@
+# Arquivo de influências do Trioio
+# Uma árvore aberta: os traços são tendências (a chance, ou o valor do eixo), nunca regras.
+# O autor acrescenta e corrige; as poéticas de artistas e bandas entram pela escrita dele.
+# Gerado por tools/gerar_arquivo_de_influencias.py; formato descrito ali.
+# 42 nós.
+
+= rock
+conceito: o corpo e a eletricidade: o volume, o riff que volta e a banda como unidade
+contexto: social: música jovem e de banda, do baile ao estádio; histórico: anos 1950, do rhythm and blues e do country; tecnológico: a guitarra elétrica, o amplificador valvulado, a gravação multipista; geração: o pós-guerra e as seguintes
+traço: presença:percussão 0.85
+traço: presença:baixo 0.9
+traço: presença:harmonia 0.8
+traço: conjunto:rock 0.8
+traço: harmonia:funcional 0.5
+traço: eixo:dança 0.55
+traço: eixo:peso 0.6
+traço: eixo:ruído 0.35
+traço: eixo:rasgo 0.45
+traço: eixo:repetição 0.5
+traço: timbre:motivo:guitarra distorcida 0.5
+traço: timbre:baixo:baixo elétrico 0.7
+fonte: R. Middleton, Studying Popular Music, Open University Press, 1990
+
+= rock/clássico
+contexto: social: a banda de palco e de rádio; histórico: fim dos anos 1960 e 1970; tecnológico: o amplificador saturado, o riff de power chord; geração: os que cresceram com o rock dos anos 1950
+traço: rock:clássico 0.8
+traço: eixo:dança 0.6
+traço: eixo:peso 0.6
+fonte: R. Middleton, Studying Popular Music, Open University Press, 1990
+
+= rock/punk
+conceito: a urgência e a recusa: o mínimo de meios, o máximo de energia
+contexto: social: o faça-você-mesmo, contra o virtuosismo e a indústria; histórico: Nova York e Londres, 1975–1978; tecnológico: gravação barata, equipamento simples; geração: a juventude da crise dos anos 1970
+traço: rock:punk 0.85
+traço: eixo:dança 0.7
+traço: eixo:peso 0.65
+traço: eixo:ruído 0.5
+traço: harmonia:funcional 0.6
+traço: eixo:densidade 0.8
+traço: forma:plato 0.3
+fonte: J. Savage, England's Dreaming, Faber, 1991
+
+= rock/pesado
+conceito: a potência e o peso como experiência física
+contexto: social: a comunidade de fãs e a potência do volume; histórico: do fim dos anos 1960 às suas muitas ramificações; tecnológico: a distorção extrema, a afinação baixa, o bumbo duplo; geração: várias, cada uma com o seu peso
+traço: rock:pesado 0.8
+traço: humor:tensa 0.5
+traço: harmonia:modal 0.5
+traço: escala:frígio 0.3
+traço: eixo:peso 0.95
+traço: eixo:dança 0.35
+traço: eixo:ruído 0.55
+fonte: R. Walser, Running with the Devil, Wesleyan UP, 1993
+
+= rock/pesado/lento
+contexto: social: o rito lento e grave; histórico: do início dos anos 1970 em diante; tecnológico: a afinação muito baixa, o amplificador no limite; geração: as que buscaram o peso pela lentidão
+traço: presença:percussão 0.7
+traço: humor:sombria 0.6
+traço: eixo:dança 0.15
+traço: eixo:peso 1.0
+traço: eixo:densidade 0.2
+fonte: R. Walser, Running with the Devil, Wesleyan UP, 1993
+
+= rock/blues-rock
+contexto: social: o bar, a jam; histórico: anos 1960, a releitura do blues elétrico; tecnológico: a guitarra saturada, o bend; geração: os que descobriram o blues pelos discos
+traço: rock:blues 0.85
+traço: ciclo:shuffle 0.4
+traço: eixo:dança 0.6
+fonte: G. Kubik, Africa and the Blues, UP of Mississippi, 1999
+
+= rock/progressivo
+conceito: forma:kishotenketsu 0.35; a forma longa e a ambição de obra dentro do rock
+contexto: social: o álbum como obra; histórico: fim dos anos 1960 e anos 1970; tecnológico: o sintetizador, o mellotron, o estúdio como instrumento; geração: a que trouxe o erudito e o folclore ao rock
+traço: rock:progressivo 0.8
+traço: harmonia:quartal 0.4
+traço: eixo:dança 0.3
+traço: eixo:rasgo 0.55
+fonte: E. Macan, Rocking the Classics, Oxford UP, 1997
+
+= rock/post-rock
+conceito: o instrumento do rock usado para a textura e a forma longa, não para a canção
+contexto: social: o instrumental, a escuta longa; histórico: anos 1990 (o termo é de S. Reynolds, 1994); tecnológico: os pedais de delay e reverb, a textura; geração: a que saiu do rock pelo som e pela forma
+traço: rock:post-rock 0.85
+traço: presença:percussão 0.6
+traço: harmonia:estática 0.5
+traço: humor:suspensa 0.5
+traço: eixo:dança 0.2
+traço: eixo:peso 0.45
+traço: eixo:repetição 0.65
+traço: timbre:motivo:guitarra elétrica 0.6
+traço: eixo:densidade 0.3
+traço: forma:ondas 0.6
+fonte: S. Reynolds, Rip It Up and Start Again, Faber, 2005
+
+= rock/psicodélico
+conceito: a expansão da percepção: o som que se desfaz e se transforma
+contexto: social: a contracultura; histórico: meados dos anos 1960; tecnológico: o estúdio, a fita ao contrário, o órgão, o fuzz; geração: a de 1967
+traço: rock:psicodélico 0.85
+traço: harmonia:modal 0.5
+traço: humor:suspensa 0.4
+traço: eixo:dança 0.5
+traço: eixo:rasgo 0.65
+traço: timbre:contracanto:órgão 0.6
+traço: timbre:harmonia:órgão 0.3
+fonte: R. Middleton, Studying Popular Music, Open University Press, 1990
+
+= rock/noise
+conceito: o ruído como matéria e a canção como pretexto para rasgá-la
+contexto: social: o underground, a recusa do som limpo; histórico: dos anos 1980 em diante; tecnológico: a microfonia, as afinações alteradas, o pedal no limite; geração: a do pós-punk e a seguinte
+traço: rock:noise 0.85
+traço: harmonia:clusters 0.5
+traço: eixo:ruído 0.95
+traço: eixo:peso 0.7
+traço: eixo:rasgo 0.8
+traço: timbre:motivo:guitarra distorcida 0.6
+traço: timbre:mosaico:Gendyn 0.4
+traço: forma:kishotenketsu 0.3
+fonte: P. Hegarty, Noise/Music: A History, Continuum, 2007
+
+= rock/dançante
+conceito: o corpo na pista: o pulso que puxa a dança
+contexto: social: a pista; histórico: do rock'n'roll de baile ao pós-punk dançante; tecnológico: o bumbo marcado, o baixo em colcheias; geração: muitas
+traço: presença:percussão 0.95
+traço: rock:punk 0.3
+traço: rock:clássico 0.4
+traço: eixo:dança 0.9
+traço: eixo:peso 0.45
+traço: eixo:repetição 0.7
+fonte: S. Reynolds, Rip It Up and Start Again, Faber, 2005
+
+= rock/introspectivo
+conceito: a escuta para dentro: o espaço e a voz baixa
+contexto: social: a escuta íntima; histórico: muitas épocas; tecnológico: a guitarra limpa, o quarto; geração: muitas
+traço: presença:percussão 0.5
+traço: rock:post-rock 0.4
+traço: humor:serena 0.4
+traço: humor:sombria 0.3
+traço: eixo:dança 0.15
+traço: eixo:peso 0.3
+traço: timbre:motivo:guitarra elétrica 0.5
+traço: eixo:densidade 0.25
+fonte: R. Middleton, Studying Popular Music, Open University Press, 1990
+
+= jazz
+conceito: a improvisação sobre uma forma comum: a conversa entre músicos
+contexto: social: a música afro-americana, do clube ao festival; histórico: do início do século XX em diante; tecnológico: o disco, o rádio; geração: cada uma reinventou o jazz
+traço: conjunto:jazz 0.8
+traço: harmonia:jazz 0.7
+traço: presença:percussão 0.8
+traço: presença:baixo 0.9
+traço: eixo:dança 0.5
+traço: eixo:peso 0.35
+traço: timbre:motivo:sax 0.5
+traço: timbre:contracanto:trompete 0.4
+traço: timbre:harmonia:piano 0.6
+traço: timbre:baixo:baixo acústico 0.7
+fonte: T. Gioia, The History of Jazz, Oxford UP, 1997
+
+= jazz/bebop
+contexto: social: os músicos entre si, o clube depois da hora; histórico: anos 1940; tecnológico: o disco de 78 rpm; geração: a do pós-swing
+traço: harmonia:jazz 0.9
+traço: eixo:dança 0.4
+traço: humor:tensa 0.3
+traço: eixo:densidade 0.85
+fonte: T. Gioia, The History of Jazz, Oxford UP, 1997
+
+= jazz/modal
+contexto: social: a escuta concentrada; histórico: fim dos anos 1950; tecnológico: o LP (as faixas longas); geração: a que saiu da harmonia funcional
+traço: harmonia:modal 0.7
+traço: harmonia:quartal 0.3
+traço: humor:suspensa 0.4
+traço: eixo:dança 0.3
+traço: eixo:densidade 0.45
+fonte: T. Gioia, The History of Jazz, Oxford UP, 1997
+
+= jazz/livre
+conceito: a liberdade da forma e do tempo como posição
+contexto: social: a liberdade como posição; histórico: anos 1960; tecnológico: o selo independente; geração: a dos direitos civis
+traço: presença:percussão 0.7
+traço: harmonia:clusters 0.5
+traço: eixo:ruído 0.6
+traço: eixo:rasgo 0.7
+traço: eixo:dança 0.2
+traço: eixo:densidade 0.7
+traço: forma:kishotenketsu 0.3
+fonte: T. Gioia, The History of Jazz, Oxford UP, 1997
+
+= jazz/fusão
+contexto: social: o jazz e o rock juntos; histórico: fim dos anos 1960 e anos 1970; tecnológico: o piano elétrico, o sintetizador; geração: a do rock
+traço: conjunto:rock 0.3
+traço: harmonia:quartal 0.4
+traço: eixo:dança 0.6
+traço: eixo:peso 0.5
+fonte: T. Gioia, The History of Jazz, Oxford UP, 1997
+
+= brasil
+contexto: social: o encontro de matrizes africanas, europeias e indígenas; histórico: do século XIX em diante; tecnológico: o rádio, o disco; geração: muitas
+traço: presença:percussão 0.85
+traço: eixo:dança 0.65
+fonte: J. R. Tinhorão, Pequena história da música popular, Vozes, 1974
+
+= brasil/choro
+contexto: social: as rodas; histórico: Rio de Janeiro, fim do século XIX; tecnológico: o violão de 7 cordas; geração: os chorões
+traço: conjunto:choro 0.85
+traço: harmonia:brasileira 0.7
+traço: eixo:dança 0.5
+traço: timbre:motivo:bandolim 0.4
+traço: timbre:motivo:flauta transversal 0.3
+traço: timbre:harmonia:cavaquinho 0.4
+traço: timbre:baixo:violão de 7 cordas 0.5
+fonte: J. R. Tinhorão, Pequena história da música popular, Vozes, 1974
+
+= brasil/samba
+conceito: a roda: o corpo, a síncope, o coletivo
+contexto: social: as rodas, os terreiros, o carnaval; histórico: Rio de Janeiro, início do século XX; tecnológico: o rádio; geração: muitas
+traço: conjunto:samba 0.7
+traço: conjunto:escola 0.2
+traço: harmonia:brasileira 0.6
+traço: eixo:dança 0.85
+fonte: H. Vianna, O mistério do samba, Zahar, 1995
+
+= brasil/samba/bossa
+contexto: social: o apartamento, a voz baixa; histórico: Rio, fim dos anos 1950; tecnológico: o microfone próximo; geração: a classe média carioca
+também: bossa nova
+traço: conjunto:samba 0.6
+traço: harmonia:brasileira 0.8
+traço: humor:serena 0.4
+traço: eixo:dança 0.45
+traço: eixo:peso 0.15
+traço: timbre:harmonia:violão 0.7
+traço: eixo:densidade 0.4
+fonte: R. Castro, Chega de saudade, Companhia das Letras, 1990
+
+= brasil/nordeste
+contexto: social: a feira, o forró, a cantoria; histórico: o sertão; tecnológico: a sanfona; geração: a da migração nordestina
+traço: conjunto:forró 0.7
+traço: harmonia:nordestina 0.7
+traço: ciclo:baião 0.4
+traço: eixo:dança 0.8
+traço: timbre:motivo:sanfona 0.6
+traço: timbre:mosaico:triângulo 0.3
+fonte: J. Siqueira, O Sistema Modal na Música Folclórica do Brasil, João Pessoa, 1981
+
+= brasil/nordeste/frevo
+contexto: social: o carnaval de rua do Recife; histórico: fim do século XIX; tecnológico: as bandas de metais; geração: muitas
+também: frevo de rua, frevo-canção
+traço: harmonia:frevo 0.8
+traço: conjunto:orquestra 0.3
+traço: eixo:dança 0.95
+traço: eixo:peso 0.5
+fonte: V. de Oliveira, Frevo, capoeira e passo, Recife, 1971
+
+= brasil/nordeste/maracatu
+contexto: social: as nações, o cortejo; histórico: Recife, raízes no século XVIII; tecnológico: a alfaia; geração: muitas, e a do manguebeat
+traço: harmonia:maracatu 0.8
+traço: conjunto:escola 0.3
+traço: eixo:dança 0.75
+traço: eixo:peso 0.6
+fonte: C. Guerra-Peixe, Os Maracatus do Recife, 1955
+
+= brasil/tropicalismo
+conceito: a antropofagia: devorar o de fora e o de dentro para fazer outra coisa
+contexto: social: a antropofagia, a mistura; histórico: 1967–1968; tecnológico: a guitarra elétrica e o estúdio na MPB; geração: a de 1968
+traço: conjunto:rock 0.4
+traço: harmonia:brasileira 0.5
+traço: eixo:rasgo 0.6
+traço: eixo:dança 0.55
+fonte: C. Veloso, Verdade tropical, Companhia das Letras, 1997
+
+= brasil/clube-da-esquina
+contexto: social: a amizade, Minas Gerais; histórico: anos 1970; tecnológico: o violão e o estúdio; geração: a dos anos 1970
+traço: harmonia:mineira 0.8
+traço: humor:suspensa 0.3
+traço: eixo:dança 0.35
+traço: timbre:harmonia:violão 0.6
+traço: timbre:contracanto:voz 0.3
+fonte: ver docs/MAQUINA_DE_HARMONIA.md §6 (o Clube da Esquina)
+
+= erudita
+contexto: social: a sala de concerto, a partitura; histórico: séculos de tradição escrita; tecnológico: a notação, a orquestra; geração: muitas
+traço: conjunto:câmara 0.4
+traço: conjunto:orquestra 0.4
+traço: presença:percussão 0.2
+traço: eixo:dança 0.15
+traço: timbre:motivo:arco 0.5
+traço: timbre:harmonia:naipe de cordas 0.5
+traço: timbre:contracanto:flauta transversal 0.3
+traço: forma:freytag 0.4
+traço: forma:arco 0.3
+fonte: D. J. Grout e C. V. Palisca, A History of Western Music, Norton, 1960 (e edições)
+
+= erudita/impressionismo
+contexto: social: a Paris do fim do século; histórico: 1890–1920; tecnológico: o piano moderno; geração: a de Debussy
+traço: harmonia:impressionista 0.8
+traço: humor:suspensa 0.4
+traço: eixo:peso 0.2
+traço: timbre:harmonia:piano 0.6
+traço: timbre:motivo:flauta transversal 0.4
+fonte: M. DeVoto, Debussy and the Veil of Tonality, Pendragon, 2004
+
+= erudita/minimalismo
+conceito: a repetição como processo: a mudança lenta que só se ouve porque o resto se repete
+contexto: social: o loft, a galeria; histórico: anos 1960 e 1970; tecnológico: a fita em loop, o órgão elétrico; geração: a do pós-serialismo
+traço: harmonia:estática 0.7
+traço: eixo:dança 0.45
+traço: presença:percussão 0.3
+traço: eixo:repetição 0.95
+traço: timbre:harmonia:marimba 0.5
+traço: timbre:motivo:piano 0.3
+traço: eixo:densidade 0.8
+traço: forma:plato 0.7
+fonte: M. Nyman, Experimental Music: Cage and Beyond, Cambridge UP, 1974
+
+= erudita/espectral
+conceito: o timbre gera a harmonia: o acorde tirado do som
+contexto: social: o IRCAM, a pesquisa; histórico: Paris, anos 1970; tecnológico: a análise espectral por computador; geração: a de Grisey e Murail
+traço: harmonia:espectral 0.8
+traço: presença:percussão 0.2
+traço: eixo:rasgo 0.6
+traço: timbre:harmonia:objeto espectral 0.5
+fonte: J. Fineberg, "Guide to the basic concepts and techniques of spectral music", Contemporary Music Review 19(2), 2000
+
+= eletrônica
+contexto: social: o estúdio, o clube; histórico: do século XX em diante; tecnológico: o sintetizador, o sequenciador, o computador; geração: muitas
+traço: eixo:rasgo 0.75
+traço: presença:percussão 0.6
+traço: timbre:motivo:FM 0.4
+traço: timbre:harmonia:tabela de ondas 0.4
+traço: timbre:baixo:operador FM 0.4
+fonte: T. Holmes, Electronic and Experimental Music, Routledge, 2002 (e edições)
+
+= eletrônica/pista
+conceito: o corpo coletivo: o pulso que não para, a transformação por camadas sobre a repetição
+contexto: social: a rave, o clube; histórico: Detroit e Chicago nos anos 1980, depois o mundo; tecnológico: a caixa de ritmos, o sampler; geração: a da cultura rave
+traço: presença:percussão 0.95
+traço: eixo:dança 0.95
+traço: eixo:rasgo 0.7
+traço: eixo:repetição 0.85
+traço: eixo:densidade 0.75
+traço: forma:ondas 0.5
+fonte: S. Reynolds, Energy Flash, Picador, 1998
+
+= eletrônica/ambiente
+conceito: a música como ambiente: a atenção que entra e sai
+contexto: social: a escuta de fundo, a instalação; histórico: anos 1970 em diante; tecnológico: a fita, o sintetizador; geração: muitas
+traço: presença:percussão 0.15
+traço: harmonia:estática 0.6
+traço: humor:suspensa 0.6
+traço: eixo:dança 0.05
+traço: eixo:repetição 0.7
+traço: timbre:harmonia:nuvem granular 0.6
+traço: eixo:densidade 0.15
+fonte: T. Holmes, Electronic and Experimental Music, Routledge, 2002 (e edições)
+
+= experimental/ruído
+conceito: o que a música exclui (o ruído) vira o centro
+contexto: social: a recusa da música como ordem; histórico: dos futuristas (L. Russolo, 1913) em diante; tecnológico: o ruído como material; geração: muitas
+traço: harmonia:clusters 0.6
+traço: eixo:ruído 1.0
+traço: eixo:rasgo 0.9
+traço: eixo:dança 0.1
+traço: timbre:motivo:Gendyn 0.5
+traço: timbre:contracanto:chip AY 0.3
+traço: timbre:harmonia:Rungler 0.4
+fonte: P. Hegarty, Noise/Music: A History, Continuum, 2007
+
+= experimental/drone
+conceito: o som que permanece: escutar por dentro de uma nota
+contexto: social: a escuta longa, o rito; histórico: anos 1960 em diante, e as tradições de bordão; tecnológico: a amplificação, o oscilador; geração: muitas
+traço: presença:percussão 0.1
+traço: harmonia:estática 0.8
+traço: eixo:dança 0.0
+traço: eixo:repetição 1.0
+traço: timbre:harmonia:prato friccionado 0.4
+traço: timbre:harmonia:corda cantada 0.3
+traço: eixo:densidade 0.05
+traço: forma:plato 0.8
+fonte: M. Nyman, Experimental Music: Cage and Beyond, Cambridge UP, 1974
+
+= mundo/árabe
+contexto: social: o tarab, a improvisação no maqam; histórico: séculos; tecnológico: o oud, o qanun; geração: muitas
+traço: escala:maqam 0.7
+traço: ciclo:maqsum 0.5
+traço: presença:harmonia 0.3
+fonte: J. Farraj e S. Abu Shumays, Inside Arabic Music, Oxford UP, 2019
+
+= mundo/indiana
+contexto: social: o raga, a casa de concerto e o templo; histórico: séculos; tecnológico: o tanpura, a tabla; geração: muitas
+traço: escala:rāga 0.7
+traço: ciclo:tīntāl 0.5
+traço: presença:harmonia 0.2
+traço: harmonia:estática 0.4
+traço: eixo:repetição 0.6
+traço: timbre:harmonia:corda cantada 0.4
+fonte: M. Clayton, Time in Indian Music, Oxford UP, 2000
+
+= vocal
+contexto: social: o canto como prática comum; histórico: todas as épocas; tecnológico: o corpo, o microfone; geração: muitas
+traço: timbre:motivo:voz 0.5
+traço: presença:percussão 0.3
+fonte: J. Potter (org.), The Cambridge Companion to Singing, Cambridge UP, 2000
+
+= vocal/coral
+conceito: muitas vozes como uma: a respiração comum e o acorde cantado
+contexto: social: a igreja, a escola, o coral da comunidade; histórico: do canto gregoriano à polifonia e aos corais de hoje; tecnológico: só a voz, a acústica da sala; geração: muitas
+também: canto coral, coro misto
+traço: timbre:harmonia:coro 0.8
+traço: timbre:memória:voz 0.5
+traço: timbre:contracanto:voz 0.4
+traço: presença:percussão 0.15
+traço: eixo:dança 0.2
+traço: eixo:peso 0.3
+fonte: J. Potter (org.), The Cambridge Companion to Singing, Cambridge UP, 2000
+
+= mundo/tango
+conceito: o abraço e a pausa: o marcato que arrasta e a frase que se suspende
+contexto: social: o salão, a milonga, o abraço; histórico: Buenos Aires e Montevidéu, fim do século XIX, e o tango nuevo dos anos 1950 e 1960; tecnológico: o bandoneón, a orquestra típica; geração: muitas, e a de Piazzolla
+também: tango nuevo, tango argentino, orquestra típica
+traço: conjunto:tango 0.8
+traço: harmonia:funcional 0.5
+traço: humor:tensa 0.3
+traço: eixo:dança 0.6
+traço: eixo:peso 0.45
+fonte: S. Collier, A. Cooper, M. S. Azzi e R. Martin, ¡Tango!, Thames & Hudson, 1995
+
+= brasil/nordeste/coco
+conceito: a roda que responde: o refrão do coro à embolada do tirador, a palma e o pé
+contexto: social: a roda, a umbigada, o sapateado; histórico: o litoral nordestino, raízes africanas e indígenas; tecnológico: o ganzá, o pandeiro, a palma, o tamanco; geração: muitas
+também: coco de roda, coco de embolada, coco de praia, coco de zambê, samba de coco
+traço: presença:percussão 0.9
+traço: harmonia:nordestina 0.5
+traço: conjunto:forró 0.3
+traço: ciclo:baião 0.3
+traço: timbre:motivo:voz 0.5
+traço: eixo:dança 0.85
+traço: eixo:repetição 0.6
+fonte: M. de Andrade, Os cocos (org. O. Alvarenga), Duas Cidades, 1984
+
+= mundo/flamenco
+contexto: social: o tablao, a família; histórico: Andaluzia, século XIX; tecnológico: o violão; geração: muitas
+traço: harmonia:andaluza 0.7
+traço: ciclo:compás 0.4
+traço: eixo:dança 0.65
+traço: timbre:harmonia:violão 0.7
+fonte: P. Manuel, "From Scarlatti to 'Guantanamera'", JAMS 55(2), 2002
