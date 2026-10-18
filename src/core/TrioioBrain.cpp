@@ -34,6 +34,12 @@ void EnergyControlBus::publish(BrainDecision decision) noexcept
     // A single analysis/strategy writer is expected. Odd means that a write
     // is in progress; the release increment publishes the complete snapshot.
     sequence_.fetch_add(1, std::memory_order_relaxed);
+    // the release fence keeps the data stores below AFTER the odd count: on a
+    // weakly ordered CPU (ARM, the Apple Silicon CI runner, 2026-10-19) they
+    // could otherwise become visible before it and a reader would accept a
+    // torn snapshot. H.-J. Boehm, "Can Seqlocks Get Along with Programming
+    // Language Memory Models?", MSPC 2012.
+    std::atomic_thread_fence(std::memory_order_release);
     energy_.store(decision.energy, std::memory_order_relaxed);
     density_.store(decision.density, std::memory_order_relaxed);
     harmonicity_.store(decision.harmonicity, std::memory_order_relaxed);
@@ -76,7 +82,11 @@ BrainDecision EnergyControlBus::read() const noexcept
         decision.confidence = confidence_.load(std::memory_order_relaxed);
         decision.revision = revision_.load(std::memory_order_relaxed);
 
-        const auto after = sequence_.load(std::memory_order_acquire);
+        // the acquire fence keeps the data loads above BEFORE the second
+        // count: an acquire load alone does not stop earlier relaxed loads
+        // from moving after it (Boehm 2012)
+        std::atomic_thread_fence(std::memory_order_acquire);
+        const auto after = sequence_.load(std::memory_order_relaxed);
         last = decision;
         if (before == after && (after & 1u) == 0u)
             return sanitizeDecision(decision);

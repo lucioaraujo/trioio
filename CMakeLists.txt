@@ -19,6 +19,13 @@ endif()
 # C também: o JUCE exige o compilador C habilitado no projeto que o inclui
 project(Trioio VERSION 0.1.0 LANGUAGES C CXX)
 
+# MSVC: M_PI e as outras constantes de <cmath> só com _USE_MATH_DEFINES (a
+# CI do Windows parou nelas, no DSP copiado do Rasgo Synth, 2026-10-19); e
+# sem os macros min/max do <windows.h>. Nos arquivos copiados nada muda.
+if (MSVC)
+    add_compile_definitions(_USE_MATH_DEFINES NOMINMAX)
+endif()
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
