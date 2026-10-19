@@ -202,6 +202,33 @@ inline const L4 semanticTip { "Optional and off by default: the words leave this
 inline const L4 semanticAsking { "online: looking up…", "rede: consultando…", "en ligne : consultation…", "red: consultando…" };
 inline const L4 semanticNothing { "online: nothing to look up (every word was read)", "rede: nada a consultar (todas as palavras foram lidas)",
                                   "en ligne : rien à consulter (tous les mots ont été lus)", "red: nada que consultar (todas las palabras fueron leídas)" };
+// as ações de uma resposta (o botão "arquivo ▾", 2026-10-19)
+inline const L4 fileMenu { "file ▾", "arquivo ▾", "fichier ▾", "archivo ▾" };
+inline const L4 fileMenuTip { "Show this response's files, export them, or move the response to the trash",
+                              "Mostrar os arquivos desta resposta, exportá-los ou mover a resposta para a lixeira",
+                              "Afficher les fichiers de cette réponse, les exporter ou mettre la réponse à la corbeille",
+                              "Mostrar los archivos de esta respuesta, exportarlos o mover la respuesta a la papelera" };
+inline const L4 showInFolder { "show in folder", "mostrar na pasta", "afficher dans le dossier", "mostrar en la carpeta" };
+inline const L4 exportResponse { "export… (WAV, MIDI, stems)", "exportar… (WAV, MIDI, stems)", "exporter… (WAV, MIDI, stems)",
+                                 "exportar… (WAV, MIDI, stems)" };
+inline const L4 exportTitle { "Where to export this response", "Para onde exportar esta resposta", "Où exporter cette réponse",
+                              "Dónde exportar esta respuesta" };
+inline const L4 exportedTo { "exported to ", "exportada em ", "exportée dans ", "exportada en " };
+inline const L4 trashResponse { "move to the trash…", "mover para a lixeira…", "mettre à la corbeille…", "mover a la papelera…" };
+inline const L4 trashTitle { "Move this response to the trash?", "Mover esta resposta para a lixeira?", "Mettre cette réponse à la corbeille ?",
+                             "¿Mover esta respuesta a la papelera?" };
+inline const L4 trashBody { "It goes to the trash folder of your data folder (lixeira/) and can be brought back by moving it to sessoes/.",
+                            "Ela vai para a lixeira da sua pasta de dados (lixeira/) e pode voltar: basta movê-la de novo para sessoes/.",
+                            "Elle va dans la corbeille de votre dossier de données (lixeira/) et peut revenir : il suffit de la remettre dans sessoes/.",
+                            "Va a la papelera de su carpeta de datos (lixeira/) y puede volver: basta moverla de nuevo a sessoes/." };
+inline const L4 trashJudged { " Your judgement of it stays in your listening.", " O seu julgamento dela continua na sua escuta.",
+                              " Votre jugement reste dans votre écoute.", " Su juicio sobre ella permanece en su escucha." };
+inline const L4 trashOk { "move to the trash", "mover para a lixeira", "mettre à la corbeille", "mover a la papelera" };
+inline const L4 cancel { "cancel", "cancelar", "annuler", "cancelar" };
+inline const L4 trashedMsg { "moved to the trash: ", "movida para a lixeira: ", "mise à la corbeille : ", "movida a la papelera: " };
+inline const L4 noResponseSelected { "choose a response first", "escolha uma resposta primeiro", "choisissez d'abord une réponse",
+                                     "elija primero una respuesta" };
+
 inline const L4 semanticPrefix { "online: ", "rede: ", "en ligne : ", "red: " };
 // as etapas da barra de andamento (a resposta as manda em português: a chave)
 struct StageName { const char* key; L4 text; };

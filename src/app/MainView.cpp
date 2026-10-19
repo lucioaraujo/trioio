@@ -7,6 +7,7 @@
 #include "ListeningStore.h"
 #include "Response.h"
 #include "SemanticBridge.h"
+#include "Retention.h"
 #include "Tutorial.h"
 #include "Intent.h"
 #include "ThirdEye.h"
@@ -1326,6 +1327,8 @@ MainView::MainView()
         eyeTrack_->repaint();
     };
     tracksHolder_.addAndMakeVisible(revealButton_);
+    fileButton_.onClick = [this] { showFileMenu(); };
+    tracksHolder_.addAndMakeVisible(fileButton_);
     tracksHolder_.addChildComponent(bringBigButton_);
     refPlayButton_.onClick = [this] { toggleReferencePlayback(); };
     tracksHolder_.addChildComponent(refPlayButton_);
@@ -1574,6 +1577,8 @@ void MainView::applyLanguage()
     langButton_.setButtonText(langLabel(lang_));
     langButton_.setTooltip(tr(S::languageTip, lang_));
     aboutButton_.setButtonText(tr(S::about, lang_));
+    fileButton_.setButtonText(tr(S::fileMenu, lang_));
+    fileButton_.setTooltip(tr(S::fileMenuTip, lang_));
     tutorialButton_.setButtonText(tr(tutorial::openButton, lang_));
     if (auto* t = dynamic_cast<TutorialOverlay*>(tutorial_.get()))
         t->setLanguage(lang_);
@@ -2426,6 +2431,87 @@ void MainView::updateProgressText()
     progressBar_.setTextToDisplay(progressStage_ + u8(" · ") + juce::String(secs) + " s");
 }
 
+// as ações da resposta escolhida: ver os arquivos, exportar, mandar à lixeira
+// (library/Retention.h); nada sai da pasta de dados sem o performer pedir
+void MainView::showFileMenu()
+{
+    if (demo_ || responseIndex_ < 0 || responseIndex_ >= static_cast<int>(responses_.size()))
+    {
+        setStatus(tr(S::noResponseSelected, lang_));
+        return;
+    }
+    juce::PopupMenu m;
+    m.addItem(1, tr(S::showInFolder, lang_));
+    m.addItem(2, tr(S::exportResponse, lang_));
+    m.addSeparator();
+    m.addItem(3, tr(S::trashResponse, lang_));
+    const auto item = responses_[static_cast<std::size_t>(responseIndex_)];
+    juce::Component::SafePointer<MainView> self(this);
+    m.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(&fileButton_), [self, item](int r) {
+        if (!self || r == 0)
+            return;
+        const auto root = self->model_.dataRoot();
+        if (r == 1)
+        {
+            const juce::File wav(u8(item.wavPath));
+            (wav.existsAsFile() ? wav : wav.getParentDirectory()).revealToUser();
+        }
+        else if (r == 2)
+        {
+            auto chooser = std::make_shared<juce::FileChooser>(tr(S::exportTitle, self->lang_),
+                                                               juce::File::getSpecialLocation(juce::File::userMusicDirectory));
+            chooser->launchAsync(juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectDirectories,
+                                 [self, chooser, item, root](const juce::FileChooser& fc) {
+                                     const auto dest = fc.getResult();
+                                     if (!self || !dest.isDirectory())
+                                         return;
+                                     // os stems podem pesar centenas de MB: a cópia fora da tela
+                                     juce::Thread::launch([self, item, root, dest] {
+                                         std::string created, error;
+                                         const bool ok = library::exportSession(root, item.sessionId, dest.getFullPathName().toStdString(),
+                                                                                created, error);
+                                         juce::MessageManager::callAsync([self, ok, created, error] {
+                                             if (!self)
+                                                 return;
+                                             self->setStatus(ok ? tr(S::exportedTo, self->lang_) + u8(created) : u8(error));
+                                             if (ok)
+                                                 juce::File(u8(created)).revealToUser();
+                                         });
+                                     });
+                                 });
+        }
+        else if (r == 3)
+        {
+            bool judged = false;
+            for (const auto& st : library::sessionStatus(root))
+                judged = judged || (st.id == item.sessionId && st.judged);
+            const auto body = tr(S::trashBody, self->lang_) + (judged ? tr(S::trashJudged, self->lang_) : juce::String());
+            juce::AlertWindow::showAsync(juce::MessageBoxOptions()
+                                             .withIconType(juce::MessageBoxIconType::QuestionIcon)
+                                             .withTitle(tr(S::trashTitle, self->lang_))
+                                             .withMessage(body)
+                                             .withButton(tr(S::trashOk, self->lang_))
+                                             .withButton(tr(S::cancel, self->lang_))
+                                             .withAssociatedComponent(self.getComponent()),
+                                         [self, item, root](int button) {
+                                             if (!self || button != 1)
+                                                 return;
+                                             if (self->onRelease)
+                                                 self->onRelease();
+                                             std::string error;
+                                             const auto today = juce::Time::getCurrentTime().formatted("%Y-%m-%d").toStdString();
+                                             if (library::moveSessionToTrash(root, item.sessionId, today, error))
+                                             {
+                                                 self->setStatus(tr(S::trashedMsg, self->lang_) + u8(item.sessionId));
+                                                 self->selectReference(self->refIndex_);  // a lista sem ela
+                                             }
+                                             else
+                                                 self->setStatus(u8(error));
+                                         });
+        }
+    });
+}
+
 void MainView::setStatus(const juce::String& s) { statusLabel_.setText(s, juce::dontSendNotification); }
 
 void MainView::setPage(int page)
@@ -2617,6 +2703,8 @@ void MainView::layoutTracks(juce::Rectangle<int> area)
     // revelar fica na linha de cima, junto da resposta escolhida: a faixa do
     // olho inteira fica livre para as intervenções
     revealButton_.setBounds(pick.removeFromRight(std::min(220, pick.getWidth())));
+    pick.removeFromRight(6);
+    fileButton_.setBounds(pick.removeFromRight(std::min(124, pick.getWidth())));
     r.removeFromTop(8);
     responseTrack_->setBounds(r);
 }

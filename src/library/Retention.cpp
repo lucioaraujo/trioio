@@ -130,4 +130,80 @@ std::vector<std::string> emptyTrash(const std::string& dataRoot, const std::stri
     return removed;
 }
 
+namespace
+{
+// só o nome de uma pasta de sessão: nada de caminhos
+bool validSessionId(const std::string& id)
+{
+    return id.rfind("sessao-", 0) == 0 && id.find('/') == std::string::npos && id.find('\\') == std::string::npos
+           && id.find("..") == std::string::npos;
+}
+} // namespace
+
+bool moveSessionToTrash(const std::string& dataRoot, const std::string& sessionId, const std::string& today, std::string& error)
+{
+    if (!validSessionId(sessionId))
+    {
+        error = "sessão inválida: " + sessionId;
+        return false;
+    }
+    const auto root = juce::File(u8(dataRoot));
+    const auto from = root.getChildFile("sessoes").getChildFile(u8(sessionId));
+    if (!from.isDirectory())
+    {
+        error = "a sessão não existe: " + sessionId;
+        return false;
+    }
+    const auto trash = root.getChildFile("lixeira").getChildFile(u8(today));
+    if (!trash.isDirectory() && !trash.createDirectory())
+    {
+        error = "não consegui criar " + trash.getFullPathName().toStdString();
+        return false;
+    }
+    auto to = trash.getChildFile(u8(sessionId));
+    for (int n = 2; to.exists(); ++n)
+        to = trash.getChildFile(u8(sessionId) + "-" + juce::String(n));
+    if (!from.moveFileTo(to))
+    {
+        error = "não consegui mover para " + to.getFullPathName().toStdString();
+        return false;
+    }
+    return true;
+}
+
+bool exportSession(const std::string& dataRoot, const std::string& sessionId, const std::string& destination,
+                   std::string& createdDir, std::string& error)
+{
+    if (!validSessionId(sessionId))
+    {
+        error = "sessão inválida: " + sessionId;
+        return false;
+    }
+    const auto session = juce::File(u8(dataRoot)).getChildFile("sessoes").getChildFile(u8(sessionId));
+    const auto outputs = session.getChildFile("saidas");
+    const auto dest = juce::File(u8(destination));
+    if (!outputs.isDirectory())
+    {
+        error = "a sessão não tem saídas: " + sessionId;
+        return false;
+    }
+    if (!dest.isDirectory() || dest == session || dest.isAChildOf(session))
+    {
+        error = "destino inválido: " + destination;
+        return false;
+    }
+    auto target = dest.getChildFile(u8(sessionId));
+    for (int n = 2; target.exists(); ++n)
+        target = dest.getChildFile(u8(sessionId) + "-" + juce::String(n));
+    if (!outputs.copyDirectoryTo(target))
+    {
+        error = "não consegui copiar para " + target.getFullPathName().toStdString();
+        return false;
+    }
+    if (const auto d = session.getChildFile("decisoes.json"); d.existsAsFile())
+        (void) d.copyFileTo(target.getChildFile("decisoes.json"));
+    createdDir = target.getFullPathName().toStdString();
+    return true;
+}
+
 } // namespace trioio::library

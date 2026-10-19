@@ -150,22 +150,26 @@ inline const std::array<Chapter, 11> chapters {{
     { { "Listen, and the Third Eye", "Ouvir, e o Terceiro Olho", "Écouter, et le Troisième Œil", "Escuchar, y el Tercer Ojo" },
       { "• ▶ plays the response.\n"
         "• \"▶ together\" plays the reference and the response at the same time, for listening only.\n"
-        "• The master sets the volume of everything.\n\n"
+        "• The master sets the volume of everything.\n"
+        "• \"file ▾\", next to the response: show its files in the folder, export them (WAV, MIDI, stems) to wherever you choose, or move the response to the trash (it can be brought back).\n\n"
         "The Third Eye is Trioio's unpredictable part: the gestures, the deviations, the choices that do not come from the reference. It stays hidden until you have listened, so it does not steer your ear. Then click \"reveal after listening\" to see what it did and where.\n\n"
         "The amount of unpredictability is set in the Language panel.",
         "• ▶ toca a resposta.\n"
         "• \"▶ juntos\" toca a referência e a resposta ao mesmo tempo, só para ouvir.\n"
-        "• O master regula o volume de tudo.\n\n"
+        "• O master regula o volume de tudo.\n"
+        "• \"arquivo ▾\", junto da resposta: mostra os arquivos dela na pasta, exporta (WAV, MIDI, stems) para onde você escolher, ou move a resposta para a lixeira (ela pode voltar).\n\n"
         "O Terceiro Olho é a parte imprevisível do Trioio: os gestos, os desvios, as escolhas que não vêm da referência. Ele fica escondido até você ouvir, para não guiar a sua escuta. Depois, clique em \"revelar depois de ouvir\" para ver o que ele fez e onde.\n\n"
         "A quantidade de imprevisibilidade se regula no painel Linguagem.",
         "• ▶ joue la réponse.\n"
         "• « ▶ ensemble » joue la référence et la réponse en même temps, pour l'écoute seulement.\n"
-        "• Le master règle le volume de l'ensemble.\n\n"
+        "• Le master règle le volume de l'ensemble.\n"
+        "• « fichier ▾ », à côté de la réponse : affiche ses fichiers dans le dossier, les exporte (WAV, MIDI, stems) où vous voulez, ou met la réponse à la corbeille (elle peut revenir).\n\n"
         "Le Troisième Œil est la part imprévisible de Trioio : les gestes, les écarts, les choix qui ne viennent pas de la référence. Il reste caché jusqu'à ce que vous ayez écouté, pour ne pas guider votre oreille. Ensuite, cliquez sur « révéler après l'écoute » pour voir ce qu'il a fait et où.\n\n"
         "La part d'imprévisibilité se règle dans le panneau Langage.",
         "• ▶ toca la respuesta.\n"
         "• «▶ juntos» toca la referencia y la respuesta a la vez, solo para escuchar.\n"
-        "• El máster regula el volumen de todo.\n\n"
+        "• El máster regula el volumen de todo.\n"
+        "• «archivo ▾», junto a la respuesta: muestra sus archivos en la carpeta, los exporta (WAV, MIDI, stems) adonde elijas, o mueve la respuesta a la papelera (puede volver).\n\n"
         "El Tercer Ojo es la parte imprevisible de Trioio: los gestos, los desvíos, las elecciones que no vienen de la referencia. Queda oculto hasta que escuchas, para no guiar tu oído. Después, haz clic en «revelar tras escuchar» para ver qué hizo y dónde.\n\n"
         "La cantidad de imprevisibilidad se regula en el panel Lenguaje." },
       { "Listen once without revealing, judge, and only then reveal: you will learn what the Eye does by ear before reading it.",

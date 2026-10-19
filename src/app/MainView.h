@@ -66,6 +66,9 @@ public:
     // tocar a partir de um instante (o "alternar A ↔ B" da Sua escuta)
     std::function<void(const std::string& wavPath, double fromSeconds)> onPlayAt;
     std::function<void()> onStop;
+    // solta os arquivos que estão tocando (antes de mover uma resposta: no
+    // Windows não se move um arquivo aberto)
+    std::function<void()> onRelease;
     // "▶ juntos": a resposta e a referência ao mesmo tempo (só para ouvir)
     std::function<void(const std::string& response, const std::string& reference)> onPlayTogether;
     std::function<double()> playPosition;  // segundos, < 0 = parado
@@ -164,6 +167,8 @@ private:
     juce::Component tracksHolder_;
     juce::Viewport tracksViewport_;
     juce::TextButton revealButton_;
+    juce::TextButton fileButton_;  // as ações da resposta: mostrar na pasta, exportar, lixeira
+    void showFileMenu();
     juce::ComboBox responsePicker_;
 
     juce::ListBox library_;

@@ -140,6 +140,18 @@ public:
             props_.saveIfNeeded();
         };
         view->onStop = [this] { transport_.stop(); transport2_.stop(); };
+        // soltar os arquivos (antes de mover uma resposta para a lixeira)
+        view->onRelease = [this] {
+            ++playToken_;  // uma abertura em curso não volta a prender o arquivo
+            transport_.stop();
+            transport2_.stop();
+            transport_.setSource(nullptr);
+            transport2_.setSource(nullptr);
+            reader_.reset();
+            reader2_.reset();
+            decoded_.reset();
+            decoded2_.reset();
+        };
         view->onPlayTogether = [this](const std::string& response, const std::string& reference) { play(response, reference); };
         view->playPosition = [this] { return transport_.isPlaying() ? transport_.getCurrentPosition() : -1.0; };
         view->onDataRootChanged = [this](const std::string& root) {

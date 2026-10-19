@@ -91,6 +91,31 @@ int main()
         CHECK(removeCaches(dados, false).size() == 1 && cdir.getChildFile("aaaa.json").existsAsFile() && !cdir.getChildFile("bbbb.json").exists());
         CHECK(removeCaches(dados, true).size() == 1 && !cdir.getChildFile("aaaa.json").exists());
     }
+    // as ações de uma resposta pelo app: exportar e mandar uma sessão à lixeira
+    {
+        const auto ses = root.getChildFile("sessoes").getChildFile("sessao-20261019000000-seguir-s7");
+        ses.getChildFile("saidas").getChildFile("stems").createDirectory();
+        (void) ses.getChildFile("saidas").getChildFile("r.wav").replaceWithText("wav");
+        (void) ses.getChildFile("saidas").getChildFile("stems").getChildFile("1-motivo.wav").replaceWithText("stem");
+        (void) ses.getChildFile("decisoes.json").replaceWithText("{}");
+        const auto fora = root.getChildFile("exportadas");
+        fora.createDirectory();
+        std::string criada, erro;
+        CHECK(exportSession(dados, "sessao-20261019000000-seguir-s7", fora.getFullPathName().toStdString(), criada, erro));
+        const auto alvo = juce::File(juce::String::fromUTF8(criada.c_str()));
+        CHECK(alvo.getChildFile("r.wav").existsAsFile() && alvo.getChildFile("stems").getChildFile("1-motivo.wav").existsAsFile()
+              && alvo.getChildFile("decisoes.json").existsAsFile());
+        std::string criada2;
+        CHECK(exportSession(dados, "sessao-20261019000000-seguir-s7", fora.getFullPathName().toStdString(), criada2, erro)
+              && criada2 != criada && juce::String::fromUTF8(criada2.c_str()).endsWith("-2"));  // nada sobrescrito
+        CHECK(!exportSession(dados, "../x", fora.getFullPathName().toStdString(), criada2, erro));
+        CHECK(!exportSession(dados, "sessao-20261019000000-seguir-s7", ses.getFullPathName().toStdString(), criada2, erro));
+        CHECK(moveSessionToTrash(dados, "sessao-20261019000000-seguir-s7", "2026-10-19", erro) && !ses.exists());
+        CHECK(root.getChildFile("lixeira").getChildFile("2026-10-19").getChildFile("sessao-20261019000000-seguir-s7")
+                  .getChildFile("saidas").getChildFile("r.wav").existsAsFile());
+        CHECK(!moveSessionToTrash(dados, "sessao-20261019000000-seguir-s7", "2026-10-19", erro));  // já não existe
+        CHECK(!moveSessionToTrash(dados, "sessao-x/../../y", "2026-10-19", erro));
+    }
     root.deleteRecursively();
     if (falhas)
     {

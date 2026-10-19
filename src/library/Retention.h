@@ -49,4 +49,20 @@ struct CacheStatus
 // apaga os órfãos (ou, com `all`, todo o cache: a próxima análise o refaz)
 std::vector<std::string> removeCaches(const std::string& dataRoot, bool all);
 
+// As ações de uma resposta pelo app (2026-10-19, o autor: "faça as
+// implementações necessárias" — ver, exportar e descartar uma resposta sem a
+// linha de comando). `sessionId` é o nome da pasta em sessoes/
+// (sessao-…); nada fora dela é tocado.
+
+// Uma sessão escolhida para a lixeira: dados/lixeira/<today>/<id>,
+// reversível (mover de volta para sessoes/). O julgamento, se houver,
+// continua em escuta.json, e o manifesto da derivação, no índice.
+bool moveSessionToTrash(const std::string& dataRoot, const std::string& sessionId, const std::string& today, std::string& error);
+
+// As saídas de uma sessão copiadas para fora da pasta de dados:
+// <destination>/<id>/ com a mistura, o MIDI, stems/ e linhas/ (se houver) e
+// decisoes.json. Se a pasta já existe, <id>-2, <id>-3… Nada é sobrescrito.
+bool exportSession(const std::string& dataRoot, const std::string& sessionId, const std::string& destination,
+                   std::string& createdDir, std::string& error);
+
 } // namespace trioio::library

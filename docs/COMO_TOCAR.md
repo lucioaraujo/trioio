@@ -131,6 +131,15 @@ escuta.
 - **▶** toca a resposta.
 - **▶ juntos** toca a referência e a resposta ao mesmo tempo, só para ouvir.
 - O **master** regula o volume de tudo.
+- **arquivo ▾**, junto da resposta escolhida (2026-10-19):
+  - **mostrar na pasta** abre o gerenciador de arquivos na sessão da
+    resposta;
+  - **exportar…** copia o WAV, o MIDI, os stems, as linhas e
+    `decisoes.json` para a pasta que você escolher, numa subpasta com o
+    nome da sessão. Nada é sobrescrito;
+  - **mover para a lixeira…** pede confirmação e manda a sessão para
+    `lixeira/AAAA-MM-DD/`, de onde ela pode voltar para `sessoes/`. O
+    julgamento, se houver, continua na sua escuta.
 
 ### 8. Julgar
 
