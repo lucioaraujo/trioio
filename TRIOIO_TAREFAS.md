@@ -2723,3 +2723,17 @@ defeitos fora do Linux (`docs/MULTIPLATAFORMA.md`).
 são o registro do processo. A regra de não trazer o anagrama vale para os
 textos de apresentação: o site e o README em quatro idiomas, que não o
 trazem.
+
+**2026-10-19: v0.1.1 publicada** (pré-lançamento): o botão **arquivo ▾**
+(mostrar na pasta, exportar, lixeira).
+
+- A CI passou na primeira rodada.
+- O site e o README apontam para a 0.1.1.
+- O `CHANGELOG.md` começa aqui.
+- **Numa versão nova:** o número da versão está em `CMakeLists.txt`,
+  `README.md`, `INSTALL.md`, `website/gerar_paginas.py` e
+  `website/seo.py`.
+- **A ordem do envio:**
+  1. enviar só a tag;
+  2. esperar o release;
+  3. enviar o `main`, que publica o site sem links quebrados.
