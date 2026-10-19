@@ -305,7 +305,15 @@ def pagina(arquivo, lang):
   <p class="lead">{e(t["lead"])}</p>
 </section>
 
-<section class="section download" id="baixar">
+<section class="section">
+  <h2>{e(t["s4"])}</h2>
+  <figure class="shot">
+    <img src="assets/interface.jpg" alt="{a(t["shot_alt"])}" width="1920" height="1080" loading="lazy" />
+    <figcaption>{e(t["shot_cap"])}</figcaption>
+  </figure>
+</section>
+
+<section class="section section-dark download" id="baixar">
   <h2>{e(t["s_dl"])}</h2>
   <p>{e(t["dl_intro"])}</p>
   <ul class="steps downloads">
@@ -318,7 +326,7 @@ def pagina(arquivo, lang):
   </div>
 </section>
 
-<section class="section section-dark">
+<section class="section">
   <h2>{e(t["s1"])}</h2>
   <ol class="steps">
 {passos}
@@ -348,24 +356,16 @@ def pagina(arquivo, lang):
 </section>
 
 <section class="section section-dark">
-  <h2>{e(t["s4"])}</h2>
-  <figure class="shot">
-    <img src="assets/interface.jpg" alt="{a(t["shot_alt"])}" width="1920" height="1080" loading="lazy" />
-    <figcaption>{e(t["shot_cap"])}</figcaption>
-  </figure>
-</section>
-
-<section class="section">
   <h2>{e(t["s5"])}</h2>
   <p>{e(t["prov"])}</p>
 </section>
 
-<section class="section section-dark">
+<section class="section">
   <h2>{e(t["s6"])}</h2>
   <p>{e(t["credits"])} <a href="{BLOB}/CREDITS_AND_SOURCES.md">{e(t["credits_link"])}</a>.</p>
 </section>
 
-<section class="section">
+<section class="section section-dark">
   <h2>{e(t["s7"])}</h2>
   <p>{e(t["state"])}</p>
   <div class="contact-row">
