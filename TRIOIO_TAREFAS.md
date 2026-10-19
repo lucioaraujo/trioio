@@ -2696,3 +2696,18 @@ defeitos fora do Linux (`docs/MULTIPLATAFORMA.md`).
   - instalar e abrir no Windows e no Mac reais;
   - seguir tocando e julgando as escutas.
 
+
+**2026-10-19: o site no ar** — https://lucioaraujo.github.io/trioio/
+(GitHub Pages, `.github/workflows/deploy-site.yml`).
+
+- **Feito:**
+  - a imagem da interface fica logo depois da abertura, acima de Baixar
+    (pedido do autor);
+  - Baixar traz os seis pacotes da v0.1.0;
+  - a seção nova "Palavras, influências e gesto";
+  - o `noindex` saiu.
+- **Portal RASGO:** o card do Trioio está pronto, e o pacote
+  `RASGO_WEBSITE/rasgo-website.zip` está gerado. **O envio à HostGator é
+  do autor.**
+- **Numa versão nova:** mudar `VERSAO` em `website/gerar_paginas.py` e em
+  `website/seo.py`, e gerar as páginas de novo.
