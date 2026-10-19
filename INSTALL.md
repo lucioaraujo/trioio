@@ -78,6 +78,52 @@ mean anything is wrong, and they only appear the first time.
    up unread words online" sends words to public services (Wikidata,
    Datamuse), and it is off by default.
 
+### Troubleshooting
+
+**Windows: "Windows protected your PC".** Click **"More info"**, then **"Run
+anyway"**. If an antivirus moves `Trioio.exe` to quarantine, restore it and
+allow it: the program is built by the public continuous integration of this
+repository, from this source code.
+
+**macOS: "damaged", "cannot verify the developer" or "Apple could not
+confirm".** Follow step 4 of [macOS](#macos): **Open Anyway** in Privacy &
+Security, or the `xattr` command in Terminal.
+
+**Linux: the window never opens.** Install the `.deb` with `apt`, which also
+installs the dependencies. With the AppImage or the `.tar.gz`, the system
+needs ALSA, FreeType, Fontconfig, X11 and GLib, which any desktop has. If
+the **AppImage** does not open, install `libfuse2` (Ubuntu 22.04+: `sudo apt
+install libfuse2`), or start it with
+`./trioio-<version>-linux-x86_64.AppImage --appimage-extract-and-run`.
+
+**It opens in demonstration mode and does not compose.** Choose a data folder
+with **open data folder…**. Trioio remembers it the next time.
+
+**It does not compose on my recording.** A new recording starts as
+**pending**. Click **authorise…**, declare its origin and click
+**authorise**. Without authorisation, Trioio does not analyse a recording.
+
+**No sound.** Trioio plays through the system's **default audio output**.
+Choose the output in the system's sound settings, then close and reopen
+Trioio. Also check the **master** volume at the bottom of the window.
+
+**It seems frozen while composing.** It is not frozen. The bar at the bottom
+of the window shows each stage and the time spent. A response takes from a
+few seconds to about a minute, longer with the **lines** mode, and the first
+listening of a long recording takes longer too.
+
+**The online lookup says nothing.** The box "look up unread words online"
+needs the internet. Offline, or with a service down, Trioio simply composes
+without it. A word that the services do not know is remembered for seven
+days, so it is not looked up again on every response.
+
+**Little disk space.** The responses go to your data folder: a response with
+stems takes a few hundred MB. Put the data folder on a disk with room.
+
+**Anything else:** write to **rasgo.instruments@gmail.com** with your system
+and version, what you did, and the message you saw. You can also open an
+[issue](https://github.com/lucioaraujo/trioio/issues).
+
 ### Requirements
 
 | | |
@@ -191,6 +237,53 @@ Não indicam defeito e só aparecem na primeira vez.
 3. **A internet é opcional.** O Trioio compõe sem rede. Só a caixa
    "consultar na rede as palavras não lidas" manda palavras a serviços
    públicos (Wikidata, Datamuse), e ela vem desligada.
+
+### Problemas e soluções
+
+**Windows: "O Windows protegeu o computador".** Clique em **"Mais
+informações"** e depois em **"Executar assim mesmo"**. Se um antivírus puser
+o `Trioio.exe` em quarentena, restaure e libere: o programa é construído pela
+integração contínua pública deste repositório, a partir deste código.
+
+**macOS: "danificado", "não é possível verificar o desenvolvedor" ou "a
+Apple não pôde confirmar".** Siga o passo 4 do [macOS](#macos-1): **Abrir
+Mesmo Assim** em Privacidade e Segurança, ou o comando `xattr` no Terminal.
+
+**Linux: a janela não abre.** Instale o `.deb` com o `apt`, que também
+instala as dependências. Com o AppImage ou o `.tar.gz`, o sistema precisa de
+ALSA, FreeType, Fontconfig, X11 e GLib, que qualquer desktop tem. Se o
+**AppImage** não abrir, instale o `libfuse2` (Ubuntu 22.04+: `sudo apt
+install libfuse2`) ou abra com
+`./trioio-<versão>-linux-x86_64.AppImage --appimage-extract-and-run`.
+
+**Abre em modo de demonstração e não compõe.** Escolha uma pasta de dados em
+**abrir pasta de dados…**. O Trioio lembra dela na próxima vez.
+
+**Não compõe sobre a minha gravação.** Uma gravação nova começa
+**pendente**. Clique em **autorizar…**, declare a origem e clique em
+**autorizar**. Sem autorização, o Trioio não analisa a gravação.
+
+**Sem som.** O Trioio toca pela **saída de áudio padrão do sistema**. Escolha
+a saída nos ajustes de som do sistema, feche e abra o Trioio de novo.
+Confira também o volume do **master**, no rodapé da janela.
+
+**Parece travado enquanto compõe.** Não está travado. A barra no rodapé da
+janela mostra cada etapa e o tempo decorrido. Uma resposta leva de alguns
+segundos a cerca de um minuto, mais no modo de **linhas**, e a primeira
+escuta de uma gravação longa também demora mais.
+
+**A consulta na rede não diz nada.** A caixa "consultar na rede as palavras
+não lidas" precisa da internet. Sem rede, ou com um serviço fora do ar, o
+Trioio compõe sem ela. Uma palavra que os serviços não conhecem fica
+lembrada por sete dias, para não ser consultada de novo a cada resposta.
+
+**Pouco espaço em disco.** As respostas vão para a sua pasta de dados: uma
+resposta com stems ocupa algumas centenas de MB. Ponha a pasta de dados num
+disco com espaço.
+
+**Outra coisa:** escreva para **rasgo.instruments@gmail.com** com o seu
+sistema e versão, o que você fez e a mensagem que apareceu. Você também
+pode abrir uma [issue](https://github.com/lucioaraujo/trioio/issues).
 
 ### Requisitos
 
