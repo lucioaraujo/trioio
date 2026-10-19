@@ -73,6 +73,9 @@ source cited in every entry:
 - **Compare:** listen to two versions A and B, switching at the same moment
   of the music.
 - **Stems:** one WAV per voice, for a DAW.
+- **File ▾**, next to the response: show its files in the folder, export them
+  (WAV, MIDI, stems) wherever you choose, or move the response to the trash
+  (it can be brought back).
 
 The **TUTORIAL** button in the app explains everything step by step, in
 English, Portuguese, French or Spanish.
@@ -186,6 +189,9 @@ publicado, com a fonte citada em cada entrada:
 - **Comparar:** ouça duas versões, A e B, alternando no mesmo instante da
   música.
 - **Stems:** um WAV por voz, para a DAW.
+- **Arquivo ▾**, junto da resposta: mostra os arquivos dela na pasta, exporta
+  (WAV, MIDI, stems) para onde você escolher ou move a resposta para a
+  lixeira (ela pode voltar).
 
 O botão **TUTORIAL** do app explica tudo passo a passo, em português,
 inglês, francês ou espanhol.
@@ -300,6 +306,9 @@ source citée pour chaque entrée :
 - **Comparer :** écoutez deux versions, A et B, en alternant au même
   instant de la musique.
 - **Stems :** un WAV par voix, pour une STAN.
+- **Fichier ▾**, à côté de la réponse : affiche ses fichiers dans le dossier,
+  les exporte (WAV, MIDI, stems) où vous voulez, ou met la réponse à la
+  corbeille (elle peut revenir).
 
 Le bouton **TUTORIEL** de l'app explique tout pas à pas, en français,
 anglais, portugais ou espagnol.
@@ -399,6 +408,9 @@ publicado, con la fuente citada en cada entrada:
 - **Comparar:** escucha dos versiones, A y B, alternando en el mismo
   instante de la música.
 - **Stems:** un WAV por voz, para la DAW.
+- **Archivo ▾**, junto a la respuesta: muestra sus archivos en la carpeta, los
+  exporta (WAV, MIDI, stems) adonde elijas o mueve la respuesta a la papelera
+  (puede volver).
 
 El botón **TUTORIAL** de la app lo explica todo paso a paso, en español,
 inglés, portugués o francés.
