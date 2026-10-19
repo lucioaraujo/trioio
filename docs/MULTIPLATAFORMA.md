@@ -78,14 +78,33 @@ janela conferida), e o app lê os dados da instalação
 O `.deb` local pede a glibc 2.38 desta máquina; o `.deb` publicado sai da
 CI, no Ubuntu 22.04.
 
-**Falta (decisão do autor):**
+**Publicado (2026-10-19):** o repositório público `lucioaraujo/trioio`,
+com histórico limpo, e o release
+[v0.1.0](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0),
+marcado como pré-lançamento. Ele traz o `.exe` e o `.zip` do Windows, o
+`.dmg` do macOS e o `.deb`, o AppImage e o `.tar.gz` do Linux.
 
-1. **O repositório próprio** (`lucioaraujo/trioio`), como o Antitotem: com
-   histórico limpo, e o histórico completo fica no `rasgo-instruments`
-   privado. Num repositório público, os runners padrão da CI não são
-   cobrados.
-2. **A tag `v0.1.0`**, que dispara a CI e o release.
-3. **O teste no Windows e no Mac reais**, pelo autor, depois da CI verde.
+**A CI achou três defeitos que o Linux x86 não mostra.** Foram precisas
+três rodadas até ficar toda verde:
+
+1. **macOS (ARM):** o seqlock do `EnergyControlBus` aceitava uma decisão
+   rasgada. Faltavam duas cercas de memória (Boehm, MSPC 2012).
+2. **Windows:** `M_PI` só existe com `_USE_MATH_DEFINES` no MSVC.
+3. **Windows:** o teste da Biblioteca comparava a data das pastas, que o
+   NTFS atualiza de forma preguiçosa. O defeito era do teste, não do
+   importador.
+
+Na rodada final, os 48 testes passaram nos três sistemas. A CI também
+conferiu:
+
+- o runtime estático no Windows e os atalhos do instalador;
+- o `.app` Universal 2 selado, com os dados dentro;
+- a abertura do app em Debian 12, Ubuntu 24.04, Fedora e Arch.
+
+Depois, os pacotes publicados foram baixados e inspecionados: o `.deb`
+pede a glibc 2.35, e os dados estão no `.zip` e no `.tar.gz`.
+
+**Falta:** o teste do autor no Windows e no Mac reais.
 
 ## O pacote de fontes, o manifesto e a restauração
 

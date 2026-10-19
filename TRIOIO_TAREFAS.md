@@ -2683,3 +2683,16 @@ instaladores".
     histórico limpo, e o envio;
   - a tag `v0.1.0`.
 
+**2026-10-19: publicado.** O repositório público é `lucioaraujo/trioio`.
+Ele tem histórico limpo; o anterior fica no `rasgo-instruments` até
+`3fd0908`. O release
+[v0.1.0](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0) é um
+pré-lançamento, com os seis pacotes. A CI achou e o Claude corrigiu três
+defeitos fora do Linux (`docs/MULTIPLATAFORMA.md`).
+
+- **Daqui em diante:** os commits e o push do Trioio são feitos nesta
+  pasta, que é um repositório próprio. A CI só roda nas tags `v*`.
+- **Próximo** (o autor):
+  - instalar e abrir no Windows e no Mac reais;
+  - seguir tocando e julgando as escutas.
+
