@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Trioio — listening, memory and response</title>
 <meta name="description" content="Trioio: an instrument that listens to an authorised reference, recognises pulse, harmony, melody and musical language, and composes a response of its own. With the Third Eye." />
-<!-- em preparação: retirar o noindex ao publicar junto com o instrumento (README.md) -->
-<meta name="robots" content="noindex" />
 <link rel="icon" href="assets/identity/trioio-olho.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="styles.css" />
 <script src="assets/contact.js" defer></script>
@@ -42,8 +40,9 @@
   "image": "https://lucioaraujo.github.io/trioio/assets/og-trioio.jpg",
   "applicationCategory": "MultimediaApplication",
   "applicationSubCategory": "Music composition",
-  "operatingSystem": "Linux",
-  "softwareVersion": "0.0.1",
+  "operatingSystem": "Windows, macOS, Linux",
+  "downloadUrl": "https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0",
+  "softwareVersion": "0.1.0",
   "license": "https://www.gnu.org/licenses/agpl-3.0.html",
   "isAccessibleForFree": true,
   "author": {
@@ -56,7 +55,7 @@
     "url": "https://rasgoinstruments.arquiviagem.net/"
   },
   "sameAs": [
-    "https://github.com/lucioaraujo/rasgo-instruments/tree/main/PROJETOS_AUTORAIS/TRIOIO"
+    "https://github.com/lucioaraujo/trioio"
   ]
 }
 </script>
@@ -81,9 +80,24 @@
 
 <main id="conteudo">
 <section class="hero" id="top">
-  <span class="status-pill">In preparation — prototype in development, no download yet</span>
+  <span class="status-pill">Version 0.1.0 — preview, for Windows, macOS and Linux</span>
   <h1>Trioio</h1>
   <p class="lead">Trioio is an instrument that listens. You bring a reference — a recording of yours, the output of another instrument, an authorised track — and it recognises its pulse, harmony, melody and musical language. Then it composes a response of its own, synthesised from scratch, and learns from your judgement.</p>
+</section>
+
+<section class="section download" id="baixar">
+  <h2>Download</h2>
+  <p>Version 0.1.0 is a preview: the instrument does the essential and remains open, in development. Choose the package for your system.</p>
+  <ul class="steps downloads">
+    <li><h3>Windows</h3><p>Windows 10 or 11 — installer (.exe) or no install (.zip)</p><p class="dl-links"><a class="button" href="https://github.com/lucioaraujo/trioio/releases/download/v0.1.0/trioio-0.1.0-win64.exe">exe</a> <a class="button" href="https://github.com/lucioaraujo/trioio/releases/download/v0.1.0/trioio-0.1.0-win64.zip">zip</a></p></li>
+    <li><h3>macOS</h3><p>macOS 10.15 or later, Intel and Apple Silicon</p><p class="dl-links"><a class="button" href="https://github.com/lucioaraujo/trioio/releases/download/v0.1.0/trioio-0.1.0-Darwin.dmg">dmg</a></p></li>
+    <li><h3>Linux</h3><p>.deb for Ubuntu, Debian and Mint; AppImage or .tar.gz for other distributions</p><p class="dl-links"><a class="button" href="https://github.com/lucioaraujo/trioio/releases/download/v0.1.0/trioio-0.1.0-Linux.deb">deb</a> <a class="button" href="https://github.com/lucioaraujo/trioio/releases/download/v0.1.0/trioio-0.1.0-linux-x86_64.AppImage">AppImage</a> <a class="button" href="https://github.com/lucioaraujo/trioio/releases/download/v0.1.0/trioio-0.1.0-linux-x86_64.tar.gz">tar.gz</a></p></li>
+  </ul>
+  <p class="example">On first launch, Windows and macOS show a security warning: it is expected, because the app does not carry the two companies' paid signature. The installation guide says where to click.</p>
+  <div class="contact-row">
+    <a class="button button-primary" href="https://github.com/lucioaraujo/trioio/blob/main/INSTALL.md">Installation guide</a>
+    <a class="button" href="https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0">All packages and release notes</a>
+  </div>
 </section>
 
 <section class="section section-dark">
@@ -109,34 +123,47 @@
     <li>32 of them carry the behaviour of the language: ascent and descent, resting tones, signature phrases, cadences, ornaments and texture;</li>
     <li>26 rhythmic cycles: iqa', tala, usul and aksak, claves, gamelan colotomy, flamenco compás, baião;</li>
     <li>mixtures between cultures — collage, hybrid, layers, transition — with seams between the sections.</li>
+    <li>the harmony machine: 25 languages — from functional harmony and jazz to the Brazilian ones (Hermeto, Villa-Lobos, Moacir Santos, Guinga, Gismonti, frevo, maracatu), the modern ones and Partch's microtonality —, with four-part voice leading;</li>
+    <li>15 ensembles — choro, samba, jazz, forró, tango, rock, orchestra, a cappella… —, each voice with the instrument and the figure of the style.</li>
   </ul>
   <p class="example">Example: in a recording with the Andalusian cadence (Dm–C–B♭–A), Trioio recognises A Phrygian dominant and responds, depending on the seed, in maqam Hijaz — heterophony, maqsum cycle — or in the Andalusian mode on E — chords, 12-beat compás. In Hijaz, without chords, the movement comes from sayr: the melody visits the neighbouring maqam on the ghammaz and returns.</p>
 </section>
 
 <section class="section">
-  <h2>The interface</h2>
-  <figure class="shot">
-    <img src="assets/interface.jpg" alt="Trioio&#x27;s Listening and response screen: the reference with the chords it read, the revealed Third Eye with its consequences, and the response in sections with the piano roll." width="1920" height="1080" loading="lazy" />
-    <figcaption>Interface prototype: three tracks aligned in time — the reference, the Third Eye and the response —, the Library, the language of the response and the judgement bar. In four languages and three screen regimes, from 960×600 to 2560×1440.</figcaption>
-  </figure>
+  <h2>Words, influences and gesture</h2>
+  <ul class="steps">
+    <li><h3>Words</h3><p>Write, if you like, a few words about the response — in any language, with or without accents, with typing mistakes. Trioio reads the intention, the form and the dance, and shows what it understood. Left blank, it follows its own criteria.</p></li>
+    <li><h3>The network, optional</h3><p>Words Trioio does not know can be looked up in public services (Wikidata, Datamuse). The calculation is its own: the services only return words. It comes switched off, because the words leave the computer.</p></li>
+    <li><h3>The influence tree</h3><p>Styles are not drawers: they are branches of an open tree, with social, historical, technological and generational contexts, and traits that are tendencies, never rules. Trioio crosses distant branches to reach the unexpected; the poetics of artists and bands are written by the musician.</p></li>
+    <li><h3>The gesture</h3><p>Draw the intensity curve of the piece, and the response follows that shape.</p></li>
+  </ul>
+  <p>The app includes a tutorial in four languages, from the first step to a first exercise.</p>
 </section>
 
 <section class="section section-dark">
+  <h2>The interface</h2>
+  <figure class="shot">
+    <img src="assets/interface.jpg" alt="Trioio&#x27;s Listening and response screen: the reference with the chords it read, the revealed Third Eye with its consequences, and the response in sections with the piano roll." width="1920" height="1080" loading="lazy" />
+    <figcaption>The Listening and response screen: three tracks aligned in time — the reference, the Third Eye and the response —, the Library, the language of the response and the judgement bar. In four languages, from 960×600 to 2560×1440.</figcaption>
+  </figure>
+</section>
+
+<section class="section">
   <h2>Provenance</h2>
   <p>Every reference has a manifest: origin, basis, authorised uses, history. Trioio only derives from what was authorised for derivation, and every response records where it came from. Code reused from other RASGO instruments — Rasgo Synth, Rasgo Modular, Antitotem, Aquorbium — is a pinned copy, with source commit and checksums.</p>
 </section>
 
-<section class="section">
+<section class="section section-dark">
   <h2>Credits</h2>
-  <p>Lúcio de Araújo — concept, composition, listening, interface and code. Licence GNU AGPLv3 or later; JUCE under its AGPLv3 option. Full sources and credits: <a href="https://github.com/lucioaraujo/rasgo-instruments/blob/main/PROJETOS_AUTORAIS/TRIOIO/CREDITS_AND_SOURCES.md">CREDITS_AND_SOURCES.md</a>.</p>
+  <p>Lúcio de Araújo — concept, composition, listening, interface and code. Licence GNU AGPLv3 or later; JUCE under its AGPLv3 option. Full sources and credits: <a href="https://github.com/lucioaraujo/trioio/blob/main/CREDITS_AND_SOURCES.md">CREDITS_AND_SOURCES.md</a>.</p>
 </section>
 
-<section class="section section-dark">
+<section class="section">
   <h2>Status</h2>
-  <p>Trioio is in development: the listening and composition core and the interface prototype work and are tested, but there is no published version yet. This page follows the work and will only be published together with the instrument.</p>
+  <p>Version 0.1.0 is a preview. The Windows and macOS packages are built and tested by continuous integration but have not yet been opened by the author on real machines; Linux is also launch-tested on four distributions. The instrument remains in development, open.</p>
   <div class="contact-row">
     <button type="button" class="button button-primary" data-contact-trigger>Contact</button>
-    <a class="button" href="https://github.com/lucioaraujo/rasgo-instruments/tree/main/PROJETOS_AUTORAIS/TRIOIO">GitHub</a>
+    <a class="button" href="https://github.com/lucioaraujo/trioio">GitHub</a>
   </div>
 </section>
 </main>
@@ -144,9 +171,9 @@
 <footer class="site-footer">
   <span>© Lúcio de Araújo · Trioio 2026 · RASGO</span>
   <nav>
-    <a href="https://github.com/lucioaraujo/rasgo-instruments/tree/main/PROJETOS_AUTORAIS/TRIOIO">GitHub</a> ·
-    <a href="https://github.com/lucioaraujo/rasgo-instruments/blob/main/PROJETOS_AUTORAIS/TRIOIO/CREDITS_AND_SOURCES.md">Credits</a> ·
-    <a href="https://github.com/lucioaraujo/rasgo-instruments/blob/main/PROJETOS_AUTORAIS/TRIOIO/LICENSE">AGPLv3+ licence</a>
+    <a href="https://github.com/lucioaraujo/trioio">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/trioio/blob/main/CREDITS_AND_SOURCES.md">Credits</a> ·
+    <a href="https://github.com/lucioaraujo/trioio/blob/main/LICENSE">AGPLv3+ licence</a>
   </nav>
 </footer>
 <dialog class="contact-dialog" data-contact-dialog aria-labelledby="contact-title">

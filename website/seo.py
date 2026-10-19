@@ -2,9 +2,8 @@
 """Metadados de busca e compartilhamento do site do Trioio.
 
 Cópia fixada do seo.py do site do Antitotem (commit b285505, sha256 em
-README.md); só a configuração abaixo é do Trioio. O site ainda NÃO é
-publicado (regra editorial: só junto com o instrumento), e as páginas levam
-<meta name="robots" content="noindex"> até lá: a base abaixo é a futura.
+README.md); só a configuração abaixo é do Trioio. Publicado junto com o
+instrumento (v0.1.0, 2026-10-19), no GitHub Pages do repositório próprio.
 """
 
 SITE = {
@@ -21,7 +20,7 @@ SITE = {
     "raiz_do_dominio": False,
 }
 
-VERSAO = "0.0.1"
+VERSAO = "0.1.0"
 
 GRUPOS = [
     [
@@ -34,7 +33,7 @@ GRUPOS = [
 
 
 def dados_estruturados(pagina, descricao):
-    repo = "https://github.com/lucioaraujo/rasgo-instruments/tree/main/PROJETOS_AUTORAIS/TRIOIO"
+    repo = "https://github.com/lucioaraujo/trioio"
     return {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -45,7 +44,8 @@ def dados_estruturados(pagina, descricao):
         "image": SITE["base"] + SITE["imagem"],
         "applicationCategory": "MultimediaApplication",
         "applicationSubCategory": "Music composition",
-        "operatingSystem": "Linux",
+        "operatingSystem": "Windows, macOS, Linux",
+        "downloadUrl": repo + "/releases/tag/v" + VERSAO,
         "softwareVersion": VERSAO,
         "license": "https://www.gnu.org/licenses/agpl-3.0.html",
         "isAccessibleForFree": True,

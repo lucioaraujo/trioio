@@ -1,11 +1,13 @@
 # Site do Trioio
 
-**Estado: em preparação — NÃO publicado.** O site de um instrumento RASGO só é
-publicado junto com o instrumento. Até lá, as páginas têm
-`<meta name="robots" content="noindex">` e o selo "em preparação". Ao
-publicar: tirar o noindex em `gerar_paginas.py`, conferir a URL base em
-`seo.py` (provisória: `https://lucioaraujo.github.io/trioio/`) e ligar o card
-no portal RASGO.
+**Estado: publicado em 2026-10-19**, junto com a v0.1.0, em
+<https://lucioaraujo.github.io/trioio/> (GitHub Pages do repositório
+próprio; `.github/workflows/deploy-site.yml`, que só roda quando o site
+muda). O `noindex` e o selo "em preparação" saíram. A página tem a seção
+**Baixar**, com os pacotes do release (a versão fica em `VERSAO` no
+`gerar_paginas.py` e no `seo.py`; numa versão nova, mudar as duas), e a
+seção **Palavras, influências e gesto**. O card no portal RASGO é
+preparado em `RASGO_WEBSITE/`; o envio do portal é do autor.
 
 ## Como gerar
 
@@ -35,7 +37,7 @@ python3 gerar_paginas.py && python3 seo.py
 
 | Arquivo | Origem |
 |---|---|
-| `assets/interface.jpg` | `docs/design/prototipo-v0-1920x1080-completo.png`, instantâneo do `trioio_app` (dados de demonstração, olho revelado; refeito em 2026-10-13 com o símbolo novo), JPEG q84 |
+| `assets/interface.jpg` | instantâneo do `trioio_app` 0.1.0 (`--instantaneos --revelar --idioma pt`, dados de demonstração, olho revelado, o painel Linguagem aberto), refeito em 2026-10-19, JPEG q84 |
 | `assets/og-trioio.jpg` | o mesmo instantâneo, recorte central 1200×630, JPEG q85 |
 | `assets/identity/trioio-olho.svg` | da logo dos três olhos do autor (2026-10-13), só os olhos, a pedido dele: o Terceiro Olho em âmbar em cima, dois olhos embaixo; traço, cores dos tokens |
 

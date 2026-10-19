@@ -1,0 +1,43 @@
+name: Deploy public site
+
+# The Trioio page on GitHub Pages (https://lucioaraujo.github.io/trioio/).
+# Copied from the Antitotem workflow (lucioaraujo/antitotem, commit 6c88ab4,
+# .github/workflows/deploy-site.yml, same author and licence) on 2026-10-19.
+# Runs only when the site changes; the pages are generated locally
+# (website/gerar_paginas.py && website/seo.py) and committed.
+on:
+  push:
+    branches: [main]
+    paths:
+      - website/**
+      - .github/workflows/deploy-site.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
