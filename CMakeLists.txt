@@ -17,7 +17,7 @@ if (APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Universal 2" FORCE)
 endif()
 # C também: o JUCE exige o compilador C habilitado no projeto que o inclui
-project(Trioio VERSION 0.1.0 LANGUAGES C CXX)
+project(Trioio VERSION 0.1.1 LANGUAGES C CXX)
 
 # MSVC: M_PI e as outras constantes de <cmath> só com _USE_MATH_DEFINES (a
 # CI do Windows parou nelas, no DSP copiado do Rasgo Synth, 2026-10-19); e

@@ -17,7 +17,7 @@ PORTAL = "https://rasgoinstruments.arquiviagem.net/"
 REPO = "https://github.com/lucioaraujo/trioio"
 BLOB = "https://github.com/lucioaraujo/trioio/blob/main"
 # a versão publicada e os pacotes do release (a CI: .github/workflows/package.yml)
-VERSAO = "0.1.0"
+VERSAO = "0.1.1"
 RELEASE = "https://github.com/lucioaraujo/trioio/releases/tag/v" + VERSAO
 DL = "https://github.com/lucioaraujo/trioio/releases/download/v" + VERSAO + "/"
 PACOTES = [
@@ -36,7 +36,7 @@ T = {
         "strip": "RASGO — família de instrumentos e pesquisa sonora",
         "skip": "Pular para o conteúdo",
         "langnav": "Idioma",
-        "pill": "Versão 0.1.0 — prévia, para Windows, macOS e Linux",
+        "pill": "Versão 0.1.1 — prévia, para Windows, macOS e Linux",
         "lead": "Trioio é um instrumento que escuta. Você traz uma referência — uma gravação sua, a saída de outro instrumento, uma faixa autorizada — e ele reconhece o pulso, a harmonia, a melodia e a linguagem musical dela. Depois compõe uma resposta própria, sintetizada do zero, e aprende com o seu julgamento.",
         "s1": "Escuta e resposta",
         "steps": [
@@ -67,7 +67,7 @@ T = {
         "credits": "Lúcio de Araújo — concepção, composição, escuta, interface e código. Licença GNU AGPLv3 ou posterior; JUCE sob a via AGPLv3. Fontes e créditos completos:",
         "credits_link": "CREDITS_AND_SOURCES.md",
         "s7": "Estado",
-        "state": "A versão 0.1.0 é uma prévia. Os pacotes de Windows e macOS são construídos e testados pela integração contínua, mas ainda não foram abertos pelo autor em máquinas reais; o Linux é testado também na abertura, em quatro distribuições. O instrumento continua em desenvolvimento, aberto.",
+        "state": "A versão 0.1.1 é uma prévia. Os pacotes de Windows e macOS são construídos e testados pela integração contínua, mas ainda não foram abertos pelo autor em máquinas reais; o Linux é testado também na abertura, em quatro distribuições. O instrumento continua em desenvolvimento, aberto.",
         "contact": "Contato",
         "footer_credits": "Créditos",
         "footer_license": "Licença AGPLv3+",
@@ -78,7 +78,7 @@ T = {
         "copied": "E-mail copiado.",
         "fallback": "Selecione e copie o endereço acima.",
         "s_dl": "Baixar",
-        "dl_intro": "A versão 0.1.0 é uma prévia: o instrumento faz o essencial e continua aberto, em desenvolvimento. Escolha o pacote do seu sistema.",
+        "dl_intro": "A versão 0.1.1 é uma prévia: o instrumento faz o essencial e continua aberto, em desenvolvimento. Escolha o pacote do seu sistema.",
         "dl_os": {"Windows": "Windows 10 ou 11 — instalador (.exe) ou sem instalar (.zip)", "macOS": "macOS 10.15 ou mais novo, Intel e Apple Silicon", "Linux": ".deb para Ubuntu, Debian e Mint; AppImage ou .tar.gz para as outras distribuições"},
         "dl_warn": "Na primeira abertura, o Windows e o macOS mostram um aviso de segurança: é esperado, porque o app não tem a assinatura paga das duas empresas. O guia de instalação diz onde clicar.",
         "dl_install": "Guia de instalação",
@@ -93,7 +93,7 @@ T = {
         "strip": "RASGO — a family of instruments and sound research",
         "skip": "Skip to content",
         "langnav": "Language",
-        "pill": "Version 0.1.0 — preview, for Windows, macOS and Linux",
+        "pill": "Version 0.1.1 — preview, for Windows, macOS and Linux",
         "lead": "Trioio is an instrument that listens. You bring a reference — a recording of yours, the output of another instrument, an authorised track — and it recognises its pulse, harmony, melody and musical language. Then it composes a response of its own, synthesised from scratch, and learns from your judgement.",
         "s1": "Listening and response",
         "steps": [
@@ -124,7 +124,7 @@ T = {
         "credits": "Lúcio de Araújo — concept, composition, listening, interface and code. Licence GNU AGPLv3 or later; JUCE under its AGPLv3 option. Full sources and credits:",
         "credits_link": "CREDITS_AND_SOURCES.md",
         "s7": "Status",
-        "state": "Version 0.1.0 is a preview. The Windows and macOS packages are built and tested by continuous integration but have not yet been opened by the author on real machines; Linux is also launch-tested on four distributions. The instrument remains in development, open.",
+        "state": "Version 0.1.1 is a preview. The Windows and macOS packages are built and tested by continuous integration but have not yet been opened by the author on real machines; Linux is also launch-tested on four distributions. The instrument remains in development, open.",
         "contact": "Contact",
         "footer_credits": "Credits",
         "footer_license": "AGPLv3+ licence",
@@ -135,7 +135,7 @@ T = {
         "copied": "Email copied.",
         "fallback": "Select and copy the address above.",
         "s_dl": "Download",
-        "dl_intro": "Version 0.1.0 is a preview: the instrument does the essential and remains open, in development. Choose the package for your system.",
+        "dl_intro": "Version 0.1.1 is a preview: the instrument does the essential and remains open, in development. Choose the package for your system.",
         "dl_os": {"Windows": "Windows 10 or 11 — installer (.exe) or no install (.zip)", "macOS": "macOS 10.15 or later, Intel and Apple Silicon", "Linux": ".deb for Ubuntu, Debian and Mint; AppImage or .tar.gz for other distributions"},
         "dl_warn": "On first launch, Windows and macOS show a security warning: it is expected, because the app does not carry the two companies' paid signature. The installation guide says where to click.",
         "dl_install": "Installation guide",
@@ -150,7 +150,7 @@ T = {
         "strip": "RASGO — famille d'instruments et de recherche sonore",
         "skip": "Aller au contenu",
         "langnav": "Langue",
-        "pill": "Version 0.1.0 — aperçu, pour Windows, macOS et Linux",
+        "pill": "Version 0.1.1 — aperçu, pour Windows, macOS et Linux",
         "lead": "Trioio est un instrument qui écoute. Vous apportez une référence — un de vos enregistrements, la sortie d'un autre instrument, une piste autorisée — et il en reconnaît la pulsation, l'harmonie, la mélodie et le langage musical. Puis il compose sa propre réponse, synthétisée de zéro, et apprend de votre jugement.",
         "s1": "Écoute et réponse",
         "steps": [
@@ -181,7 +181,7 @@ T = {
         "credits": "Lúcio de Araújo — conception, composition, écoute, interface et code. Licence GNU AGPLv3 ou ultérieure ; JUCE sous sa voie AGPLv3. Sources et crédits complets :",
         "credits_link": "CREDITS_AND_SOURCES.md",
         "s7": "État",
-        "state": "La version 0.1.0 est un aperçu. Les paquets Windows et macOS sont construits et testés par l'intégration continue, mais n'ont pas encore été ouverts par l'auteur sur de vraies machines ; Linux est aussi testé au lancement, sur quatre distributions. L'instrument reste en développement, ouvert.",
+        "state": "La version 0.1.1 est un aperçu. Les paquets Windows et macOS sont construits et testés par l'intégration continue, mais n'ont pas encore été ouverts par l'auteur sur de vraies machines ; Linux est aussi testé au lancement, sur quatre distributions. L'instrument reste en développement, ouvert.",
         "contact": "Contact",
         "footer_credits": "Crédits",
         "footer_license": "Licence AGPLv3+",
@@ -192,7 +192,7 @@ T = {
         "copied": "E-mail copié.",
         "fallback": "Sélectionnez et copiez l'adresse ci-dessus.",
         "s_dl": "Télécharger",
-        "dl_intro": "La version 0.1.0 est un aperçu : l'instrument fait l'essentiel et reste ouvert, en développement. Choisissez le paquet de votre système.",
+        "dl_intro": "La version 0.1.1 est un aperçu : l'instrument fait l'essentiel et reste ouvert, en développement. Choisissez le paquet de votre système.",
         "dl_os": {"Windows": "Windows 10 ou 11 — installateur (.exe) ou sans installation (.zip)", "macOS": "macOS 10.15 ou plus récent, Intel et Apple Silicon", "Linux": ".deb pour Ubuntu, Debian et Mint ; AppImage ou .tar.gz pour les autres distributions"},
         "dl_warn": "Au premier lancement, Windows et macOS affichent un avertissement de sécurité : c'est attendu, car l'app n'a pas la signature payante des deux entreprises. Le guide d'installation indique où cliquer.",
         "dl_install": "Guide d'installation",
@@ -207,7 +207,7 @@ T = {
         "strip": "RASGO — familia de instrumentos e investigación sonora",
         "skip": "Saltar al contenido",
         "langnav": "Idioma",
-        "pill": "Versión 0.1.0 — vista previa, para Windows, macOS y Linux",
+        "pill": "Versión 0.1.1 — vista previa, para Windows, macOS y Linux",
         "lead": "Trioio es un instrumento que escucha. Traes una referencia — una grabación tuya, la salida de otro instrumento, una pista autorizada — y reconoce su pulso, armonía, melodía y lenguaje musical. Luego compone una respuesta propia, sintetizada desde cero, y aprende de tu juicio.",
         "s1": "Escucha y respuesta",
         "steps": [
@@ -238,7 +238,7 @@ T = {
         "credits": "Lúcio de Araújo — concepción, composición, escucha, interfaz y código. Licencia GNU AGPLv3 o posterior; JUCE bajo su vía AGPLv3. Fuentes y créditos completos:",
         "credits_link": "CREDITS_AND_SOURCES.md",
         "s7": "Estado",
-        "state": "La versión 0.1.0 es una vista previa. Los paquetes de Windows y macOS se construyen y prueban en la integración continua, pero el autor aún no los abrió en máquinas reales; Linux también se prueba al abrir, en cuatro distribuciones. El instrumento sigue en desarrollo, abierto.",
+        "state": "La versión 0.1.1 es una vista previa. Los paquetes de Windows y macOS se construyen y prueban en la integración continua, pero el autor aún no los abrió en máquinas reales; Linux también se prueba al abrir, en cuatro distribuciones. El instrumento sigue en desarrollo, abierto.",
         "contact": "Contacto",
         "footer_credits": "Créditos",
         "footer_license": "Licencia AGPLv3+",
@@ -249,7 +249,7 @@ T = {
         "copied": "Correo copiado.",
         "fallback": "Selecciona y copia la dirección de arriba.",
         "s_dl": "Descargar",
-        "dl_intro": "La versión 0.1.0 es una vista previa: el instrumento hace lo esencial y sigue abierto, en desarrollo. Elige el paquete de tu sistema.",
+        "dl_intro": "La versión 0.1.1 es una vista previa: el instrumento hace lo esencial y sigue abierto, en desarrollo. Elige el paquete de tu sistema.",
         "dl_os": {"Windows": "Windows 10 u 11 — instalador (.exe) o sin instalar (.zip)", "macOS": "macOS 10.15 o más reciente, Intel y Apple Silicon", "Linux": ".deb para Ubuntu, Debian y Mint; AppImage o .tar.gz para las demás distribuciones"},
         "dl_warn": "En la primera apertura, Windows y macOS muestran un aviso de seguridad: es lo esperado, porque la app no lleva la firma de pago de las dos empresas. La guía de instalación dice dónde hacer clic.",
         "dl_install": "Guía de instalación",

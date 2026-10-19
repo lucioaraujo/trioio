@@ -155,7 +155,7 @@ them.
 
 ### Status
 
-Version 0.1.0 is a **preview**. The Windows and macOS packages are built,
+Version 0.1.1 is a **preview**. The Windows and macOS packages are built,
 tested and checked by continuous integration: no dependency on the Visual
 C++ Redistributable, and a sealed Universal 2 bundle on macOS. They have not
 yet been opened by the author on real Windows and Mac machines.
@@ -316,7 +316,7 @@ lista todos.
 
 ### Estado
 
-A versão 0.1.0 é uma **prévia**. Os pacotes de Windows e macOS são
+A versão 0.1.1 é uma **prévia**. Os pacotes de Windows e macOS são
 construídos, testados e conferidos pela integração contínua: sem
 dependência do Visual C++ Redistributable, e o pacote macOS selado,
 Universal 2. Eles ainda não foram abertos pelo autor em máquinas Windows e

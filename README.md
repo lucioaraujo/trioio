@@ -3,7 +3,7 @@
 ![Trioio's Listening and response screen: the reference with the chords it read, the revealed Third Eye, the response in sections with its notes, and the Language panel open on the right](website/assets/interface.jpg)
 
 **Website:** [lucioaraujo.github.io/trioio](https://lucioaraujo.github.io/trioio/) ·
-**Download:** [v0.1.0 release](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0) ·
+**Download:** [v0.1.1 release](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.1) ·
 **Contact:** **rasgo.instruments@gmail.com**
 
 Languages:
@@ -23,7 +23,7 @@ its own, entirely synthesised. You judge the response, and Trioio learns
 from your listening.
 
 **Authorship:** Lúcio de Araújo · **Family:** [RASGO](https://rasgoinstruments.arquiviagem.net/) ·
-**Version:** v0.1.0 (preview) · **License:** GNU AGPL-3.0-or-later (see [`LICENSE`](LICENSE)
+**Version:** v0.1.1 (preview) · **License:** GNU AGPL-3.0-or-later (see [`LICENSE`](LICENSE)
 and [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md))
 
 ### What it is
@@ -83,7 +83,7 @@ and it is off by default.
 
 ### Download
 
-[**v0.1.0 release**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0):
+[**v0.1.1 release**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.1):
 Windows `.exe` and portable `.zip`, macOS `.dmg`, Linux `.deb`, AppImage and
 `.tar.gz`. All of them are built, tested and packaged by continuous
 integration.
@@ -136,7 +136,7 @@ resposta própria, toda sintetizada. Você julga a resposta, e o Trioio
 aprende com a sua escuta.
 
 **Autoria:** Lúcio de Araújo · **Família:** [RASGO](https://rasgoinstruments.arquiviagem.net/) ·
-**Versão:** v0.1.0 (prévia) · **Licença:** GNU AGPL-3.0-or-later (ver [`LICENSE`](LICENSE)
+**Versão:** v0.1.1 (prévia) · **Licença:** GNU AGPL-3.0-or-later (ver [`LICENSE`](LICENSE)
 e [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md))
 
 ### O que é
@@ -196,7 +196,7 @@ Datamuse), e ela vem desligada.
 
 ### Download
 
-[**Release v0.1.0**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0):
+[**Release v0.1.1**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.1):
 `.exe` e `.zip` portátil do Windows, `.dmg` do macOS, `.deb`, AppImage e
 `.tar.gz` do Linux. Todos são construídos, testados e empacotados pela
 integração contínua.
@@ -248,7 +248,7 @@ compose sa propre réponse, entièrement synthétisée. Vous jugez la réponse,
 et Trioio apprend de votre écoute.
 
 **Auteur :** Lúcio de Araújo · **Famille :** [RASGO](https://rasgoinstruments.arquiviagem.net/) ·
-**Version :** v0.1.0 (aperçu) · **Licence :** GNU AGPL-3.0-or-later (voir [`LICENSE`](LICENSE)
+**Version :** v0.1.1 (aperçu) · **Licence :** GNU AGPL-3.0-or-later (voir [`LICENSE`](LICENSE)
 et [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md))
 
 ### Ce que c'est
@@ -310,7 +310,7 @@ publics (Wikidata, Datamuse), et elle est désactivée par défaut.
 
 ### Téléchargement
 
-[**Version v0.1.0**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0) :
+[**Version v0.1.1**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.1) :
 `.exe` et `.zip` portable pour Windows, `.dmg` pour macOS, `.deb`, AppImage
 et `.tar.gz` pour Linux. Tous sont construits, testés et empaquetés par
 l'intégration continue.
@@ -349,7 +349,7 @@ pulso, armonía, melodía y lenguaje musical, y compone una respuesta propia,
 toda sintetizada. Juzgas la respuesta, y Trioio aprende de tu escucha.
 
 **Autoría:** Lúcio de Araújo · **Familia:** [RASGO](https://rasgoinstruments.arquiviagem.net/) ·
-**Versión:** v0.1.0 (vista previa) · **Licencia:** GNU AGPL-3.0-or-later (ver [`LICENSE`](LICENSE)
+**Versión:** v0.1.1 (vista previa) · **Licencia:** GNU AGPL-3.0-or-later (ver [`LICENSE`](LICENSE)
 y [`CREDITS_AND_SOURCES.md`](CREDITS_AND_SOURCES.md))
 
 ### Qué es
@@ -409,7 +409,7 @@ públicos (Wikidata, Datamuse), y viene desactivada.
 
 ### Descarga
 
-[**Versión v0.1.0**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.0):
+[**Versión v0.1.1**](https://github.com/lucioaraujo/trioio/releases/tag/v0.1.1):
 `.exe` y `.zip` portátil para Windows, `.dmg` para macOS, `.deb`, AppImage y
 `.tar.gz` para Linux. Todos se construyen, prueban y empaquetan en la
 integración continua.
