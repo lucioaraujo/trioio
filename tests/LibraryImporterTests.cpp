@@ -54,13 +54,31 @@ static void escreverMidi(const juce::File& f)
 }
 
 // estado da Biblioteca: caminho -> hash do conteúdo + data de modificação
+// o retrato da Biblioteca: as entradas, e de cada arquivo o conteúdo e a data
+// lida do próprio arquivo. A data das PASTAS fica de fora: no NTFS ela vem do
+// índice do diretório pai, atualizado de forma preguiçosa, e mudava sem
+// nenhuma escrita (a CI do Windows, 2026-10-19)
 static std::map<juce::String, juce::String> retrato(const juce::File& raiz)
 {
     std::map<juce::String, juce::String> r;
     for (const auto& e : juce::RangedDirectoryIterator(raiz, true, "*", juce::File::findFilesAndDirectories))
-        r[e.getFile().getFullPathName()] = (e.isDirectory() ? juce::String("dir")
-            : juce::SHA256(e.getFile()).toHexString()) + "@" + juce::String(e.getModificationTime().toMilliseconds());
+        r[e.getFile().getFullPathName()] = e.isDirectory() ? juce::String("dir")
+            : juce::SHA256(e.getFile()).toHexString() + "@" + juce::String(e.getFile().getLastModificationTime().toMilliseconds());
     return r;
+}
+
+// o que mudou entre dois retratos (para a falha dizer onde)
+static bool igual(const std::map<juce::String, juce::String>& a, const std::map<juce::String, juce::String>& b)
+{
+    if (a == b)
+        return true;
+    for (const auto& [k, v] : a)
+        if (!b.count(k) || b.at(k) != v)
+            std::fprintf(stderr, "  mudou/sumiu: %s (%s → %s)\n", k.toRawUTF8(), v.toRawUTF8(), b.count(k) ? b.at(k).toRawUTF8() : "—");
+    for (const auto& [k, v] : b)
+        if (!a.count(k))
+            std::fprintf(stderr, "  apareceu: %s\n", k.toRawUTF8());
+    return false;
 }
 
 static std::map<std::string, Manifest> manifestos(const juce::File& dados)
@@ -115,7 +133,7 @@ int main()
     CHECK(r.errors.empty());
     CHECK(r.registered == 4);
     CHECK(r.skipped.size() == 1);  // quebrado.wav
-    CHECK(retrato(lib) == antes);
+    CHECK(igual(antes, retrato(lib)));
     auto ms = manifestos(dados);
     CHECK(ms.size() == 4);
     for (const auto& [id, m] : ms)
@@ -208,7 +226,7 @@ int main()
         const auto antes2 = retrato(lib);
         r = scanLibrary(L, dentro.getFullPathName().toStdString(), {}, nullptr, "2026-10-05T10:35:00Z");
         CHECK(!r.errors.empty() && r.registered == 0);
-        CHECK(retrato(lib) == antes2);
+        CHECK(igual(antes2, retrato(lib)));
     }
 
     // 8. manifesto ilegível: relatado, nunca sobrescrito, o arquivo é pulado
