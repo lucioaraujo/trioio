@@ -2711,3 +2711,15 @@ defeitos fora do Linux (`docs/MULTIPLATAFORMA.md`).
   do autor.**
 - **Numa versão nova:** mudar `VERSAO` em `website/gerar_paginas.py` e em
   `website/seo.py`, e gerar as páginas de novo.
+
+**2026-10-19: as menções a Vitoriamario no repositório público.** São 82, em
+9 arquivos. Entre elas:
+
+- o anagrama, em `docs/TRIOIO_CONCEITO.md`, na proposta e nas tarefas;
+- "Identidade: Vitoriamario";
+- o jogo de Vitoriamario, em `docs/JOGO.md`.
+
+**Decisão do autor:** "deixar como está". Os documentos de desenvolvimento
+são o registro do processo. A regra de não trazer o anagrama vale para os
+textos de apresentação: o site e o README em quatro idiomas, que não o
+trazem.
