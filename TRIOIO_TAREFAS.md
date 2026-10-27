@@ -217,7 +217,11 @@ Ver `docs/ESCUTA.md`. Também: as famílias percussivas hospedadas saíram de
 moveu `~/Music/Rasgo Synth` para liberar espaço; ela tinha a referência de
 todas as versões, `rasgo_integrated_20261004_191505.wav`. Os testes de
 ponta a ponta passaram a usar uma referência sintética própria. **Renders
-novos vão para `/media/luc/4tb_21042021/TRIOIO_respostas/`.** Antes de
+novos vão para `AUDIOS_RASGO/Trioio/escutas/AAAA-MM-DD-tema/`** (a pasta
+`TRIOIO_respostas`, usada até ali, foi desfeita em 2026-10-28: as três
+referências viraram arquivos reais em `AUDIOS_RASGO/Trioio/referencias/`, os
+gabaritos já estavam em `dados/gabaritos/`, e o resto foi para a Lixeira do
+disco). Antes de
 qualquer render ou build, conferir que `/` tem pelo menos 5 GB livres. Os
 1,8 GB de renders antigos em `~/Music/TRIOIO_respostas` aguardam a decisão
 do autor.
@@ -834,7 +838,8 @@ de sorteio guiado por novidade) e versão ao vivo.
   - `ComposerTests §8` pegou o croma harmônico apagando a melodia
     sozinha, e foi isso que levou à decisão por peça.
 - **Pendente com o autor:** preencher os gabaritos em
-  `/media/luc/4tb_21042021/TRIOIO_respostas/gabaritos/` (Suno e vocalise).
+  `AUDIOS_RASGO/Trioio/dados/gabaritos/` (Suno e vocalise; até 2026-10-28
+  havia uma cópia idêntica em `TRIOIO_respostas/gabaritos/`).
   Depois:
   1. `trioio_biblioteca avaliar <dados> <id> --gabarito ARQUIVO`;
   2. calibrar os limiares (fração percussiva 0,40; forma 0,8).

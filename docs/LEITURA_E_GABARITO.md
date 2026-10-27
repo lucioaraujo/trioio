@@ -700,8 +700,9 @@ fim: 2:18
 - **Erros:** voltam com o número da linha.
 
 Os gabaritos das duas referências de trabalho estão em
-`/media/luc/4tb_21042021/TRIOIO_respostas/gabaritos/`, fora do
-repositório, como as próprias referências.
+`/media/luc/4tb_21042021/AUDIOS_RASGO/Trioio/dados/gabaritos/`, fora do
+repositório, como as próprias referências (em
+`AUDIOS_RASGO/Trioio/referencias/`).
 
 ## Métricas (`avaliar`)
 

@@ -74,7 +74,8 @@ bugs antes de criar os instaladores"):
 **Testado no Linux, local:** a árvore instalada abre o app (Xvfb e a
 janela conferida), e o app lê os dados da instalação
 (`usr/share/trioio/data`, conferido com o `strace`). O `.deb` e o
-`.tar.gz` foram gerados localmente, em `TRIOIO_respostas/pacotes-0.1.0/`.
+`.tar.gz` foram gerados localmente (em `TRIOIO_respostas/pacotes-0.1.0/`,
+pasta desfeita em 2026-10-28; os publicados estão na release v0.1.0).
 O `.deb` local pede a glibc 2.38 desta máquina; o `.deb` publicado sai da
 CI, no Ubuntu 22.04.
 
