@@ -1,5 +1,18 @@
 # TRIOIO — tarefas
 
+## Pendências de 2026-10-27
+
+- [x] Biblioteca: "esconder recusados (N)" (`138d946`): tira da vista,
+      nunca apaga o manifesto; guardado em `esconder_recusados`. Sai na
+      próxima versão.
+- [x] A captura do autor em 1920×1006 (`docs/design/trioio-interface-1920x1006.png`,
+      app em FR) é a do card do portal RASGO (`trioio-1920.jpg`).
+- [ ] **Idioma misturado:** com a interface em francês, o Terceiro Olho e
+      os nomes das seções saem em português ("reste : a escala fica
+      mutada", "a música segue para onde o gesto levou", "retorno de D
+      (como na seção…)"). Esses textos vêm do compositor/dramaturgia sem
+      passar pela tradução. Conferir as quatro línguas.
+
 ## ▶ Ponto de retomada (2026-10-18, manhã)
 
 **Estado:**
