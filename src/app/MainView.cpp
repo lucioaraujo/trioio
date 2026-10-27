@@ -12,6 +12,7 @@
 #include "Intent.h"
 #include "ThirdEye.h"
 
+#include <algorithm>
 #include <juce_cryptography/juce_cryptography.h>
 
 #include <cmath>
@@ -1347,6 +1348,14 @@ MainView::MainView()
     addAndMakeVisible(libraryTitle_);
     library_.setModel(this);
     library_.setRowHeight(56);
+    addChildComponent(hideRefused_);
+    hideRefused_.onClick = [this] {
+        if (onHideRefusedChanged)
+            onHideRefusedChanged(hideRefused_.getToggleState());
+        const auto keep = refIndex_ >= 0 && refIndex_ < static_cast<int>(refs_.size())
+            ? refs_[static_cast<std::size_t>(refIndex_)].id : std::string();
+        reloadReferences(keep);
+    };
     addAndMakeVisible(library_);
     libraryCard_.setColour(juce::Label::textColourId, Tokens::text2);
     libraryCard_.setFont(juce::FontOptions(Tokens::smallFont));
@@ -1604,6 +1613,7 @@ void MainView::applyLanguage()
     responsePicker_.setTextWhenNoChoicesAvailable(tr(S::noResponses, lang_));
     responsePicker_.setTextWhenNothingSelected(tr(S::pickResponse, lang_));
     libraryTitle_.setText(tr(S::pageLibrary, lang_), juce::dontSendNotification);
+    updateHideRefused();
     openButton_.setButtonText(tr(S::openData, lang_));
     bringButton_.setButtonText(tr(S::bring, lang_));
     bringBigButton_.setButtonText(tr(S::bring, lang_));
@@ -1768,7 +1778,7 @@ void MainView::openDataRoot(const std::string& root)
     model_.setDataRoot(root);
     if (onDataRootChanged)
         onDataRootChanged(root);
-    refs_ = model_.references();
+    refs_ = listedReferences();
     library_.updateContent();
     library_.repaint();
     if (refs_.empty())
@@ -1865,9 +1875,35 @@ void MainView::bringRecording()
     });
 }
 
+std::vector<ReferenceItem> MainView::listedReferences()
+{
+    auto all = model_.references();
+    refusedCount_ = static_cast<int>(std::count_if(all.begin(), all.end(),
+        [](const ReferenceItem& r) { return r.status == "recusado"; }));
+    if (hideRefused_.getToggleState())
+        all.erase(std::remove_if(all.begin(), all.end(),
+                                 [](const ReferenceItem& r) { return r.status == "recusado"; }), all.end());
+    updateHideRefused();
+    return all;
+}
+
+// a caixa só aparece quando há recusadas (ou quando está marcada), com o número
+void MainView::updateHideRefused()
+{
+    hideRefused_.setButtonText(tr(S::hideRefused, lang_) + " (" + juce::String(refusedCount_) + ")");
+    hideRefused_.setTooltip(tr(S::hideRefusedTip, lang_));
+    const bool libraryShown = library_.isVisible();
+    hideRefused_.setVisible(!demo_ && libraryShown && (refusedCount_ > 0 || hideRefused_.getToggleState()));
+}
+
+void MainView::setHideRefused(bool hide)
+{
+    hideRefused_.setToggleState(hide, juce::dontSendNotification);
+}
+
 void MainView::reloadReferences(const std::string& selectId)
 {
-    refs_ = model_.references();
+    refs_ = listedReferences();
     library_.updateContent();
     library_.repaint();
     for (int i = 0; i < static_cast<int>(refs_.size()); ++i)
@@ -2908,6 +2944,7 @@ void MainView::resized()
         authButton_.setBounds(lib.removeFromBottom(Tokens::minTarget));
         lib.removeFromBottom(6);
         libraryCard_.setBounds(lib.removeFromBottom(96));
+        hideRefused_.setBounds(lib.removeFromBottom(Tokens::minTarget));
         library_.setBounds(lib);
         layoutLanguage(r.removeFromRight(380));
         // no completo, a Biblioteca já está à esquerda: as abas só alternam
@@ -2920,6 +2957,7 @@ void MainView::resized()
         pageButtons_[2].setBounds(tabs.removeFromLeft(150));
         for (juce::Component* c : std::initializer_list<juce::Component*> { &libraryTitle_, &library_, &libraryCard_, &openButton_, &bringButton_, &languagePanel_ })
             c->setVisible(true);
+        updateHideRefused();
         const bool yours = page_ == 2;
         tracksViewport_.setVisible(!yours);
         listeningPage_->setVisible(yours);
@@ -2933,6 +2971,7 @@ void MainView::resized()
     // Linguagem como gaveta por cima
     for (juce::Component* c : std::initializer_list<juce::Component*> { &libraryTitle_, &library_, &libraryCard_, &openButton_, &bringButton_ })
         c->setVisible(libraryPage);
+    updateHideRefused();
     const bool yoursPage = page_ == 2;
     tracksViewport_.setVisible(!libraryPage && !yoursPage);
     listeningPage_->setVisible(yoursPage);
@@ -2949,6 +2988,7 @@ void MainView::resized()
         openButton_.setBounds(card.removeFromBottom(Tokens::minTarget));
         card.removeFromBottom(6);
         authButton_.setBounds(card.removeFromBottom(Tokens::minTarget));
+        hideRefused_.setBounds(card.removeFromBottom(Tokens::minTarget));
         libraryCard_.setBounds(card);
         library_.setBounds(lib);
     }

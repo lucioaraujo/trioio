@@ -384,6 +384,13 @@ inline const L4 newResponse { "new response: ", "resposta nova: ", "nouvelle ré
 // os estados e origens que vêm dos manifestos (chaves em português)
 inline const L4 statusAuthorised { "authorised", "autorizado", "autorisée", "autorizada" };
 inline const L4 statusPending { "pending", "pendente", "en attente", "pendiente" };
+// a Biblioteca sem as recusadas (o autor, 2026-10-27): só a vista; o
+// manifesto fica (a proveniência nunca se apaga)
+inline const L4 hideRefused { "hide refused", "esconder recusados", "masquer les refusées", "ocultar rechazadas" };
+inline const L4 hideRefusedTip { "Hides the refused references from the list. Nothing is deleted: the record stays, and unticking shows them again.",
+                                 "Tira da lista as referências recusadas. Nada é apagado: o registro fica, e desmarcar mostra de novo.",
+                                 "Retire de la liste les références refusées. Rien n'est effacé : le registre reste, et décocher les montre à nouveau.",
+                                 "Quita de la lista las referencias rechazadas. Nada se borra: el registro queda, y desmarcar las muestra de nuevo." };
 inline const L4 statusRefused { "refused", "recusado", "refusée", "rechazada" };
 inline const L4 statusRevoked { "revoked", "revogado", "révoquée", "revocada" };
 inline const L4 statusUnavailable { "unavailable", "indisponível", "indisponible", "no disponible" };

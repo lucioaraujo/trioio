@@ -159,6 +159,11 @@ public:
             props_.saveIfNeeded();
         };
         view->setDeclarer(props_.getValue("declarante", juce::SystemStats::getFullUserName()));
+        view->setHideRefused(props_.getBoolValue("esconder_recusados", false));
+        view->onHideRefusedChanged = [this](bool hide) {
+            props_.setValue("esconder_recusados", hide);
+            props_.saveIfNeeded();
+        };
         view->onDeclarerChanged = [this](const juce::String& name) {
             props_.setValue("declarante", name);
             props_.saveIfNeeded();

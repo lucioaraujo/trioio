@@ -4,6 +4,14 @@ What changed between the published versions of Trioio. The development
 notes, in Portuguese, are in [`DESENVOLVIMENTO.md`](DESENVOLVIMENTO.md) and
 [`TRIOIO_TAREFAS.md`](TRIOIO_TAREFAS.md).
 
+## Unreleased
+
+- **Library: "hide refused (N)".** A box in the Library hides the refused
+  references from the list. Nothing is deleted: the record of each
+  reference stays (provenance is never erased), and unticking shows them
+  again. The choice is remembered. The box appears only when there is a
+  refused reference.
+
 ## v0.1.1 — 2026-10-19 (preview)
 
 - **The "file ▾" button** next to the chosen response:

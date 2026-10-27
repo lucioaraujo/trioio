@@ -57,6 +57,9 @@ public:
     // a aplicação guarda a raiz escolhida e o nome de quem declara
     std::function<void(const std::string& root)> onDataRootChanged;
     void setDeclarer(const juce::String& name) { declarer_ = name; }
+    // a Biblioteca sem as recusadas (guardado nas preferências pelo Main)
+    void setHideRefused(bool hide);
+    std::function<void(bool)> onHideRefusedChanged;
     std::function<void(const juce::String&)> onDeclarerChanged;
     // onde a raiz de dados é criada quando o performer traz a primeira gravação
     juce::File defaultDataRoot;
@@ -112,6 +115,9 @@ private:
     void bringRecording();                 // escolher o arquivo, registrar, pedir a autorização
     bool ensureDataRoot();                 // cria a raiz padrão se não houver
     void reloadReferences(const std::string& selectId);
+    // as referências da lista: todas, ou sem as recusadas
+    [[nodiscard]] std::vector<ReferenceItem> listedReferences();
+    void updateHideRefused();
     void showAuth(bool show);
     void updateLibraryButtons();
     void toggleReferencePlayback();
@@ -198,6 +204,8 @@ private:
     juce::Slider influenceStrength_;
     juce::ComboBox pitch_, technique_, seam_, cycle_, voicing_, intention_, form_, tempo_, ensemble_, harmonyLang_;
     juce::Slider unpredictability_, rasgo_;
+    juce::ToggleButton hideRefused_;
+    int refusedCount_ = 0;
     juce::ToggleButton semantic_;  // a ponte semântica (library/SemanticBridge.h): desligada por padrão
     juce::Label semanticStatus_;
     int semanticGeneration_ = 0;   // a consulta enquanto se escreve: só a última vale
