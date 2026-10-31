@@ -62,24 +62,28 @@ inline const std::array<Chapter, 11> chapters {{
         "2. Click \"bring a recording…\" and pick the file.\n"
         "3. A new recording starts as pending. Click \"authorise…\" and state its origin (your own, a capture, another instrument, AI, licensed, public domain…), with what right it may be used and who declares it.\n"
         "4. Click \"authorise\".\n\n"
+        "You can also drag one audio or MIDI file into the window. In the Library, \"source audio ▾\" shows the registered file or keeps a copy in Trioio's data folder under fontes/. \"library folder ▾\" opens the current folder or lets you choose another one.\n\n"
         "Without authorisation Trioio does not compose on a recording. This protects provenance: every response keeps the record of where its reference came from.\n\n"
-        "If the app opens in demonstration mode, use \"open data folder…\" to choose where Trioio keeps its data.",
+        "If the app opens in demonstration mode, use \"library folder ▾\" to choose where Trioio keeps its data.",
         "1. Clique em \"escolher referência\": ele leva à Biblioteca.\n"
         "2. Clique em \"trazer gravação…\" e escolha o arquivo.\n"
         "3. Uma gravação nova começa pendente. Clique em \"autorizar…\" e diga a origem (autoral, captura, outro instrumento, IA, licenciado, domínio público…), com que direito ela pode ser usada e quem declara.\n"
         "4. Clique em \"autorizar\".\n\n"
+        "Você também pode arrastar um arquivo de áudio ou MIDI para a janela. Na Biblioteca, \"áudio de origem ▾\" mostra o arquivo registrado ou guarda uma cópia na pasta fontes/ dos dados do Trioio. \"pasta da biblioteca ▾\" abre a pasta atual ou permite escolher outra.\n\n"
         "Sem autorização, o Trioio não compõe sobre a gravação. Isso protege a proveniência: cada resposta guarda o registro de onde veio a sua referência.\n\n"
-        "Se o app abrir em demonstração, use \"abrir pasta de dados…\" para escolher onde o Trioio guarda os dados.",
+        "Se o app abrir em demonstração, use \"pasta da biblioteca ▾\" para escolher onde o Trioio guarda os dados.",
         "1. Cliquez sur « choisir une référence » : cela mène à la Bibliothèque.\n"
         "2. Cliquez sur « apporter un enregistrement… » et choisissez le fichier.\n"
         "3. Un nouvel enregistrement commence en attente. Cliquez sur « autoriser… » et indiquez son origine (personnelle, captation, autre instrument, IA, sous licence, domaine public…), avec quel droit il peut être utilisé et qui le déclare.\n"
         "4. Cliquez sur « autoriser ».\n\n"
+        "Vous pouvez aussi déposer un seul fichier audio ou MIDI dans la fenêtre. Dans la Bibliothèque, « audio d'origine ▾ » affiche le fichier enregistré ou en garde une copie dans le dossier fontes/ des données de Trioio. « dossier de la bibliothèque ▾ » ouvre le dossier actuel ou permet d'en choisir un autre.\n\n"
         "Sans autorisation, Trioio ne compose pas sur l'enregistrement. Cela protège la provenance : chaque réponse garde la trace de l'origine de sa référence.\n\n"
-        "Si l'app s'ouvre en démonstration, utilisez « ouvrir le dossier de données… » pour choisir où Trioio garde ses données.",
+        "Si l'app s'ouvre en démonstration, utilisez « dossier de la bibliothèque ▾ » pour choisir où Trioio garde ses données.",
         "1. Haz clic en «elegir una referencia»: lleva a la Biblioteca.\n"
         "2. Haz clic en «traer una grabación…» y elige el archivo.\n"
         "3. Una grabación nueva empieza pendiente. Haz clic en «autorizar…» e indica su origen (propia, captura, otro instrumento, IA, con licencia, dominio público…), con qué derecho puede usarse y quién lo declara.\n"
         "4. Haz clic en «autorizar».\n\n"
+        "También puedes soltar un solo archivo de audio o MIDI en la ventana. En la Biblioteca, «audio de origen ▾» muestra el archivo registrado o guarda una copia en la carpeta fontes/ de los datos de Trioio. «carpeta de biblioteca ▾» abre la carpeta actual o permite elegir otra.\n\n"
         "Sin autorización, Trioio no compone sobre la grabación. Eso protege la procedencia: cada respuesta guarda el registro de dónde vino su referencia.\n\n"
         "Si la app abre en demostración, usa «abrir carpeta de datos…» para elegir dónde Trioio guarda sus datos." },
       { "Start with a short recording of your own, 30 s to 2 min: the first listening is quicker and you know the material.",

@@ -98,6 +98,14 @@ continua sem prova confiável porque a automação gráfica selecionou um arquiv
 alheio na tentativa anterior. Nenhuma origem do usuário foi alterada. Próximo
 passo: validar manualmente o arrastar/soltar e o seletor em sessão normal.
 
+**Tutorial, idiomas e operação:** o capítulo de importação em
+`src/app/Tutorial.h` foi alinhado aos controles atuais e explica arrastar um
+áudio/MIDI, revelar ou copiar a fonte e escolher a pasta da biblioteca em
+inglês, português, francês e espanhol. `docs/BIBLIOTECA_OPERACAO.md` agora
+documenta `fontes/`, a cópia sem mover o original e a exigência de autorização.
+Build Release incremental passou após a alteração do tutorial; `git diff
+--check` passou.
+
 ## Pendências de 2026-10-27
 
 - [x] Biblioteca: "esconder recusados (N)" (`138d946`): tira da vista,

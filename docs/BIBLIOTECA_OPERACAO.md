@@ -22,9 +22,17 @@ do app em [`COMO_TOCAR.md`](COMO_TOCAR.md). Os comandos são do
 | `cache/analise/` | a análise de cada conteúdo (pelo SHA-256) | sim: é reconstruível (`limpar-cache`) |
 | `sessoes/` | cada resposta: WAV, MIDI, stems, `decisoes.json` | as de teste: `limpar` |
 | `lixeira/AAAA-MM-DD/` | as sessões tiradas por `limpar` (reversível) | `esvaziar-lixeira`, depois de 7 dias |
+| `fontes/` | cópias opcionais de referências, guardadas pela interface | apagar somente se o autor confirmar que não são a única cópia útil |
 
 O original de cada referência **fica onde estava**. O índice guarda só o
 caminho canônico, o tamanho, a data e o SHA-256 do conteúdo.
+
+Na página **Biblioteca**, **áudio de origem ▾** permite revelar o arquivo
+registrado ou guardar uma cópia em `fontes/`; o original não é movido. A
+cópia mantém a identidade e a autorização do manifesto. **Pasta da biblioteca
+▾** revela a raiz atual ou permite escolher outra. Também se pode arrastar um
+arquivo de áudio ou MIDI para a janela, um arquivo por vez; ele entra como
+referência pendente e ainda exige autorização antes de análise ou composição.
 
 ## O fluxo de uma referência autoral
 
