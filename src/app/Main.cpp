@@ -155,6 +155,8 @@ public:
         view->onPlayTogether = [this](const std::string& response, const std::string& reference) { play(response, reference); };
         view->playPosition = [this] { return transport_.isPlaying() ? transport_.getCurrentPosition() : -1.0; };
         view->onDataRootChanged = [this](const std::string& root) {
+            if (loadingInitialRoot_)
+                return;
             props_.setValue("dados", juce::String::fromUTF8(root.c_str()));
             props_.saveIfNeeded();
         };
@@ -171,10 +173,12 @@ public:
         // sem raiz de dados: a tela vazia com o roteiro; a raiz é criada em
         // ~/Música/Trioio quando a primeira gravação chegar
         const auto root = dataRoot.isNotEmpty() ? dataRoot : props_.getValue("dados");
+        loadingInitialRoot_ = true;
         if (root.isNotEmpty() && juce::File(root).isDirectory())
             view->openDataRoot(root.toStdString());
         else
             view->showEmpty();
+        loadingInitialRoot_ = false;
 
         // a janela: o monitor e os limites salvos, revalidados; senão ~88 %
         // da área útil do monitor principal (WindowPolicy.h)
@@ -291,6 +295,7 @@ private:
 
     static constexpr int kReadAhead = 1 << 16;  // ~1,4 s a 48 kHz lidos antes, fora do callback
     juce::PropertiesFile& props_;
+    bool loadingInitialRoot_ = false;
     juce::TimeSliceThread readAhead_ { "Trioio: leitura" };
     juce::AudioDeviceManager devices_;
     juce::AudioFormatManager formats_;

@@ -42,7 +42,7 @@ class EyeTrack;
 class ResponseTrack;
 class GestureEditor;
 
-class MainView : public juce::Component, private juce::ListBoxModel
+class MainView : public juce::Component, public juce::FileDragAndDropTarget, private juce::ListBoxModel
 {
 public:
     MainView();
@@ -99,6 +99,11 @@ public:
     void openLanguage() { drawerButton_.setToggleState(true, juce::dontSendNotification); drawerOpen_ = true; resized(); }
 
     void paint(juce::Graphics&) override;
+    void paintOverChildren(juce::Graphics&) override;
+    bool isInterestedInFileDrag(const juce::StringArray& files) override;
+    void fileDragEnter(const juce::StringArray&, int, int) override;
+    void fileDragExit(const juce::StringArray&) override;
+    void filesDropped(const juce::StringArray& files, int, int) override;
     void resized() override;
 
     [[nodiscard]] Regime regime() const noexcept { return regime_; }
@@ -113,6 +118,7 @@ private:
 
     void selectReference(int index);
     void bringRecording();                 // escolher o arquivo, registrar, pedir a autorização
+    void importRecording(const juce::File& file); // também usado pelo arrastar e soltar
     bool ensureDataRoot();                 // cria a raiz padrão se não houver
     void reloadReferences(const std::string& selectId);
     // as referências da lista: todas, ou sem as recusadas
@@ -179,7 +185,8 @@ private:
 
     juce::ListBox library_;
     juce::Label libraryTitle_, libraryCard_;
-    juce::TextButton openButton_;
+    juce::TextButton openButton_, sourceButton_;
+    bool dropHighlight_ = false;
 
     struct Panel : juce::Component
     {

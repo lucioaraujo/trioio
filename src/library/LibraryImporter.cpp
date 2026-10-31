@@ -328,4 +328,29 @@ ScanReport scanLibrary(const std::string& libraryRoot, const std::string& dataRo
     return rep;
 }
 
+ManagedCopyResult copyReferenceToManagedFolder(const std::string& dataRoot,
+    const std::string& referenceId, const std::string& sourcePath)
+{
+    ManagedCopyResult result;
+    const juce::File source(u8(sourcePath));
+    const auto dir = juce::File(u8(dataRoot)).getChildFile("fontes");
+    if (!source.existsAsFile() || source.getSize() <= 0 || source.getSize() > 4ll * 1024 * 1024 * 1024) {
+        result.error = "fonte ausente ou acima do limite de 4 GiB"; return result;
+    }
+    if (source.isAChildOf(dir)) { result.ok = true; result.path = sourcePath; return result; }
+    if (!dir.createDirectory() || dir.getBytesFreeOnVolume() <= source.getSize() + 256ll * 1024 * 1024) {
+        result.error = "espaço livre insuficiente ou pasta indisponível"; return result;
+    }
+    const auto target = dir.getNonexistentChildFile(source.getFileNameWithoutExtension(), source.getFileExtension());
+    const auto partial = dir.getNonexistentChildFile(u8(referenceId) + "-partial", ".tmp");
+    if (!source.copyFileTo(partial) || !partial.moveFileTo(target)) {
+        (void) partial.deleteFile(); result.error = "falha ao copiar a fonte"; return result;
+    }
+    const auto report = scanLibrary(target.getFullPathName().toStdString(), dataRoot);
+    if (!report.errors.empty() || report.relocated + report.unchanged + report.reappeared + report.duplicates == 0) {
+        (void) target.deleteFile(); result.error = "a cópia não corresponde a uma referência registrada"; return result;
+    }
+    result.ok = true; result.path = target.getFullPathName().toStdString(); return result;
+}
+
 } // namespace trioio::library

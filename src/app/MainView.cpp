@@ -1361,16 +1361,75 @@ MainView::MainView()
     libraryCard_.setFont(juce::FontOptions(Tokens::smallFont));
     libraryCard_.setJustificationType(juce::Justification::topLeft);
     addAndMakeVisible(libraryCard_);
-    openButton_.setButtonText(u8("abrir pasta de dados…"));
+    openButton_.setButtonText(tr(S::dataMenu, lang_));
     openButton_.onClick = [this] {
-        auto chooser = std::make_shared<juce::FileChooser>(tr(S::dataRootTitle, lang_));
-        chooser->launchAsync(juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectDirectories,
-                             [this, chooser](const juce::FileChooser& fc) {
-                                 if (fc.getResult().isDirectory())
-                                     openDataRoot(fc.getResult().getFullPathName().toStdString());
-                             });
+        juce::PopupMenu menu;
+        menu.addItem(1, tr(S::dataShow, lang_), !model_.dataRoot().empty());
+        menu.addItem(2, tr(S::dataChoose, lang_));
+        juce::Component::SafePointer<MainView> self(this);
+        menu.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(&openButton_), [self](int choice) {
+            if (!self) return;
+            if (choice == 1)
+                juce::File(u8(self->model_.dataRoot())).revealToUser();
+            if (choice == 2)
+            {
+                auto chooser = std::make_shared<juce::FileChooser>(tr(S::dataRootTitle, self->lang_));
+                chooser->launchAsync(juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectDirectories,
+                    [self, chooser](const juce::FileChooser& fc) {
+                        if (self && fc.getResult().isDirectory())
+                            self->openDataRoot(fc.getResult().getFullPathName().toStdString());
+                    });
+            }
+        });
     };
     addAndMakeVisible(openButton_);
+    sourceButton_.setButtonText(tr(S::sourceMenu, lang_));
+    sourceButton_.onClick = [this] {
+        if (demo_ || refIndex_ < 0 || refIndex_ >= static_cast<int>(refs_.size()))
+            return;
+        const auto ref = refs_[static_cast<std::size_t>(refIndex_)];
+        const juce::File source(u8(ref.path));
+        juce::PopupMenu menu;
+        menu.addItem(1, tr(S::sourceShow, lang_), source.existsAsFile());
+        menu.addItem(2, tr(S::sourceKeep, lang_), source.existsAsFile() && !model_.dataRoot().empty());
+        juce::Component::SafePointer<MainView> self(this);
+        menu.showMenuAsync(juce::PopupMenu::Options().withTargetComponent(&sourceButton_), [self, ref](int choice) {
+            if (!self || choice == 0) return;
+            const juce::File source(u8(ref.path));
+            if (!source.existsAsFile()) {
+                self->setStatus(tr(S::sourceMissing, self->lang_));
+                return;
+            }
+            if (choice == 1) {
+                source.revealToUser();
+                return;
+            }
+            if (choice != 2 || self->model_.dataRoot().empty()) return;
+            const std::string root = self->model_.dataRoot();
+            const juce::File sourcesDir = juce::File(u8(root)).getChildFile("fontes");
+            if (source.isAChildOf(sourcesDir)) {
+                self->setStatus(tr(S::sourceStored, self->lang_) + u8(source.getFullPathName().toStdString()));
+                return;
+            }
+            self->sourceButton_.setEnabled(false);
+            self->setStatus(tr(S::sourceKeep, self->lang_) + u8("…"));
+            juce::Thread::launch([self, ref, root, source] {
+                const auto copied = library::copyReferenceToManagedFolder(
+                    root, ref.id, source.getFullPathName().toStdString());
+                const bool ok = copied.ok;
+                const auto saved = u8(copied.path);
+                juce::MessageManager::callAsync([self, ref, ok, saved] {
+                    if (!self) return;
+                    self->sourceButton_.setEnabled(true);
+                    if (ok) {
+                        self->reloadReferences(ref.id);
+                        self->setStatus(tr(S::sourceStored, self->lang_) + u8(": ") + saved);
+                    } else self->setStatus(tr(S::sourceCopyFailed, self->lang_));
+                });
+            });
+        });
+    };
+    addAndMakeVisible(sourceButton_);
     bringButton_.setColour(juce::TextButton::buttonColourId, Tokens::responseBlock);
     bringButton_.onClick = [this] { bringRecording(); };
     addAndMakeVisible(bringButton_);
@@ -1614,7 +1673,8 @@ void MainView::applyLanguage()
     responsePicker_.setTextWhenNothingSelected(tr(S::pickResponse, lang_));
     libraryTitle_.setText(tr(S::pageLibrary, lang_), juce::dontSendNotification);
     updateHideRefused();
-    openButton_.setButtonText(tr(S::openData, lang_));
+    openButton_.setButtonText(tr(S::dataMenu, lang_));
+    sourceButton_.setButtonText(tr(S::sourceMenu, lang_));
     bringButton_.setButtonText(tr(S::bring, lang_));
     bringBigButton_.setButtonText(tr(S::bring, lang_));
     authButton_.setButtonText(tr(S::authoriseButton, lang_));
@@ -1775,7 +1835,13 @@ void MainView::setPlaying(bool playing)
 void MainView::openDataRoot(const std::string& root)
 {
     demo_ = false;
+    refIndex_ = responseIndex_ = -1;
+    responses_.clear();
+    responsePicker_.clear(juce::dontSendNotification);
+    refTrack_->view = {};
+    responseTrack_->view = {};
     model_.setDataRoot(root);
+    openButton_.setTooltip(u8(root));
     if (onDataRootChanged)
         onDataRootChanged(root);
     refs_ = listedReferences();
@@ -1835,18 +1901,28 @@ void MainView::bringRecording()
 {
     if (importing_)
         return;
+    auto initialFolder = juce::File::getSpecialLocation(juce::File::userMusicDirectory);
+    if (refIndex_ >= 0 && refIndex_ < static_cast<int>(refs_.size())) {
+        const auto previous = juce::File(u8(refs_[static_cast<std::size_t>(refIndex_)].path));
+        if (previous.existsAsFile()) initialFolder = previous.getParentDirectory();
+    }
     auto chooser = std::make_shared<juce::FileChooser>(tr(S::chooseRecording, lang_),
-                                                       juce::File::getSpecialLocation(juce::File::userMusicDirectory),
+                                                       initialFolder,
                                                        "*.wav;*.aif;*.aiff;*.flac;*.mp3;*.ogg;*.opus;*.m4a;*.aac;*.webm;*.mid;*.midi");
     juce::Component::SafePointer<MainView> self(this);
     chooser->launchAsync(juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles,
                          [self, chooser](const juce::FileChooser& fc) {
-        const auto f = fc.getResult();
-        if (!self || !f.existsAsFile() || !self->ensureDataRoot())
-            return;
-        self->importing_ = true;
-        self->setStatus(tr(S::registering, self->lang_) + f.getFileName() + u8("…"));
-        const auto root = self->model_.dataRoot();
+        if (self) self->importRecording(fc.getResult());
+    });
+}
+
+void MainView::importRecording(const juce::File& f)
+{
+        if (importing_ || !f.existsAsFile() || !ensureDataRoot()) return;
+        importing_ = true;
+        setStatus(tr(S::registering, lang_) + f.getFileName() + u8("…"));
+        const auto root = model_.dataRoot();
+        juce::Component::SafePointer<MainView> self(this);
         // registrar e calcular o id (o SHA-256 do conteúdo, como o importador) fora da thread da tela
         juce::Thread::launch([self, f, root] {
             const auto rep = library::scanLibrary(f.getFullPathName().toStdString(), root);
@@ -1872,7 +1948,35 @@ void MainView::bringRecording()
                     self->setStatus(f.getFileName() + tr(S::alreadyKnown, self->lang_));
             });
         });
-    });
+}
+
+bool MainView::isInterestedInFileDrag(const juce::StringArray& files)
+{
+    return files.size() == 1 && juce::File(files[0]).existsAsFile()
+        && juce::File(files[0]).hasFileExtension("wav;aif;aiff;flac;mp3;ogg;opus;m4a;aac;webm;mid;midi");
+}
+
+void MainView::fileDragEnter(const juce::StringArray&, int, int)
+{
+    dropHighlight_ = true;
+    repaint();
+}
+
+void MainView::fileDragExit(const juce::StringArray&)
+{
+    dropHighlight_ = false;
+    repaint();
+}
+
+void MainView::filesDropped(const juce::StringArray& files, int, int)
+{
+    dropHighlight_ = false;
+    repaint();
+    if (!isInterestedInFileDrag(files)) {
+        setStatus(tr(S::dropOneAudio, lang_));
+        return;
+    }
+    importRecording(juce::File(files[0]));
 }
 
 std::vector<ReferenceItem> MainView::listedReferences()
@@ -1975,6 +2079,7 @@ void MainView::showAuth(bool show)
 void MainView::updateLibraryButtons()
 {
     const bool hasRef = !demo_ && refIndex_ >= 0 && refIndex_ < static_cast<int>(refs_.size());
+    sourceButton_.setEnabled(hasRef);
     const auto status = hasRef ? refs_[static_cast<std::size_t>(refIndex_)].status : std::string();
     authButton_.setVisible(hasRef && (status == "pendente" || status == "recusado" || status == "revogado")
                            && (regime_ == Regime::full || page_ == 1));
@@ -2172,6 +2277,7 @@ void MainView::refreshReferenceTexts()
         return;
     const auto& ref = refs_[static_cast<std::size_t>(refIndex_)];
     refButton_.setButtonText(u8(ref.name) + u8(" · ") + trKey(ref.status, lang_));
+    sourceButton_.setTooltip(u8(ref.path));
     libraryCard_.setText(tr(S::origin, lang_) + trKey(ref.origin, lang_) + "\n" + tr(S::state, lang_) + trKey(ref.status, lang_) + "\n"
                              + (ref.canDerive ? tr(S::uses, lang_) : tr(S::notDerivable, lang_)),
                          juce::dontSendNotification);
@@ -2682,6 +2788,13 @@ std::vector<std::pair<juce::String, juce::Component*>> MainView::essentials()
              { u8("compor de novo"), &composeButton_ }, { u8("idioma"), &langButton_ }, { u8("master"), &master_ } };
 }
 
+void MainView::paintOverChildren(juce::Graphics& g)
+{
+    if (!dropHighlight_) return;
+    g.setColour(Tokens::response.withAlpha(0.85f));
+    g.drawRoundedRectangle(getLocalBounds().reduced(8).toFloat(), 12.0f, 4.0f);
+}
+
 void MainView::paint(juce::Graphics& g)
 {
     g.fillAll(Tokens::background);
@@ -2939,6 +3052,8 @@ void MainView::resized()
         libraryTitle_.setBounds(lib.removeFromTop(28));
         bringButton_.setBounds(lib.removeFromTop(Tokens::minTarget));
         lib.removeFromTop(8);
+        sourceButton_.setBounds(lib.removeFromTop(Tokens::minTarget));
+        lib.removeFromTop(8);
         openButton_.setBounds(lib.removeFromBottom(Tokens::minTarget));
         lib.removeFromBottom(8);
         authButton_.setBounds(lib.removeFromBottom(Tokens::minTarget));
@@ -2955,7 +3070,7 @@ void MainView::resized()
         pageButtons_[0].setBounds(tabs.removeFromLeft(190));
         tabs.removeFromLeft(4);
         pageButtons_[2].setBounds(tabs.removeFromLeft(150));
-        for (juce::Component* c : std::initializer_list<juce::Component*> { &libraryTitle_, &library_, &libraryCard_, &openButton_, &bringButton_, &languagePanel_ })
+        for (juce::Component* c : std::initializer_list<juce::Component*> { &libraryTitle_, &library_, &libraryCard_, &openButton_, &sourceButton_, &bringButton_, &languagePanel_ })
             c->setVisible(true);
         updateHideRefused();
         const bool yours = page_ == 2;
@@ -2969,7 +3084,7 @@ void MainView::resized()
     }
     // compacto e emergência: a página de escuta ou a da Biblioteca; a
     // Linguagem como gaveta por cima
-    for (juce::Component* c : std::initializer_list<juce::Component*> { &libraryTitle_, &library_, &libraryCard_, &openButton_, &bringButton_ })
+    for (juce::Component* c : std::initializer_list<juce::Component*> { &libraryTitle_, &library_, &libraryCard_, &openButton_, &sourceButton_, &bringButton_ })
         c->setVisible(libraryPage);
     updateHideRefused();
     const bool yoursPage = page_ == 2;
@@ -2984,6 +3099,8 @@ void MainView::resized()
         auto card = lib.removeFromRight(std::min(380, lib.getWidth() / 2));
         lib.removeFromRight(12);
         bringButton_.setBounds(card.removeFromTop(Tokens::minTarget));
+        card.removeFromTop(8);
+        sourceButton_.setBounds(card.removeFromTop(Tokens::minTarget));
         card.removeFromTop(8);
         openButton_.setBounds(card.removeFromBottom(Tokens::minTarget));
         card.removeFromBottom(6);

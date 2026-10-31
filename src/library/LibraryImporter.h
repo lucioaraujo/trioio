@@ -40,6 +40,11 @@ struct ScanReport
     bool cancelled = false;
 };
 
+struct ManagedCopyResult { bool ok = false; std::string path, error; };
+[[nodiscard]] ManagedCopyResult copyReferenceToManagedFolder(
+    const std::string& dataRoot, const std::string& referenceId,
+    const std::string& sourcePath);
+
 // `libraryRoot` pode ser um arquivo só: registra só ele (sem tocar a pasta
 // vizinha nem dar ninguém por ausente).
 // `now` em ISO 8601 (vazio = relógio atual). `cancel` é consultado entre

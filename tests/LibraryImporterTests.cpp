@@ -1,5 +1,6 @@
 #include "LibraryImporter.h"
 #include "ManifestJson.h"
+#include "Declaration.h"
 
 #include <juce_audio_formats/juce_audio_formats.h>
 #include <juce_cryptography/juce_cryptography.h>
@@ -294,6 +295,25 @@ int main()
         CHECK(r.errors.empty() && r.registered == 1);
     }
 
+    // A cópia gerenciada conserva identidade e autorização no mesmo manifesto.
+    {
+        const auto dados = base.getChildFile("copia-gerenciada"); dados.createDirectory();
+        const auto fonte = base.getChildFile("copia-origem.wav"); escreverWav(fonte, 440.0);
+        auto report = scanLibrary(fonte.getFullPathName().toStdString(), dados.getFullPathName().toStdString());
+        CHECK(report.registered == 1);
+        const auto id = juce::File(juce::String(referenceManifestDir(dados.getFullPathName().toStdString())))
+            .findChildFiles(juce::File::findFiles, false, "*.json")[0].getFileNameWithoutExtension().toStdString();
+        AuthorizationRequest auth; auth.id = id; auth.origin = OriginCategory::authorial;
+        auth.basis = AuthorizationBasis::ownWork; auth.scope = static_cast<UseSet>(Use::derive);
+        auth.declaredBy = "Teste"; CHECK(authorize(dados.getFullPathName().toStdString(), auth).written);
+        const auto copy = copyReferenceToManagedFolder(dados.getFullPathName().toStdString(), id, fonte.getFullPathName().toStdString());
+        CHECK(copy.ok && juce::File(juce::String::fromUTF8(copy.path.c_str())).existsAsFile());
+        const auto manifestFile = juce::File(juce::String(referenceManifestDir(dados.getFullPathName().toStdString())))
+            .getChildFile(juce::String(id) + ".json");
+        const auto view = fromJson(manifestFile.loadFileAsString().toStdString());
+        CHECK(view.manifest && view.manifest->authorization.status == AuthorizationStatus::authorized);
+        CHECK(view.manifest && view.manifest->identity.canonicalPath == copy.path);
+    }
     base.deleteRecursively();
     if (falhas)
     {

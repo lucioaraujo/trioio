@@ -204,6 +204,16 @@ inline const L4 semanticNothing { "online: nothing to look up (every word was re
                                   "en ligne : rien à consulter (tous les mots ont été lus)", "red: nada que consultar (todas las palabras fueron leídas)" };
 // as ações de uma resposta (o botão "arquivo ▾", 2026-10-19)
 inline const L4 fileMenu { "file ▾", "arquivo ▾", "fichier ▾", "archivo ▾" };
+inline const L4 sourceMenu { "source audio ▾", "áudio de origem ▾", "audio source ▾", "audio de origen ▾" };
+inline const L4 sourceShow { "show registered audio in folder", "mostrar áudio registrado na pasta", "afficher l'audio enregistré dans le dossier", "mostrar audio registrado en la carpeta" };
+inline const L4 sourceKeep { "keep a copy in Trioio", "guardar cópia no Trioio", "garder une copie dans Trioio", "guardar copia en Trioio" };
+inline const L4 sourceStored { "copy stored in Trioio", "cópia guardada no Trioio", "copie conservée dans Trioio", "copia guardada en Trioio" };
+inline const L4 sourceMissing { "source audio unavailable", "áudio de origem indisponível", "audio source indisponible", "audio de origen no disponible" };
+inline const L4 sourceCopyFailed { "could not store the copy; check space and access", "não foi possível guardar a cópia; verifique espaço e acesso", "copie impossible ; vérifier l'espace et l'accès", "no se pudo guardar la copia; compruebe espacio y acceso" };
+inline const L4 dropOneAudio { "drop one audio or MIDI file at a time", "solte um áudio ou MIDI de cada vez", "déposer un fichier audio ou MIDI à la fois", "suelte un archivo de audio o MIDI a la vez" };
+inline const L4 dataMenu { "library folder ▾", "pasta da biblioteca ▾", "dossier bibliothèque ▾", "carpeta de biblioteca ▾" };
+inline const L4 dataShow { "show Trioio library", "mostrar biblioteca do Trioio", "afficher la bibliothèque Trioio", "mostrar biblioteca de Trioio" };
+inline const L4 dataChoose { "choose another library…", "escolher outra biblioteca…", "choisir une autre bibliothèque…", "elegir otra biblioteca…" };
 inline const L4 fileMenuTip { "Show this response's files, export them, or move the response to the trash",
                               "Mostrar os arquivos desta resposta, exportá-los ou mover a resposta para a lixeira",
                               "Afficher les fichiers de cette réponse, les exporter ou mettre la réponse à la corbeille",

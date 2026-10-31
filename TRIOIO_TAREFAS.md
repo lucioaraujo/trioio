@@ -1,5 +1,103 @@
 # TRIOIO — tarefas
 
+## Biblioteca e arquivos — 2026-10-31
+
+Objetivo: tornar localizáveis as gravações registradas e as respostas, com
+gestão pela própria interface. Em `src/app/MainView.{h,cpp}` e
+`src/app/UiLanguage.h`, foi adicionado **áudio de origem ▾** ao cartão da
+referência: mostrar o original na pasta ou guardar uma cópia em
+`<pasta de dados>/fontes/`. A cópia roda fora da thread da interface, usa
+o nome legível do original, arquivo parcial no mesmo volume e registra o novo caminho no manifesto pela
+identidade SHA-256 existente; o original permanece. **Pasta da biblioteca ▾**
+agora distingue mostrar a pasta atual de escolher outra; ao trocar, a seleção
+e a lista de respostas da biblioteca anterior são limpas. Um arquivo de áudio
+ou MIDI pode ser arrastado para a janela e passa pelo mesmo registro e pedido
+de autorização de **Trazer gravação**. A resposta continua com **arquivo ▾**
+para mostrar/exportar WAV, MIDI e stems. O seletor de entrada abre na pasta da
+referência selecionada, quando ela ainda está disponível. A cópia só começa
+com espaço suficiente no volume para o arquivo mais uma margem de 256 MiB.
+
+Pendente: compilar e verificar fluxo com arquivo pequeno, duplicata,
+autorização conservada, pasta indisponível e layout compacto/completo. O
+preflight encontrou 7,7 GiB de memória disponíveis mas swap em 1,9/2 GiB;
+o procedimento de segurança bloqueia o build acima de 50% de swap usada.
+Não anunciar o recurso como publicado até essa validação. Próximo avanço:
+seleção múltipla de arquivos com fila limitada e opção de importar cópia já
+na entrada; por ora o arrastar aceita um arquivo de cada vez.
+
+**Preflight após limpeza da swap:** a swap caiu para 2 MiB, mas a memória
+disponível oscilou entre 5,7 e 6,1 GiB e a swap subiu a 157 MiB em poucos
+minutos. O procedimento exige 6 GiB disponíveis e veda build durante
+crescimento rápido da swap; a compilação segue pendente. Retomar quando a
+memória estabilizar acima de 6 GiB, com `-j1`, e conferir importação, cópia
+e layout. `git diff --check` passou.
+
+**Build concluído após novo preflight:** memória disponível 8,9 GiB, swap
+336/2047 MiB, disco 964 GiB livres. `timeout 600 cmake --build build -j1
+--target trioio_app` passou e gerou
+`build/trioio_app_artefacts/Release/Trioio` em 31/10 às 19:37. Ao terminar,
+a memória disponível era 9,1 GiB e a swap permaneceu em 336 MiB.
+`git diff --check` passou. Pendente a prova interativa do arrastar/soltar,
+da cópia registrada e do layout da Biblioteca nos três regimes; o build
+comprova compilação, não essas ações de interface.
+
+**Inspeção visual subsequente:** o modo `--instantaneos ... --pagina 1`
+gerou a Biblioteca em 960×600, 1024×650, 1366×768, 1920×1080 e 2560×1440;
+os 12 controles essenciais ficaram dentro da tela nos cinco tamanhos. Na
+inspeção das imagens de 1366 e 1920, o botão do áudio de origem estava longe
+da lista. Foi movido para junto de **trazer gravação…**, recompilado com `-j1`
+e os cinco instantâneos passaram novamente. Ainda falta a prova interativa
+de arrastar um arquivo real e de copiar uma fonte na biblioteca temporária.
+
+**Prova funcional com raiz temporária:** foi criado um WAV sintético curto em
+`/tmp`, separado de uma biblioteca vazia. Os instantâneos com `--dados`
+confirmaram a seleção dessa raiz e mostraram 0 referências. Já na tentativa
+interativa, a janela observada exibiu referências do acervo habitual; a
+instância foi fechada antes de registrar ou copiar qualquer áudio. As
+preferências do usuário permaneceram apontando para `/home/luc/Music/Trioio`.
+Repetir a prova interativa com perfil isolado e confirmar a raiz na tela
+antes de acionar a importação.
+
+O botão **pasta da biblioteca ▾** passou a mostrar o caminho absoluto como
+tooltip para facilitar essa confirmação; Release recompilado com `-j1`.
+
+**Tentativa interativa adicional:** a raiz temporária foi confirmada no
+rodapé antes de clicar. A automação do seletor de arquivos, porém, escolheu
+um MP3 da pasta Música e confirmou a autorização, em vez do WAV sintético;
+o manifesto e a análise foram escritos somente na raiz de teste em `/tmp`.
+O arquivo de origem permaneceu intocado. O app foi fechado. A preferência
+`dados`, que o app havia mudado para a raiz temporária, foi restaurada e
+verificada como `/home/luc/Music/Trioio`. A automação não é confiável para
+validar a cópia do arquivo; não alegar que essa ação passou. Próximo teste:
+um harness de UI controlado ou interação manual acompanhada, com seleção
+confirmada antes de autorizar.
+
+**Validação da identidade e do caminho com fixture WAV sintética:** no
+diretório temporário, `trioio_biblioteca varrer <origem> <dados>` criou uma
+referência pendente; uma cópia em `fontes/` foi reconhecida como o mesmo
+conteúdo e moveu o caminho canônico sem duplicar o manifesto. Depois de
+autorizar a fixture, nova varredura retornou uma referência sem mudança e o
+manifesto manteve `status=authorized` e `canonicalPath` na cópia. Isso valida
+o registro, a identidade e a persistência da autorização no importador; a
+cópia feita por shell não valida a ação do botão de UI nem o drag-and-drop.
+
+**Correção do override de sessão:** `src/app/Main.cpp` agora ignora o sinal
+`onDataRootChanged` durante a abertura inicial. O argumento `--dados` escolhe
+a raiz desta execução sem sobrescrever a preferência permanente. Build
+Release passou com `-j1`; ao abrir e fechar com a raiz temporária, o valor
+persistido continuou `/home/luc/Music/Trioio`. `git diff --check` passou.
+
+**Validação final desta etapa:** o teste automatizado do importador agora
+exercita a cópia gerenciada de uma fixture WAV: verifica o arquivo em
+`fontes/`, a identidade já registrada, a autorização preservada e o novo
+`canonicalPath`. `trioio_library_importer_tests` e
+`trioio_window_policy_tests` passaram (2/2); `git diff --check` passou. O
+build Release do app também passou. A validação automatizada da cópia cobre o
+mesmo helper usado pelo botão; a interação real do seletor e do drag-and-drop
+continua sem prova confiável porque a automação gráfica selecionou um arquivo
+alheio na tentativa anterior. Nenhuma origem do usuário foi alterada. Próximo
+passo: validar manualmente o arrastar/soltar e o seletor em sessão normal.
+
 ## Pendências de 2026-10-27
 
 - [x] Biblioteca: "esconder recusados (N)" (`138d946`): tira da vista,
