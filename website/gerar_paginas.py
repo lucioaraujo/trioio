@@ -86,7 +86,7 @@ T = {
         "s_words": "Palavras, influências e gesto",
         "words": [["Palavras", "Escreva, se quiser, algumas palavras sobre a resposta — em qualquer língua, com ou sem acento, com erros de digitação. O Trioio lê a intenção, a forma e a dança, e mostra o que entendeu. Em branco, ele segue os próprios critérios."], ["A rede, opcional", "As palavras que o Trioio não conhece podem ser consultadas em serviços públicos (Wikidata, Datamuse). O cálculo é dele: os serviços só devolvem palavras. Vem desligada, porque as palavras saem do computador."], ["A árvore de influências", "Estilos não são gavetas: são ramos de uma árvore aberta, com contextos sociais, históricos, tecnológicos e de geração, e traços que são tendências, nunca regras. O Trioio cruza ramos distantes para chegar ao inesperado; as poéticas de artistas e bandas, quem escreve é o músico."], ["O gesto", "Desenhe a curva de intensidade da peça, e a resposta segue essa forma."]],
         "files": "Cada resposta fica na sua pasta de dados, com o WAV, o MIDI e os stems. Pelo botão arquivo ▾, junto da resposta, você abre a pasta dela, exporta tudo para onde quiser (para a DAW, por exemplo) ou a manda para a lixeira, de onde ela pode voltar.",
-        "tutorial": "O app traz um tutorial em quatro idiomas, do primeiro passo ao primeiro exercício.",
+        "tutorial": "O tutorial do app, em quatro idiomas, também explica como trazer gravações, escolher a pasta da Biblioteca e localizar ou guardar cópias dos áudios de origem.",
     },
     "en": {
         "title": "Trioio — listening, memory and response",
@@ -144,7 +144,7 @@ T = {
         "s_words": "Words, influences and gesture",
         "words": [["Words", "Write, if you like, a few words about the response — in any language, with or without accents, with typing mistakes. Trioio reads the intention, the form and the dance, and shows what it understood. Left blank, it follows its own criteria."], ["The network, optional", "Words Trioio does not know can be looked up in public services (Wikidata, Datamuse). The calculation is its own: the services only return words. It comes switched off, because the words leave the computer."], ["The influence tree", "Styles are not drawers: they are branches of an open tree, with social, historical, technological and generational contexts, and traits that are tendencies, never rules. Trioio crosses distant branches to reach the unexpected; the poetics of artists and bands are written by the musician."], ["The gesture", "Draw the intensity curve of the piece, and the response follows that shape."]],
         "files": "Every response stays in your data folder, with the WAV, the MIDI and the stems. With the file ▾ button next to the response you open its folder, export everything wherever you like (to a DAW, for example), or move it to the trash, from where it can come back.",
-        "tutorial": "The app includes a tutorial in four languages, from the first step to a first exercise.",
+        "tutorial": "The app's four-language tutorial also explains how to bring recordings, choose the Library folder, and locate or keep copies of source audio.",
     },
     "fr": {
         "title": "Trioio — écoute, mémoire et réponse",
@@ -202,7 +202,7 @@ T = {
         "s_words": "Mots, influences et geste",
         "words": [["Mots", "Écrivez, si vous voulez, quelques mots sur la réponse — dans n'importe quelle langue, avec ou sans accents, avec des fautes de frappe. Trioio lit l'intention, la forme et la danse, et montre ce qu'il a compris. Vide, il suit ses propres critères."], ["Le réseau, facultatif", "Les mots que Trioio ne connaît pas peuvent être consultés dans des services publics (Wikidata, Datamuse). Le calcul est le sien : les services ne renvoient que des mots. Il est désactivé par défaut, car les mots quittent l'ordinateur."], ["L'arbre des influences", "Les styles ne sont pas des tiroirs : ce sont les branches d'un arbre ouvert, avec des contextes sociaux, historiques, technologiques et générationnels, et des traits qui sont des tendances, jamais des règles. Trioio croise des branches éloignées pour atteindre l'inattendu ; les poétiques d'artistes et de groupes, c'est le musicien qui les écrit."], ["Le geste", "Dessinez la courbe d'intensité de la pièce, et la réponse suit cette forme."]],
         "files": "Chaque réponse reste dans votre dossier de données, avec le WAV, le MIDI et les stems. Avec le bouton fichier ▾, à côté de la réponse, vous ouvrez son dossier, exportez tout où vous voulez (vers une STAN, par exemple) ou la mettez à la corbeille, d'où elle peut revenir.",
-        "tutorial": "L'app comprend un tutoriel en quatre langues, du premier pas à un premier exercice.",
+        "tutorial": "Le tutoriel de l'app, en quatre langues, explique aussi comment importer des enregistrements, choisir le dossier de la Bibliothèque et retrouver ou conserver des copies des sources audio.",
     },
     "es": {
         "title": "Trioio — escucha, memoria y respuesta",
@@ -260,7 +260,7 @@ T = {
         "s_words": "Palabras, influencias y gesto",
         "words": [["Palabras", "Escribe, si quieres, algunas palabras sobre la respuesta — en cualquier idioma, con o sin acentos, con errores de tecleo. Trioio lee la intención, la forma y la danza, y muestra lo que entendió. En blanco, sigue sus propios criterios."], ["La red, opcional", "Las palabras que Trioio no conoce pueden consultarse en servicios públicos (Wikidata, Datamuse). El cálculo es suyo: los servicios solo devuelven palabras. Viene desactivada, porque las palabras salen del ordenador."], ["El árbol de influencias", "Los estilos no son cajones: son ramas de un árbol abierto, con contextos sociales, históricos, tecnológicos y de generación, y rasgos que son tendencias, nunca reglas. Trioio cruza ramas lejanas para llegar a lo inesperado; las poéticas de artistas y bandas las escribe el músico."], ["El gesto", "Dibuja la curva de intensidad de la pieza, y la respuesta sigue esa forma."]],
         "files": "Cada respuesta queda en tu carpeta de datos, con el WAV, el MIDI y los stems. Con el botón archivo ▾, junto a la respuesta, abres su carpeta, exportas todo adonde quieras (a la DAW, por ejemplo) o la mueves a la papelera, de donde puede volver.",
-        "tutorial": "La app trae un tutorial en cuatro idiomas, del primer paso a un primer ejercicio.",
+        "tutorial": "El tutorial de la app, en cuatro idiomas, también explica cómo importar grabaciones, elegir la carpeta de la Biblioteca y localizar o guardar copias de los audios de origen.",
     },
 }
 

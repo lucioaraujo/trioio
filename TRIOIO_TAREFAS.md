@@ -106,6 +106,12 @@ documenta `fontes/`, a cópia sem mover o original e a exigência de autorizaç�
 Build Release incremental passou após a alteração do tutorial; `git diff
 --check` passou.
 
+**Site do Trioio:** não há tutorial web separado; o site apresenta o tutorial
+que fica dentro do app. Atualizei essa apresentação na fonte
+`website/gerar_paginas.py` para explicitar que o tutorial nas quatro línguas
+cobre importação, escolha da pasta da Biblioteca e localização/guarda das
+fontes. As quatro páginas estáticas foram regeneradas.
+
 ## Pendências de 2026-10-27
 
 - [x] Biblioteca: "esconder recusados (N)" (`138d946`): tira da vista,
