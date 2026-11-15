@@ -8,6 +8,7 @@
 
 #include "AudioSource.h"
 #include "MainView.h"
+#include "MaestrucLink.h"   // regente da família (maestruc.link/1)
 
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_gui_basics/juce_gui_basics.h>
@@ -199,10 +200,71 @@ public:
         setResizeLimits(std::min(kMinW, main.w), std::min(kMinH, main.h), 8192, 8192);
         setBounds(r.x, r.y, r.w, r.h);
         setVisible(true);
+        // Maestruc (maestruc.link/1, 15/11/2026): o regente da família pode
+        // tocar a resposta escolhida e parar, e saber se toca. Compor e
+        // analisar não entram: dependem da autorização de quem declara.
+        // Desligado por padrão; liga com --maestruc ou TRIOIO_MAESTRUC=1.
+        if (juce::JUCEApplicationBase::getCommandLineParameterArray().contains("--maestruc")
+            || juce::SystemStats::getEnvironmentVariable("TRIOIO_MAESTRUC", {}) == "1")
+        {
+            maestrucLink_ = std::make_unique<rasgo::maestruc::Link>("Trioio", TRIOIO_VERSION);
+            auto& h = maestrucLink_->handlers;
+            h.play = [view](juce::int64) { view->playResponseFromOutside(); };
+            h.stop = [view] { view->stopFromOutside(); };
+            h.state = [this, view](bool& playing, juce::String& seed, float& bpm) {
+                playing = view->isPlayingNow() || transport_.isPlaying();
+                seed = {};
+                bpm = 0.0f;
+            };
+            // Mixer: o Trioio não tem mesa por canal; o Maestruc vê o MASTER
+            // (−1): o mesmo volume da tela, −60 (mudo) a +6 dB.
+            h.mixerList = [view](std::vector<rasgo::maestruc::MixerChannel>& channels) {
+                const auto db = static_cast<float>(view->masterDb());
+                channels.push_back({ -1, "MASTER", db, db <= -60.0f, false });
+            };
+            // MUDO leva o master a −60 dB (o mudo da tela) e devolve o nível de antes.
+            h.mixerSet = [this, view](int index, const juce::String& what, float value) {
+                if (index != -1)
+                    return false;
+                double db = 0.0;
+                if (what == "nivel")
+                {
+                    if (value < -60.0f || value > 6.0f)
+                        return false;
+                    db = value;
+                }
+                else if (what == "mudo")
+                {
+                    const bool mudo = value > 0.5f;
+                    if (mudo == (view->masterDb() <= -60.0))
+                        return true;
+                    if (mudo)
+                        maestrucNivelAntesDoMudo_ = view->masterDb();
+                    db = mudo ? -60.0 : maestrucNivelAntesDoMudo_;
+                }
+                else
+                    return false;
+                view->setMasterDb(db);
+                if (view->onMasterChanged)
+                    view->onMasterChanged(view->masterDb());
+                return true;
+            };
+            if (!maestrucLink_->start())
+                maestrucLink_.reset();
+            else
+            {
+                juce::Component::SafePointer<juce::Component> safe(view);
+                player_.aoComecar = [this, safe] { if (safe != nullptr) openMaestrucBridge(); };
+                openMaestrucBridge();
+            }
+        }
     }
 
     ~MainWindow() override
     {
+        player_.portao.fecharEsperar();   // o áudio deixa de usar a ponte do Maestruc
+        player_.aoComecar = nullptr;
+        maestrucLink_.reset();   // antes de tudo: nenhum comando chega a meio desmonte
         const auto b = getBounds();
         props_.setValue("janela", juce::String(b.getX()) + "," + juce::String(b.getY()) + "," + juce::String(b.getWidth()) + ","
                                       + juce::String(b.getHeight()));
@@ -299,7 +361,45 @@ private:
     juce::TimeSliceThread readAhead_ { "Trioio: leitura" };
     juce::AudioDeviceManager devices_;
     juce::AudioFormatManager formats_;
-    juce::AudioSourcePlayer player_;
+    // Maestruc (15/11/2026): o tocador de sempre, mais a ponte de som. Depois
+    // do bloco normal, a mistura vai ao Maestruc; enquanto ele lê, o Trioio
+    // cala a própria saída e volta sozinho se ele some. Sem `--maestruc` o
+    // portão fica fechado e nada muda.
+    struct MaestrucSourcePlayer final : juce::AudioSourcePlayer
+    {
+        rasgo::maestruc::PortaoDeSom portao;
+        std::atomic<double> taxa { 0.0 };
+        std::function<void()> aoComecar;   // chamado no fio de mensagens
+        void audioDeviceIOCallbackWithContext(const float* const* in, int numIn, float* const* out, int numOut,
+                                              int frames, const juce::AudioIODeviceCallbackContext& ctx) override
+        {
+            juce::AudioSourcePlayer::audioDeviceIOCallbackWithContext(in, numIn, out, numOut, frames, ctx);
+            if (portao.escrever(out, numOut, frames))
+                for (int c = 0; c < numOut; ++c)
+                    if (out[c] != nullptr)
+                        juce::FloatVectorOperations::clear(out[c], frames);
+        }
+        void audioDeviceAboutToStart(juce::AudioIODevice* device) override
+        {
+            juce::AudioSourcePlayer::audioDeviceAboutToStart(device);
+            portao.fecharEsperar();   // a ponte reabre na taxa nova
+            taxa.store(device != nullptr ? device->getCurrentSampleRate() : 0.0);
+            if (aoComecar)
+                juce::MessageManager::callAsync(aoComecar);
+        }
+    };
+    // Fio de mensagens. A ponte leva a mistura (um par estéreo) na taxa da placa.
+    void openMaestrucBridge()
+    {
+        player_.portao.fecharEsperar();
+        const double rate = player_.taxa.load();
+        if (maestrucLink_ == nullptr || rate <= 0.0)
+            return;
+        if (maestrucLink_->openSoundBridge(1, rate, { "mix" }))
+            player_.portao.abrir(maestrucLink_.get());
+    }
+    MaestrucSourcePlayer player_;
+    double maestrucNivelAntesDoMudo_ = 0.0;
     juce::MixerAudioSource mixer_;
     juce::AudioTransportSource transport_, transport2_;
     std::unique_ptr<juce::AudioFormatReaderSource> reader_, reader2_;
@@ -307,6 +407,7 @@ private:
     float masterGain_ = 1.0f;
     bool together_ = false, starting_ = false;
     int playToken_ = 0;
+    std::unique_ptr<rasgo::maestruc::Link> maestrucLink_;
 };
 } // namespace
 

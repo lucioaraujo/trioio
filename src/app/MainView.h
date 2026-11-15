@@ -76,8 +76,14 @@ public:
     std::function<void(const std::string& response, const std::string& reference)> onPlayTogether;
     std::function<double()> playPosition;  // segundos, < 0 = parado
     void setPlaying(bool playing);
+    // De fora (Maestruc, 15/11/2026): tocar a resposta escolhida (o mesmo ▶)
+    // e parar o que estiver tocando.
+    void playResponseFromOutside();
+    void stopFromOutside();
+    [[nodiscard]] bool isPlayingNow() const { return playing_; }
     // o volume master, em dB (−60 = mudo … +6); a aplicação aplica e guarda
     void setMasterDb(double db) { master_.setValue(db, juce::dontSendNotification); master_.updateText(); }
+    [[nodiscard]] double masterDb() const { return master_.getValue(); }
     std::function<void(double db)> onMasterChanged;
     // o idioma da interface (UiLanguage.h); a aplicação guarda a escolha
     void setLanguage(Lang l);

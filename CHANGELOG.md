@@ -6,6 +6,22 @@ notes, in Portuguese, are in [`DESENVOLVIMENTO.md`](DESENVOLVIMENTO.md) and
 
 ## Unreleased
 
+- **Maestruc receiver** (the RASGO family's conductor, protocol
+  `maestruc.link/1`, local OSC only): with `--maestruc` or
+  `TRIOIO_MAESTRUC=1`, Maestruc can play the chosen response (the same ▶)
+  and stop, and know whether Trioio is playing. Composing and analysing stay
+  outside: they depend on the declarer's authorisation. Off by default.
+  Copy of `MAESTRUC/receptor/MaestrucLink.h`; `juce_osc` module in the app.
+- **Sound bridge to Maestruc** (Windows, macOS and Linux, no virtual audio
+  driver): with `--maestruc`, the mix goes to Maestruc through a shared-memory
+  file only the user can read; while Maestruc is reading, Trioio silences its
+  own output and, if Maestruc closes or stops, plays on its own again within
+  about half a second. Copy of `MAESTRUC/receptor/PonteDeSom.h`.
+- **Master from Maestruc:** the same master volume as the window (−60 dB,
+  silent, to +6 dB), and mute (to −60 dB and back to the level before);
+  Trioio has no per-channel mixer. Commands are only
+  accepted with the session password Maestruc writes to a file only the user
+  can read.
 - **Library: "hide refused (N)".** A box in the Library hides the refused
   references from the list. Nothing is deleted: the record of each
   reference stays (provenance is never erased), and unticking shows them

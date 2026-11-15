@@ -17,7 +17,7 @@ if (APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Universal 2" FORCE)
 endif()
 # C também: o JUCE exige o compilador C habilitado no projeto que o inclui
-project(Trioio VERSION 0.1.1 LANGUAGES C CXX)
+project(Trioio VERSION 0.2.0 LANGUAGES C CXX)
 
 # MSVC: M_PI e as outras constantes de <cmath> só com _USE_MATH_DEFINES (a
 # CI do Windows parou nelas, no DSP copiado do Rasgo Synth, 2026-10-19); e
@@ -176,7 +176,9 @@ if (TRIOIO_HAS_JUCE)
         JUCE_APPLICATION_NAME_STRING="Trioio" JUCE_APPLICATION_VERSION_STRING="${PROJECT_VERSION}"
         TRIOIO_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}" TRIOIO_VERSION="${PROJECT_VERSION}")
     target_link_libraries(trioio_app PRIVATE trioio_core ${TRIOIO_LIBRARY_MODULES}
-        juce::juce_gui_basics juce::juce_audio_utils juce::juce_audio_devices juce::juce_recommended_config_flags)
+        juce::juce_gui_basics juce::juce_audio_utils juce::juce_audio_devices
+        juce::juce_osc   # receptor do Maestruc (src/app/MaestrucLink.h), 15/11/2026
+        juce::juce_recommended_config_flags)
     # os arquivos de dados (escalas, ritmos, cadências) junto do binário:
     # data/ ao lado do executável e, no .app do macOS, em Contents/Resources/data
     # (src/library/DataFiles.h). O código-fonte deixa de ser o único lugar.

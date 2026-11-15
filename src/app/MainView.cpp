@@ -3119,4 +3119,24 @@ void MainView::resized()
     }
 }
 
+// Maestruc (15/11/2026): os mesmos caminhos do botão ▶ da resposta e do parar.
+void MainView::playResponseFromOutside()
+{
+    if (playing_ && !playingReference_ && !playingTogether_)
+        return;   // a resposta já toca
+    if (playing_)
+        stopFromOutside();
+    if (playButton_.onClick)
+        playButton_.onClick();
+}
+
+void MainView::stopFromOutside()
+{
+    if (!playing_)
+        return;
+    if (onStop)
+        onStop();
+    setPlaying(false);
+}
+
 } // namespace trioio::app
