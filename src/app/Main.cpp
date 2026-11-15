@@ -220,7 +220,7 @@ public:
             // (−1): o mesmo volume da tela, −60 (mudo) a +6 dB.
             h.mixerList = [view](std::vector<rasgo::maestruc::MixerChannel>& channels) {
                 const auto db = static_cast<float>(view->masterDb());
-                channels.push_back({ -1, "MASTER", db, db <= -60.0f, false });
+                channels.push_back({ -1, "MASTER", db, db <= -60.0f, false, "nivel,mudo", -60.0f, 6.0f });
             };
             // MUDO leva o master a −60 dB (o mudo da tela) e devolve o nível de antes.
             h.mixerSet = [this, view](int index, const juce::String& what, float value) {
