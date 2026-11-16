@@ -333,6 +333,11 @@ if (TRIOIO_BUILD_TESTS)
     target_link_libraries(trioio_master_tests PRIVATE trioio_core)
     add_test(NAME trioio_master_tests COMMAND trioio_master_tests)
 
+    # 16/11/2026: conformidade da saída técnica (EBU 3341, master dourado, dither)
+    add_executable(trioio_output_conformance_tests tests/OutputConformanceTests.cpp)
+    target_link_libraries(trioio_output_conformance_tests PRIVATE trioio_core)
+    add_test(NAME trioio_output_conformance_tests COMMAND trioio_output_conformance_tests)
+
     add_executable(trioio_band_split_tests tests/BandSplitTests.cpp)
     target_link_libraries(trioio_band_split_tests PRIVATE trioio_core)
     add_test(NAME trioio_band_split_tests COMMAND trioio_band_split_tests)

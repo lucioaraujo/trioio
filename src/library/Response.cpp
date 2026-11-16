@@ -11,6 +11,7 @@
 #include "EnergySynth.h"
 #include "ScoreSynth.h"
 #include "Denormals.h"
+#include "Dither.h"
 #include "Prompts.h"
 #include "Influences.h"
 #include "DataFiles.h"
@@ -34,6 +35,27 @@
 #ifndef TRIOIO_VERSION
 #define TRIOIO_VERSION "0.0.0"
 #endif
+
+
+namespace
+{
+// TPDF dither at the 24-bit LSB before a buffer becomes a 24-bit WAV
+// (16/11/2026, saida-ref 1.0, RASGO/REFERENCIAS/SAIDA_TECNICA). Before,
+// JUCE wrote the floats by plain truncation (round to 32 bits, then >> 8).
+// Each sample becomes the dithered integer, handed to JUCE as the float it
+// keeps exactly (floatForJuceInt24). The seed comes from the session, so the
+// same response gives the same file. In place: call it on what is written.
+void ditherTo24(juce::AudioBuffer<float>& buffer, std::uint64_t seed)
+{
+    for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
+    {
+        trioio::TpdfQuantiser q(24, static_cast<std::uint32_t>(seed ^ (seed >> 32)) + 0x9E3779B9u * static_cast<std::uint32_t>(channel + 1));
+        auto* data = buffer.getWritePointer(channel);
+        for (int i = 0; i < buffer.getNumSamples(); ++i)
+            data[i] = trioio::floatForJuceInt24(q.quantise(data[i]));
+    }
+}
+}
 
 namespace trioio::library
 {
@@ -1126,6 +1148,7 @@ ResponseResult respond(const std::string& dataRoot, const ResponseRequest& q, co
             auto writer = format.createWriterFor(stream, juce::AudioFormatWriterOptions {}
                                                              .withSampleRate(kOutputRate).withNumChannels(2)
                                                              .withBitsPerSample(24));
+            ditherTo24(audio, q.seed);
             if (!writer || !writer->writeFromAudioSampleBuffer(audio, 0, audio.getNumSamples()))
             {
                 out.problems.push_back("falha ao gravar o WAV");
@@ -1157,6 +1180,7 @@ ResponseResult respond(const std::string& dataRoot, const ResponseRequest& q, co
             auto writer = format.createWriterFor(stream, juce::AudioFormatWriterOptions {}
                                                              .withSampleRate(kOutputRate).withNumChannels(2)
                                                              .withBitsPerSample(24));
+            ditherTo24(b, q.seed + 1000u + k);
             if (!writer || !writer->writeFromAudioSampleBuffer(b, 0, b.getNumSamples()))
             {
                 out.problems.push_back("falha ao gravar o stem " + stem.getFullPathName().toStdString());
@@ -1227,6 +1251,7 @@ ResponseResult respond(const std::string& dataRoot, const ResponseRequest& q, co
             auto writer = format.createWriterFor(stream, juce::AudioFormatWriterOptions {}
                                                              .withSampleRate(kOutputRate).withNumChannels(2)
                                                              .withBitsPerSample(24));
+            ditherTo24(b, q.seed + 2000u + out.stemPaths.size());
             if (!writer || !writer->writeFromAudioSampleBuffer(b, 0, b.getNumSamples()))
             {
                 out.problems.push_back("falha ao gravar o stem " + f.getFullPathName().toStdString());
