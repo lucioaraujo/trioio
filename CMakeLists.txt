@@ -32,6 +32,12 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(trioio_core
     src/core/TrioioBrain.cpp
+    # saida-ref 1.1 (16/11/2026): o master de entrega da resposta
+    src/core/saida/DeliveryMaster.cpp
+    src/core/saida/OutputStage.cpp
+    src/core/saida/LoudnessMeter.cpp
+    src/core/saida/TruePeakDetector.cpp
+    src/core/saida/TakeAnalysis.cpp
     src/core/Provenance.cpp
     src/core/Descriptors.cpp
     src/core/Structure.cpp

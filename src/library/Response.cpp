@@ -12,6 +12,7 @@
 #include "ScoreSynth.h"
 #include "Denormals.h"
 #include "Dither.h"
+#include "StreamingVersion.h"
 #include "Prompts.h"
 #include "Influences.h"
 #include "DataFiles.h"
@@ -1161,6 +1162,11 @@ ResponseResult respond(const std::string& dataRoot, const ResponseRequest& q, co
             return out;
         }
     }
+    // Versão de entrega (16/11/2026, saida-ref 1.1): <resposta>_streaming.wav a
+    // -14 LUFS / <= -1 dBTP e um .txt, ao lado da resposta (que segue no master
+    // próprio do Trioio, -16 LUFS). Só a resposta; linhas e stems seguem crus.
+    step(0.90f, "versão de entrega");
+    writeStreamingVersion(wav);
     // os stems das linhas, ao lado da resposta (saidas/linhas/)
     for (std::size_t k = 0; k < lineInfo.size(); ++k)
     {
