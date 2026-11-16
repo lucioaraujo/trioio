@@ -17,7 +17,7 @@ PORTAL = "https://rasgoinstruments.arquiviagem.net/"
 REPO = "https://github.com/lucioaraujo/trioio"
 BLOB = "https://github.com/lucioaraujo/trioio/blob/main"
 # a versão publicada e os pacotes do release (a CI: .github/workflows/package.yml)
-VERSAO = "0.1.1"
+VERSAO = "0.2.0"
 RELEASE = "https://github.com/lucioaraujo/trioio/releases/tag/v" + VERSAO
 DL = "https://github.com/lucioaraujo/trioio/releases/download/v" + VERSAO + "/"
 PACOTES = [
