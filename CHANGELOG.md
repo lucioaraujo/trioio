@@ -6,6 +6,20 @@ notes, in Portuguese, are in [`DESENVOLVIMENTO.md`](DESENVOLVIMENTO.md) and
 
 ## Unreleased
 
+- **Streaming version at −14 LUFS** (saida-ref 1.1, the family's common
+  technical output): next to each response, `_streaming.wav` (−14 LUFS, true
+  peak ≤ −1 dBTP, 24-bit PCM with TPDF) and a `.txt` with the measurements,
+  made offline on a thread of its own. The live sound and the raw recording
+  do not change. Dynamics guard: the limiter never takes more than 6 dB; a
+  take too dynamic for that stays under −14 and the `.txt` says why.
+  The response itself stays on Trioio's own master (−16 LUFS).
+- **TPDF dither** on the response, the lines and the stems (24-bit; JUCE
+  used to truncate).
+- Output conformance tests: integrated loudness (EBU Tech 3341 1–5), true
+  peak (15–23), the master is bit-exact for the same input.
+
+## v0.2.0 — 2026-11-16
+
 - **Maestruc receiver** (the RASGO family's conductor, protocol
   `maestruc.link/1`, local OSC only): with `--maestruc` or
   `TRIOIO_MAESTRUC=1`, Maestruc can play the chosen response (the same ▶)
