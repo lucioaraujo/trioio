@@ -89,7 +89,7 @@ inline void writeStreamingVersion(const juce::File& take)
     if (report.failed || !temporary.overwriteTargetFileWithTemporary())
         return;
     juce::String text;
-    text << "Trioio - versao de entrega (streaming), saida-ref 1.1\n"
+    text << "Trioio - versao de entrega (streaming), saida-ref 1.2\n"
          << "resposta: " << take.getFileName() << "\n"
          << "alvo: -14 LUFS, true peak <= -1 dBTP; limitador no maximo 6 dB (guarda de dinamica)\n"
          << "entrada: " << juce::String(report.inputLufs, 1) << " LUFS, " << juce::String(report.inputTruePeakDb, 2) << " dBTP\n"
