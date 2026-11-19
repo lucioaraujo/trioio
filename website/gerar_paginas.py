@@ -290,6 +290,8 @@ def pagina(arquivo, lang):
 <title>{e(t["title"])}</title>
 <meta name="description" content="{a(t["desc"])}" />
 <link rel="icon" href="assets/identity/trioio-olho.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/identity/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/identity/apple-touch-icon.png" />
 <link rel="stylesheet" href="styles.css" />
 <script src="assets/contact.js" defer></script>
 </head>
@@ -523,6 +525,8 @@ def documento(lang, atual, titulo, descricao, corpo):
 <title>{html.escape(titulo, quote=False)}</title>
 <meta name="description" content="{html.escape(descricao, quote=True)}" />
 <link rel="icon" href="assets/identity/trioio-olho.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/identity/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/identity/apple-touch-icon.png" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
