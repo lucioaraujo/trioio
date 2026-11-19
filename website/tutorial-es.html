@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tutorial — Trioio</title>
+<meta name="description" content="Tutorial de Trioio: traer y autorizar una grabación, elegir el modo, componer, escuchar, juzgar y comparar versiones." />
+<link rel="icon" href="assets/identity/trioio-olho.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="styles.css" />
+<!-- SEO:INICIO — gerado por seo.py; editar lá, não aqui -->
+<link rel="canonical" href="https://lucioaraujo.github.io/trioio/tutorial-es.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/tutorial.html">
+<link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/tutorial-en.html">
+<link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/tutorial-fr.html">
+<link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/tutorial-es.html">
+<link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/tutorial.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trioio">
+<meta property="og:title" content="Tutorial — Trioio">
+<meta property="og:description" content="Tutorial de Trioio: traer y autorizar una grabación, elegir el modo, componer, escuchar, juzgar y comparar versiones.">
+<meta property="og:url" content="https://lucioaraujo.github.io/trioio/tutorial-es.html">
+<meta property="og:image" content="https://lucioaraujo.github.io/trioio/assets/og-trioio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trioio — la pantalla Escucha y respuesta: la referencia, el Tercer Ojo revelado y la respuesta compuesta en maqam Hijaz.">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Trioio",
+  "description": "Tutorial de Trioio: traer y autorizar una grabación, elegir el modo, componer, escuchar, juzgar y comparar versiones.",
+  "url": "https://lucioaraujo.github.io/trioio/",
+  "inLanguage": "es",
+  "image": "https://lucioaraujo.github.io/trioio/assets/og-trioio.jpg",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Music composition",
+  "operatingSystem": "Windows, macOS, Linux",
+  "downloadUrl": "https://github.com/lucioaraujo/trioio/releases/tag/v0.2.1",
+  "softwareVersion": "0.2.1",
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "Lúcio de Araújo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RASGO",
+    "url": "https://rasgoinstruments.arquiviagem.net/"
+  },
+  "sameAs": [
+    "https://github.com/lucioaraujo/trioio"
+  ]
+}
+</script>
+<script>(function(){var K='rasgo-lingua',M={pt:'index.html',en:'en.html',fr:'fr.html',es:'es.html'};function g(){try{return localStorage.getItem(K)}catch(e){return null}}function s(v){try{localStorage.setItem(K,v)}catch(e){}}var l=(document.documentElement.lang||'').slice(0,2).toLowerCase(),p=location.pathname,base=location.origin+p.replace(/[^/]*$/,''),r=document.referrer||'';if(/\/(index\.html)?$/.test(p)&&l==='pt'&&r.indexOf(base)!==0&&!/[?&]lang=pt/.test(location.search)&&!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){var c=g();if(!c){var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];c='en';for(var i=0;i<L.length;i++){var x=String(L[i]).slice(0,2).toLowerCase();if(M[x]){c=x;break}}}if(c!=='pt'&&M[c]){location.replace(M[c]+location.hash);return}}if(M[l])s(l);})();</script>
+<!-- SEO:FIM -->
+</head>
+<body>
+<div class="rasgo-strip"><a href="https://rasgoinstruments.arquiviagem.net/">RASGO — familia de instrumentos e investigación sonora</a></div>
+<a class="skip-link" href="#conteudo">Saltar al contenido</a>
+
+<div class="site-header">
+  <a class="brand" href="es.html#top" aria-label="Trioio">
+    <img src="assets/identity/trioio-olho.svg" alt="" width="36" height="36" />
+    <span>TRIOIO</span>
+  </a>
+  <nav class="site-menu" aria-label="Páginas">
+    <a href="es.html">Acerca de</a>
+    <a href="tutorial-es.html" aria-current="page">Tutorial</a>
+    <a href="aprender-es.html">Aprender</a>
+    <a href="instalacao-es.html">Instalación</a>
+    <a href="es.html#baixar">Descargar</a>
+  </nav>
+  <nav class="lang-switch" aria-label="Idioma">
+    <a href="tutorial.html">PT</a>
+    <a href="tutorial-en.html">EN</a>
+    <a href="tutorial-fr.html">FR</a>
+    <a href="tutorial-es.html" aria-current="true">ES</a>
+  </nav>
+</div>
+
+<main id="conteudo">
+<section class="hero" id="top">
+  <h1>Tutorial</h1>
+  <p class="lead">Los once capítulos del tutorial que Trioio lleva dentro de su ventana (botón TUTORIAL), del primer archivo al primer ejercicio.</p>
+</section>
+
+<section class="section section-dark">
+  <h2>Sumario</h2>
+  <ol class="facts toc">
+    <li><a href="#cap-1">Qué es tocar Trioio</a></li>
+    <li><a href="#cap-2">Traer y autorizar una grabación</a></li>
+    <li><a href="#cap-3">Escuchar la referencia</a></li>
+    <li><a href="#cap-4">Elegir el modo</a></li>
+    <li><a href="#cap-5">Componer</a></li>
+    <li><a href="#cap-6">Escuchar, y el Tercer Ojo</a></li>
+    <li><a href="#cap-7">Juzgar</a></li>
+    <li><a href="#cap-8">Comparar versiones</a></li>
+    <li><a href="#cap-9">El panel Lenguaje</a></li>
+    <li><a href="#cap-10">Palabras, influencias y gesto</a></li>
+    <li><a href="#cap-11">Un primer ejercicio</a></li>
+  </ol>
+</section>
+
+<section class="section" id="cap-1">
+  <h2>1 · Qué es tocar Trioio</h2>
+  <p>Trioio no se toca nota a nota. Es una conversación en cuatro tiempos:</p>
+  <ol class="facts">
+    <li>Traes una grabación: la referencia.</li>
+    <li>Trioio la escucha y compone una respuesta: un archivo nuevo, todo sintetizado, que nunca contiene el audio de la referencia.</li>
+    <li>Escuchas y juzgas: la respuesta entera, una sección o un fragmento.</li>
+    <li>Trioio aprende de tus juicios. La próxima respuesta cambia por tu escucha.</li>
+  </ol>
+  <p>Tocar es elegir la referencia, el modo, el lenguaje y lo que vale. El instrumento compone; tú conduces con la escucha.</p>
+  <p class="example"><strong>Consejo:</strong> Dejar todo como está también es una elección: Trioio decide a partir de la escucha.</p>
+</section>
+
+<section class="section section-dark" id="cap-2">
+  <h2>2 · Traer y autorizar una grabación</h2>
+  <ol class="facts">
+    <li>Haz clic en «elegir una referencia»: lleva a la Biblioteca.</li>
+    <li>Haz clic en «traer una grabación…» y elige el archivo.</li>
+    <li>Una grabación nueva empieza pendiente. Haz clic en «autorizar…» e indica su origen (propia, captura, otro instrumento, IA, con licencia, dominio público…), con qué derecho puede usarse y quién lo declara.</li>
+    <li>Haz clic en «autorizar».</li>
+  </ol>
+  <p>También puedes soltar un solo archivo de audio o MIDI en la ventana. En la Biblioteca, «audio de origen ▾» muestra el archivo registrado o guarda una copia en la carpeta fontes/ de los datos de Trioio. «carpeta de biblioteca ▾» abre la carpeta actual o permite elegir otra.</p>
+  <p>Sin autorización, Trioio no compone sobre la grabación. Eso protege la procedencia: cada respuesta guarda el registro de dónde vino su referencia.</p>
+  <p>Si la app abre en demostración, usa «abrir carpeta de datos…» para elegir dónde Trioio guarda sus datos.</p>
+  <p class="example"><strong>Consejo:</strong> Empieza con una grabación corta y tuya, de 30 s a 2 min: la primera escucha es más rápida y conoces el material.</p>
+</section>
+
+<section class="section" id="cap-3">
+  <h2>3 · Escuchar la referencia</h2>
+  <p>En la página «Escucha y respuesta», haz clic en «▶ referencia».</p>
+  <p>El primer análisis tarda un poco; la línea de estado dice que Trioio está escuchando. Al terminar, la franja REFERENCIA muestra las secciones que Trioio leyó: dónde cambia el material, el pulso, la tonalidad y el lenguaje que reconoció.</p>
+  <p>Con esa lectura conversará la respuesta. Queda guardada en la carpeta de datos, y la próxima vez es instantánea.</p>
+</section>
+
+<section class="section section-dark" id="cap-4">
+  <h2>4 · Elegir el modo</h2>
+  <p>El modo es la actitud de la respuesta:</p>
+  <p>• seguir: acompaña la referencia, mismo campo, mismo pulso;<br />• transfigurar: la misma materia, otra figura;<br />• contraponer: va en contra, otro registro, otra densidad;<br />• interrumpir: corta, entra y sale.</p>
+  <p>Los cuatro botones están arriba de la ventana. El modo también decide cómo responder a un estilo leído en la referencia: seguir toca en ese estilo, transfigurar va a un vecino, contraponer a su contrario.</p>
+  <p class="example"><strong>Consejo:</strong> Compón la misma referencia en seguir y luego en contraponer: la diferencia entre las dos enseña más que cualquier descripción.</p>
+</section>
+
+<section class="section" id="cap-5">
+  <h2>5 · Componer</h2>
+  <p>Haz clic en «componer de nuevo».</p>
+  <p>Mientras Trioio trabaja, una barra al pie de la ventana muestra cada etapa (la escucha, las elecciones, la red cuando está activada, la partitura, las voces una a una, el máster, la grabación) y el tiempo transcurrido. Una respuesta tarda de unos segundos a cerca de un minuto, según su duración y el conjunto.</p>
+  <p>La respuesta aparece en la franja RESPUESTA. Cada respuesta nueva es una versión nueva: nada se sobrescribe, las anteriores quedan en «Tu escucha».</p>
+</section>
+
+<section class="section section-dark" id="cap-6">
+  <h2>6 · Escuchar, y el Tercer Ojo</h2>
+  <p>• ▶ toca la respuesta.<br />• «▶ juntos» toca la referencia y la respuesta a la vez, solo para escuchar.<br />• El máster regula el volumen de todo.<br />• «archivo ▾», junto a la respuesta: muestra sus archivos en la carpeta, los exporta (WAV, MIDI, stems) adonde elijas, o mueve la respuesta a la papelera (puede volver).</p>
+  <p>El Tercer Ojo es la parte imprevisible de Trioio: los gestos, los desvíos, las elecciones que no vienen de la referencia. Queda oculto hasta que escuchas, para no guiar tu oído. Después, haz clic en «revelar tras escuchar» para ver qué hizo y dónde.</p>
+  <p>La cantidad de imprevisibilidad se regula en el panel Lenguaje.</p>
+  <p class="example"><strong>Consejo:</strong> Escucha una vez sin revelar, juzga y solo entonces revela: aprenderás lo que hace el Ojo de oído antes de leerlo.</p>
+</section>
+
+<section class="section" id="cap-7">
+  <h2>7 · Juzgar</h2>
+  <p>Primero elige qué juzgar:</p>
+  <p>• hacer clic fuera de la selección: la respuesta entera;<br />• hacer clic en un bloque de la franja RESPUESTA: esa sección;<br />• arrastrar sobre la franja RESPUESTA: el fragmento marcado.</p>
+  <p>Escribe una nota si quieres: tu frase sobre esa escucha, como «el chip quedó demasiado duro». Queda con el juicio y aparece en «Tu escucha».</p>
+  <p>Luego haz clic en aceptar, transformar o rechazar. El juicio pesa en las próximas respuestas y en las reglas del juego: las aceptadas quedan en la memoria, las rechazadas van al abono.</p>
+  <p class="example"><strong>Consejo:</strong> Juzgar un fragmento enseña más que juzgar todo: Trioio aprende qué elección funcionó dónde.</p>
+</section>
+
+<section class="section section-dark" id="cap-8">
+  <h2>8 · Comparar versiones</h2>
+  <p>En la página «Tu escucha»:</p>
+  <ol class="facts">
+    <li>Haz clic en una versión de la lista: se vuelve A.</li>
+    <li>Haz clic en otra: se vuelve el nuevo A, y la anterior pasa a B. Sellos verde y azul muestran cuál es cuál.</li>
+    <li>Usa «▶ comparar A × B» y «alternar A ↔ B». Alternar cambia de versión en el mismo instante de la música.</li>
+  </ol>
+  <p>A la derecha están lo que enseñó la escucha (cuánto subió o bajó cada elección con tus juicios), las reglas del juego en la versión A y la casilla «la próxima respuesta tiene en cuenta la escucha».</p>
+</section>
+
+<section class="section" id="cap-9">
+  <h2>9 · El panel Lenguaje</h2>
+  <p>«Lenguaje ▸» abre las elecciones. Todas son opcionales, y cada una cita su fuente en la forma de la respuesta.</p>
+  <p>• Mezcla: escalas para combinar, por nombre o por familia, separadas por + o comas («rāga Yaman + maqam Hijaz», «modos griegos, escalas africanas»).<br />• Alturas, técnica, costura, ciclo, voicing, intención, forma, tempo.<br />• Conjunto: los instrumentos de cada voz por estilo (choro, samba, jazz, forró, tango, rock, orquesta…), o leído en la referencia.<br />• Armonía: el lenguaje de la máquina armónica.<br />• Imprevisibilidad (el Tercer Ojo) y el rasgo modular (del instrumento a lo inaudito).<br />• Diálogo (responder en las pausas), juego (Trioio inventa sus reglas), efectos de cine, sonido del aura, stems.</p>
+  <p class="example"><strong>Consejo:</strong> Cambia una sola elección por vez entre dos respuestas: así oyes lo que hace cada una.</p>
+</section>
+
+<section class="section section-dark" id="cap-10">
+  <h2>10 · Palabras, influencias y gesto</h2>
+  <p>Palabras: escribe algunas palabras sobre la respuesta que quieres, en cualquier idioma («dançante, maracatu, virada», «lluvia fría, lento»). Trioio lee la intención, la forma, la danza y los nodos del árbol de influencias, y muestra en la forma lo que entendió y lo que no. Vacío, Trioio sigue sus criterios. Se toleran acentos, mayúsculas, puntuación y pequeños errores de tecleo.</p>
+  <p>La casilla «consultar en la red las palabras no leídas» envía solo las palabras que Trioio no leyó a servicios públicos (Wikidata, Datamuse) y calcula a partir de las respuestas. Viene desactivada, porque las palabras salen del ordenador; las respuestas quedan en la memoria, y la segunda vez es instantánea.</p>
+  <p>Influencias: nodos del árbol (rock/noise, brasil/nordeste/maracatu) o auto; la fuerza va de la referencia (0) al árbol (1). Sin: los papeles que salen (percusión, bajo).</p>
+  <p>Gesto: dibuja la curva de intensidad de la pieza, o escríbela como posición:intensidad.</p>
+  <p>Artistas y bandas: Trioio no trae la poética de artistas y bandas; no inventa cómo compone alguien. Un nombre escrito en Palabras solo llega a la red como palabras sueltas. Para hacer de un artista una influencia, escríbelo tú, con tu lectura y tus fuentes, en el archivo influencias_do_autor.txt de la carpeta de datos (Trioio lo crea con un ejemplo comentado). La línea «também:» da los nombres como los escribes, por ejemplo «também: júpiter maçã»; desde entonces el nombre llama a ese nodo en Palabras y en Influencias.</p>
+  <p class="example"><strong>Consejo:</strong> Las influencias son tendencias, nunca reglas: «rock» hace probable la batería, no obligatoria. Mezcla dos nodos lejanos para llegar a un lugar nuevo.</p>
+</section>
+
+<section class="section" id="cap-11">
+  <h2>11 · Un primer ejercicio</h2>
+  <ol class="facts">
+    <li>Usa una grabación corta y tuya.</li>
+    <li>Compón en seguir. Escucha, juzga la respuesta entera.</li>
+    <li>Compón de nuevo en contraponer.</li>
+    <li>En «Tu escucha», compara las dos con «alternar A ↔ B».</li>
+    <li>Activa el juego en «Lenguaje ▸» y compón de nuevo.</li>
+    <li>Lee las reglas en «Tu escucha». Juzga por fragmento dónde una regla funcionó bien o mal.</li>
+    <li>Compón dos o tres veces más. Las respuestas deberían empezar a cambiar con lo que aceptaste y rechazaste.</li>
+  </ol>
+  <p>Para llevar una respuesta a la DAW, activa «stems» en el panel Lenguaje: junto a la mezcla, Trioio graba un WAV por voz.</p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>© Lúcio de Araújo · Trioio 2026 · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/trioio">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/trioio/blob/main/CREDITS_AND_SOURCES.md">Créditos</a> ·
+    <a href="https://github.com/lucioaraujo/trioio/blob/main/LICENSE">Licencia AGPLv3+</a>
+  </nav>
+</footer>
+</body>
+</html>

@@ -29,6 +29,24 @@ GRUPOS = [
         {"arquivo": "fr.html", "url": "fr.html", "lang": "fr"},
         {"arquivo": "es.html", "url": "es.html", "lang": "es"},
     ],
+    [
+        {"arquivo": "tutorial.html", "url": "tutorial.html", "lang": "pt-BR"},
+        {"arquivo": "tutorial-en.html", "url": "tutorial-en.html", "lang": "en"},
+        {"arquivo": "tutorial-fr.html", "url": "tutorial-fr.html", "lang": "fr"},
+        {"arquivo": "tutorial-es.html", "url": "tutorial-es.html", "lang": "es"},
+    ],
+    [
+        {"arquivo": "aprender.html", "url": "aprender.html", "lang": "pt-BR"},
+        {"arquivo": "aprender-en.html", "url": "aprender-en.html", "lang": "en"},
+        {"arquivo": "aprender-fr.html", "url": "aprender-fr.html", "lang": "fr"},
+        {"arquivo": "aprender-es.html", "url": "aprender-es.html", "lang": "es"},
+    ],
+    [
+        {"arquivo": "instalacao.html", "url": "instalacao.html", "lang": "pt-BR"},
+        {"arquivo": "instalacao-en.html", "url": "instalacao-en.html", "lang": "en"},
+        {"arquivo": "instalacao-fr.html", "url": "instalacao-fr.html", "lang": "fr"},
+        {"arquivo": "instalacao-es.html", "url": "instalacao-es.html", "lang": "es"},
+    ],
 ]
 
 

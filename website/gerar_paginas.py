@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Gera as quatro páginas do site do Trioio (index.html em português, a
+"""Gera as páginas do site do Trioio (Sobre, e desde 19/11/2026 também
+Tutorial, Aprender e Instalação, nas 4 línguas).
+
+Antes: as quatro páginas do site do Trioio (index.html em português, a
 canônica, e en/fr/es.html) a partir de um modelo único e dos textos de cada
 idioma, para as quatro nunca divergirem na estrutura. Depois, `python3
 seo.py` injeta os metadados (o bloco SEO não é escrito aqui).
@@ -11,6 +14,9 @@ Editar os TEXTOS aqui, não nos .html (eles são derivados).
 
 import html
 import pathlib
+import re
+
+from textos_paginas import NAV, TUTORIAL, APRENDER, INSTALACAO
 
 AQUI = pathlib.Path(__file__).parent
 PORTAL = "https://rasgoinstruments.arquiviagem.net/"
@@ -269,7 +275,6 @@ def pagina(arquivo, lang):
     t = T[lang]
     e = lambda s: html.escape(s, quote=False)
     a = lambda s: html.escape(s, quote=True)
-    langs = "\n".join('      <a href="%s"%s>%s</a>' % (f, ' aria-current="true"' if f == arquivo else "", c) for f, _, c in PAGINAS)
     passos = "\n".join('    <li><h3>%s</h3><p>%s</p></li>' % (e(h), e(p)) for h, p in t["steps"])
     fatos = "\n".join("    <li>%s</li>" % e(f) for f in t["facts"])
     pacotes = "\n".join(
@@ -292,15 +297,7 @@ def pagina(arquivo, lang):
 <div class="rasgo-strip"><a href="{PORTAL}">{e(t["strip"])}</a></div>
 <a class="skip-link" href="#conteudo">{e(t["skip"])}</a>
 
-<div class="site-header">
-  <a class="brand" href="#top" aria-label="Trioio">
-    <img src="assets/identity/trioio-olho.svg" alt="" width="36" height="36" />
-    <span>TRIOIO</span>
-  </a>
-  <nav class="lang-switch" aria-label="{a(t["langnav"])}">
-{langs}
-  </nav>
-</div>
+{cabecalho(lang, "sobre")}
 
 <main id="conteudo">
 <section class="hero" id="top">
@@ -325,7 +322,7 @@ def pagina(arquivo, lang):
   </ul>
   <p class="example">{e(t["dl_warn"])}</p>
   <div class="contact-row">
-    <a class="button button-primary" href="{BLOB}/INSTALL.md">{e(t["dl_install"])}</a>
+    <a class="button button-primary" href="{arquivo_de("instalacao", lang)}">{e(t["dl_install"])}</a>
     <a class="button" href="{RELEASE}">{e(t["dl_all"])}</a>
   </div>
 </section>
@@ -401,12 +398,199 @@ def pagina(arquivo, lang):
 """
 
 
+
+# ---- páginas internas (nivelamento dos sites, 19/11/2026) -----------------
+# Sobre (a página acima), Tutorial, Aprender e Instalação, nas 4 línguas,
+# com o mesmo menu em todas, como nos sites mais completos da família.
+SUFIXO = {"pt-BR": "", "en": "-en", "fr": "-fr", "es": "-es"}
+SIGLA = {"pt-BR": "PT", "en": "EN", "fr": "FR", "es": "ES"}
+
+
+def arquivo_de(tipo, lang):
+    if tipo == "sobre":
+        return "index.html" if lang == "pt-BR" else lang + ".html"
+    return tipo + SUFIXO[lang] + ".html"
+
+
+def cabecalho(lang, atual):
+    t, n = T[lang], NAV[lang]
+    menu = []
+    for tipo in ("sobre", "tutorial", "aprender", "instalacao"):
+        cur = ' aria-current="page"' if tipo == atual else ""
+        menu.append('    <a href="%s"%s>%s</a>' % (arquivo_de(tipo, lang), cur, html.escape(n[tipo])))
+    menu.append('    <a href="%s#baixar">%s</a>' % (arquivo_de("sobre", lang), html.escape(n["baixar"])))
+    langs = "\n".join('    <a href="%s"%s>%s</a>' % (arquivo_de(atual, L), ' aria-current="true"' if L == lang else "", SIGLA[L])
+                      for L in SUFIXO)
+    return f"""<div class="site-header">
+  <a class="brand" href="{arquivo_de("sobre", lang)}#top" aria-label="Trioio">
+    <img src="assets/identity/trioio-olho.svg" alt="" width="36" height="36" />
+    <span>TRIOIO</span>
+  </a>
+  <nav class="site-menu" aria-label="{html.escape(n["menu"], quote=True)}">
+{chr(10).join(menu)}
+  </nav>
+  <nav class="lang-switch" aria-label="{html.escape(t["langnav"], quote=True)}">
+{langs}
+  </nav>
+</div>"""
+
+
+def inline(texto):
+    """**negrito** e `código` nos textos de textos_paginas.py."""
+    e = html.escape(texto, quote=False)
+    e = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", e)
+    return re.sub(r"`(.+?)`", r"<code>\1</code>", e)
+
+
+def blocos(lista):
+    out = []
+    for tipo, conteudo in lista:
+        if tipo == "p":
+            out.append("  <p>%s</p>" % inline(conteudo))
+        elif tipo in ("ul", "ol"):
+            out.append("  <%s class=\"facts\">\n%s\n  </%s>" % (tipo, "\n".join("    <li>%s</li>" % inline(i) for i in conteudo), tipo))
+        elif tipo == "tab":
+            linhas = "\n".join("    <tr><th scope=\"row\">%s</th><td>%s</td></tr>" % (inline(a), inline(b)) for a, b in conteudo)
+            out.append("  <table class=\"ref\">\n%s\n  </table>" % linhas)
+        elif tipo == "code":
+            out.append("  <pre class=\"example\"><code>%s</code></pre>" % html.escape(conteudo, quote=False))
+    return "\n".join(out)
+
+
+# O tutorial é o do app: src/app/Tutorial.h, onze capítulos em L4 (EN, PT,
+# FR, ES). O site lê o próprio código, para a janela e o site dizerem o mesmo.
+ORDEM_L4 = {"en": 0, "pt-BR": 1, "fr": 2, "es": 3}
+
+
+def ler_tutorial():
+    fonte = (AQUI.parent / "src" / "app" / "Tutorial.h").read_text(encoding="utf-8")
+    corpo = fonte[fonte.index("chapters {{") + len("chapters {"):]
+    tokens = re.findall(r'"((?:[^"\\]|\\.)*)"|([{},])', corpo)   # vírgula separa as línguas
+    pilha, raiz, anterior_str = [], [], False
+    atual = raiz
+    for literal, chave in tokens:
+        if chave == "{":
+            novo_no = []
+            atual.append(novo_no)
+            pilha.append(atual)
+            atual = novo_no
+            anterior_str = False
+        elif chave == ",":
+            anterior_str = False
+        elif chave == "}":
+            if not pilha:
+                break
+            atual = pilha.pop()
+            anterior_str = False
+        else:
+            texto = bytes(literal, "utf-8").decode("unicode_escape").encode("latin-1").decode("utf-8")
+            if anterior_str:
+                atual[-1] += texto
+            else:
+                atual.append(texto)
+            anterior_str = True
+    capitulos = []
+    for cap in raiz[0] if len(raiz) == 1 and all(isinstance(x, list) for x in raiz[0]) else raiz:
+        if len(cap) == 3 and all(isinstance(x, list) and len(x) == 4 for x in cap):
+            capitulos.append(cap)
+    if len(capitulos) != 11:
+        raise ValueError("Tutorial.h: esperava 11 capítulos, achei %d" % len(capitulos))
+    return capitulos
+
+
+def texto_tutorial(texto):
+    out = []
+    for par in texto.split("\n\n"):
+        linhas = par.split("\n")
+        if all(re.match(r"^\d+\. ", l) for l in linhas if l):
+            out.append("  <ol class=\"facts\">\n%s\n  </ol>" % "\n".join(
+                "    <li>%s</li>" % html.escape(re.sub(r"^\d+\. ", "", l), quote=False) for l in linhas if l))
+        elif all(l.startswith("- ") for l in linhas if l):
+            out.append("  <ul class=\"facts\">\n%s\n  </ul>" % "\n".join(
+                "    <li>%s</li>" % html.escape(l[2:], quote=False) for l in linhas if l))
+        else:
+            out.append("  <p>%s</p>" % "<br />".join(html.escape(l, quote=False) for l in linhas))
+    return "\n".join(out)
+
+
+def documento(lang, atual, titulo, descricao, corpo):
+    t = T[lang]
+    return f"""<!doctype html>
+<html lang="{lang}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{html.escape(titulo, quote=False)}</title>
+<meta name="description" content="{html.escape(descricao, quote=True)}" />
+<link rel="icon" href="assets/identity/trioio-olho.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="rasgo-strip"><a href="{PORTAL}">{html.escape(t["strip"], quote=False)}</a></div>
+<a class="skip-link" href="#conteudo">{html.escape(t["skip"], quote=False)}</a>
+
+{cabecalho(lang, atual)}
+
+<main id="conteudo">
+{corpo}
+</main>
+
+<footer class="site-footer">
+  <span>© Lúcio de Araújo · Trioio 2026 · RASGO</span>
+  <nav>
+    <a href="{REPO}">GitHub</a> ·
+    <a href="{BLOB}/CREDITS_AND_SOURCES.md">{html.escape(t["footer_credits"], quote=False)}</a> ·
+    <a href="{BLOB}/LICENSE">{html.escape(t["footer_license"], quote=False)}</a>
+  </nav>
+</footer>
+</body>
+</html>
+"""
+
+
+def hero(h1, lead):
+    return f"""<section class="hero" id="top">
+  <h1>{html.escape(h1, quote=False)}</h1>
+  <p class="lead">{html.escape(lead, quote=False)}</p>
+</section>"""
+
+
+def pagina_tutorial(lang, capitulos):
+    x, i = TUTORIAL[lang], ORDEM_L4[lang]
+    sumario = "\n".join('    <li><a href="#cap-%d">%s</a></li>' % (n + 1, html.escape(c[0][i], quote=False))
+                         for n, c in enumerate(capitulos))
+    partes = [hero(x["h1"], x["lead"]),
+              '<section class="section section-dark">\n  <h2>%s</h2>\n  <ol class="facts toc">\n%s\n  </ol>\n</section>'
+              % (html.escape(x["contents"], quote=False), sumario)]
+    for n, (tit, corpo, dica) in enumerate(capitulos):
+        classe = "section" + (" section-dark" if n % 2 else "")
+        bloco = '<section class="%s" id="cap-%d">\n  <h2>%d · %s</h2>\n%s' % (
+            classe, n + 1, n + 1, html.escape(tit[i], quote=False), texto_tutorial(corpo[i]))
+        if dica[i]:
+            bloco += '\n  <p class="example"><strong>%s:</strong> %s</p>' % (html.escape(x["tip"], quote=False), html.escape(dica[i], quote=False))
+        partes.append(bloco + "\n</section>")
+    return documento(lang, "tutorial", x["title"], x["desc"], "\n\n".join(partes))
+
+
+def pagina_secoes(lang, tipo, x):
+    partes = [hero(x["h1"], x["lead"])]
+    for n, (h2, lista) in enumerate(x["secoes"]):
+        classe = "section" + (" section-dark" if n % 2 else "")
+        partes.append('<section class="%s">\n  <h2>%s</h2>\n%s\n</section>' % (classe, html.escape(h2, quote=False), blocos(lista)))
+    return documento(lang, tipo, x["title"], x["desc"], "\n\n".join(partes))
+
+
 def main():
     for arquivo, lang, _ in PAGINAS:
-        caminho = AQUI / arquivo
-        novo = pagina(arquivo, lang)
-        caminho.write_text(novo, encoding="utf-8")
-    print("gerar_paginas.py: %d páginas" % len(PAGINAS))
+        (AQUI / arquivo).write_text(pagina(arquivo, lang), encoding="utf-8")
+    capitulos = ler_tutorial()
+    n = len(PAGINAS)
+    for lang in SUFIXO:
+        (AQUI / arquivo_de("tutorial", lang)).write_text(pagina_tutorial(lang, capitulos), encoding="utf-8")
+        (AQUI / arquivo_de("aprender", lang)).write_text(pagina_secoes(lang, "aprender", APRENDER[lang]), encoding="utf-8")
+        (AQUI / arquivo_de("instalacao", lang)).write_text(pagina_secoes(lang, "instalacao", INSTALACAO[lang]), encoding="utf-8")
+        n += 3
+    print("gerar_paginas.py: %d páginas" % n)
 
 
 if __name__ == "__main__":

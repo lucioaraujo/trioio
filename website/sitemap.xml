@@ -33,4 +33,100 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/es.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/"/>
   </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/tutorial.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/tutorial-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/tutorial-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/tutorial-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/tutorial-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/tutorial-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/tutorial-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/tutorial.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/aprender.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/aprender-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/aprender-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/aprender-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/aprender-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/aprender-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/aprender-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/aprender.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/instalacao.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/instalacao-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/instalacao-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/instalacao-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/instalacao-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/instalacao-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/instalacao-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/instalacao-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/instalacao-fr.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/instalacao-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/instalacao-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/instalacao-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+  </url>
+  <url>
+    <loc>https://lucioaraujo.github.io/trioio/instalacao-es.html</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/instalacao-en.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/instalacao-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/instalacao-es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/instalacao.html"/>
+  </url>
 </urlset>

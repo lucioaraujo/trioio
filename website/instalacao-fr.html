@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Installation — Trioio</title>
+<meta name="description" content="Installer Trioio sous Windows, macOS et Linux, pas à pas, avec les avertissements de sécurité, la première ouverture et la configuration requise." />
+<link rel="icon" href="assets/identity/trioio-olho.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="styles.css" />
+<!-- SEO:INICIO — gerado por seo.py; editar lá, não aqui -->
+<link rel="canonical" href="https://lucioaraujo.github.io/trioio/instalacao-fr.html">
+<link rel="alternate" hreflang="pt-BR" href="https://lucioaraujo.github.io/trioio/instalacao.html">
+<link rel="alternate" hreflang="en" href="https://lucioaraujo.github.io/trioio/instalacao-en.html">
+<link rel="alternate" hreflang="fr" href="https://lucioaraujo.github.io/trioio/instalacao-fr.html">
+<link rel="alternate" hreflang="es" href="https://lucioaraujo.github.io/trioio/instalacao-es.html">
+<link rel="alternate" hreflang="x-default" href="https://lucioaraujo.github.io/trioio/instalacao.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trioio">
+<meta property="og:title" content="Installation — Trioio">
+<meta property="og:description" content="Installer Trioio sous Windows, macOS et Linux, pas à pas, avec les avertissements de sécurité, la première ouverture et la configuration requise.">
+<meta property="og:url" content="https://lucioaraujo.github.io/trioio/instalacao-fr.html">
+<meta property="og:image" content="https://lucioaraujo.github.io/trioio/assets/og-trioio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trioio — l&#x27;écran Écoute et réponse : la référence, le Troisième Œil révélé et la réponse composée en maqam Hijaz.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Trioio",
+  "description": "Installer Trioio sous Windows, macOS et Linux, pas à pas, avec les avertissements de sécurité, la première ouverture et la configuration requise.",
+  "url": "https://lucioaraujo.github.io/trioio/",
+  "inLanguage": "fr",
+  "image": "https://lucioaraujo.github.io/trioio/assets/og-trioio.jpg",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Music composition",
+  "operatingSystem": "Windows, macOS, Linux",
+  "downloadUrl": "https://github.com/lucioaraujo/trioio/releases/tag/v0.2.1",
+  "softwareVersion": "0.2.1",
+  "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Person",
+    "name": "Lúcio de Araújo"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RASGO",
+    "url": "https://rasgoinstruments.arquiviagem.net/"
+  },
+  "sameAs": [
+    "https://github.com/lucioaraujo/trioio"
+  ]
+}
+</script>
+<script>(function(){var K='rasgo-lingua',M={pt:'index.html',en:'en.html',fr:'fr.html',es:'es.html'};function g(){try{return localStorage.getItem(K)}catch(e){return null}}function s(v){try{localStorage.setItem(K,v)}catch(e){}}var l=(document.documentElement.lang||'').slice(0,2).toLowerCase(),p=location.pathname,base=location.origin+p.replace(/[^/]*$/,''),r=document.referrer||'';if(/\/(index\.html)?$/.test(p)&&l==='pt'&&r.indexOf(base)!==0&&!/[?&]lang=pt/.test(location.search)&&!/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)){var c=g();if(!c){var L=navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||''];c='en';for(var i=0;i<L.length;i++){var x=String(L[i]).slice(0,2).toLowerCase();if(M[x]){c=x;break}}}if(c!=='pt'&&M[c]){location.replace(M[c]+location.hash);return}}if(M[l])s(l);})();</script>
+<!-- SEO:FIM -->
+</head>
+<body>
+<div class="rasgo-strip"><a href="https://rasgoinstruments.arquiviagem.net/">RASGO — famille d'instruments et de recherche sonore</a></div>
+<a class="skip-link" href="#conteudo">Aller au contenu</a>
+
+<div class="site-header">
+  <a class="brand" href="fr.html#top" aria-label="Trioio">
+    <img src="assets/identity/trioio-olho.svg" alt="" width="36" height="36" />
+    <span>TRIOIO</span>
+  </a>
+  <nav class="site-menu" aria-label="Pages">
+    <a href="fr.html">À propos</a>
+    <a href="tutorial-fr.html">Tutoriel</a>
+    <a href="aprender-fr.html">Apprendre</a>
+    <a href="instalacao-fr.html" aria-current="page">Installation</a>
+    <a href="fr.html#baixar">Télécharger</a>
+  </nav>
+  <nav class="lang-switch" aria-label="Langue">
+    <a href="instalacao.html">PT</a>
+    <a href="instalacao-en.html">EN</a>
+    <a href="instalacao-fr.html" aria-current="true">FR</a>
+    <a href="instalacao-es.html">ES</a>
+  </nav>
+</div>
+
+<main id="conteudo">
+<section class="hero" id="top">
+  <h1>Installation</h1>
+  <p class="lead">Comment installer Trioio sous Windows, macOS et Linux, que faire à la première ouverture et comment résoudre les problèmes les plus courants.</p>
+</section>
+
+<section class="section">
+  <h2>Avant de commencer</h2>
+  <p>Les paquets sont dans <strong>Télécharger</strong>, sur la page d'accueil, et sur la page des releases GitHub. Les avertissements de sécurité de Windows et de macOS sont attendus et n'apparaissent que la première fois.</p>
+</section>
+
+<section class="section section-dark">
+  <h2>Windows</h2>
+  <ol class="facts">
+    <li>Téléchargez <code>trioio-&lt;version&gt;-win64.exe</code> et ouvrez-le.</li>
+    <li>Windows affiche <strong>« Windows a protégé votre ordinateur »</strong> : cliquez sur <strong>« Informations complémentaires »</strong>, puis sur <strong>« Exécuter quand même »</strong>.</li>
+    <li>Si Windows demande l'autorisation d'administrateur, cliquez sur <strong>« Oui »</strong>.</li>
+    <li>Cliquez sur <strong>« Suivant »</strong> jusqu'à la fin. Trioio est alors dans le menu Démarrer et sur le bureau.</li>
+  </ol>
+  <p><strong>Sans installer :</strong> décompressez <code>trioio-&lt;version&gt;-win64.zip</code> et ouvrez <code>Trioio.exe</code>, avec le dossier <code>data</code> à côté.</p>
+</section>
+
+<section class="section">
+  <h2>macOS</h2>
+  <ol class="facts">
+    <li>Téléchargez <code>trioio-&lt;version&gt;-Darwin.dmg</code>. Il fonctionne sur les Mac Intel et Apple Silicon.</li>
+    <li>Ouvrez-le et glissez Trioio dans <strong>Applications</strong>.</li>
+    <li>Ouvrez Trioio. La première fois, macOS le bloque, car l'app a une signature ad hoc, sans Developer ID Apple payant. Cliquez sur <strong>« OK »</strong>.</li>
+    <li>Autorisez l'app une fois : dans <strong>Réglages Système → Confidentialité et sécurité</strong>, cliquez sur <strong>« Ouvrir quand même »</strong> et confirmez. Sous macOS 14 ou antérieur : clic droit sur l'app dans le Finder → <strong>Ouvrir → Ouvrir</strong>.</li>
+  </ol>
+  <p>Si le bouton n'apparaît pas, utilisez le Terminal. La commande retire la marque de quarantaine que macOS pose sur chaque fichier téléchargé :</p>
+  <pre class="example"><code>xattr -dr com.apple.quarantine "/Applications/Trioio.app"</code></pre>
+</section>
+
+<section class="section section-dark">
+  <h2>Linux</h2>
+  <ul class="facts">
+    <li><strong>Ubuntu 22.04+, Debian 12+, Mint 21+ :</strong> double-cliquez sur le <code>.deb</code>, ou <code>sudo apt install ./trioio-&lt;version&gt;-Linux.deb</code>.</li>
+    <li><strong>Autres distributions, AppImage :</strong> rendez-le exécutable (Propriétés → autoriser l'exécution, ou <code>chmod +x</code>) et ouvrez-le.</li>
+    <li><strong>Autres distributions, <code>.tar.gz</code> :</strong> décompressez et lancez <code>./install.sh</code>. Il installe pour votre utilisateur, sans root ; <code>./install.sh --remove</code> annule.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>À la première ouverture</h2>
+  <ol class="facts">
+    <li>Choisissez un <strong>dossier de données</strong> avec <strong>ouvrir le dossier de données…</strong>. Vos enregistrements, réponses, jugements et mémoire y vivent. Une réponse avec stems occupe quelques centaines de Mo : choisissez un disque avec de la place.</li>
+    <li>Le bouton <strong>TUTORIEL</strong>, à côté d'<strong>À PROPOS</strong>, explique l'instrument pas à pas, dans la langue de l'interface.</li>
+    <li>Trioio compose hors ligne. La case de recherche de mots en ligne est la seule qui utilise des services publics (Wikidata, Datamuse), et elle est désactivée au départ.</li>
+  </ol>
+</section>
+
+<section class="section section-dark">
+  <h2>Problèmes et solutions</h2>
+  <table class="ref">
+    <tr><th scope="row"><strong>S'ouvre en démonstration et ne compose pas</strong></th><td>choisissez le dossier de données avec <strong>ouvrir le dossier de données…</strong> ; Trioio s'en souvient</td></tr>
+    <tr><th scope="row"><strong>Ne compose pas sur mon enregistrement</strong></th><td>un nouvel enregistrement commence en attente : cliquez <strong>autoriser…</strong>, déclarez l'origine et cliquez <strong>autoriser</strong></td></tr>
+    <tr><th scope="row"><strong>Pas de son</strong></th><td>Trioio joue par la sortie audio par défaut du système : choisissez la sortie dans les réglages du son, rouvrez Trioio et vérifiez le <strong>master</strong></td></tr>
+    <tr><th scope="row"><strong>Semble figé pendant la composition</strong></th><td>la barre du bas montre chaque étape et le temps ; une réponse prend de quelques secondes à environ une minute</td></tr>
+    <tr><th scope="row"><strong>Linux : la fenêtre ne s'ouvre pas</strong></th><td>installez le <code>.deb</code> avec <code>apt</code>, qui apporte les dépendances ; pour l'AppImage, installez <code>libfuse2</code> ou lancez-le avec <code>--appimage-extract-and-run</code></td></tr>
+  </table>
+  <p>Pour autre chose, écrivez à <strong>rasgo.instruments@gmail.com</strong> avec votre système, la version, ce que vous avez fait et le message affiché.</p>
+</section>
+
+<section class="section">
+  <h2>Configuration requise</h2>
+  <table class="ref">
+    <tr><th scope="row"><strong>Windows</strong></th><td>Windows 10 ou 11, 64 bits</td></tr>
+    <tr><th scope="row"><strong>macOS</strong></th><td>10.15 ou plus récent, Intel et Apple Silicon</td></tr>
+    <tr><th scope="row"><strong>Linux</strong></th><td>x86-64 avec glibc 2.35 ou plus récente (distributions de 2022 et après)</td></tr>
+    <tr><th scope="row"><strong>Processeur</strong></th><td>64 bits, deux cœurs ou plus ; mesuré sur un Intel Core i5-6500 : environ 20 s par réponse, sur environ un cœur</td></tr>
+    <tr><th scope="row"><strong>Mémoire</strong></th><td>environ 250 à 500 Mo pendant la composition ; 4 Go dans l'ordinateur suffisent</td></tr>
+    <tr><th scope="row"><strong>Disque</strong></th><td>environ 25 Mo pour l'app ; les réponses vont dans le dossier de données</td></tr>
+  </table>
+</section>
+</main>
+
+<footer class="site-footer">
+  <span>© Lúcio de Araújo · Trioio 2026 · RASGO</span>
+  <nav>
+    <a href="https://github.com/lucioaraujo/trioio">GitHub</a> ·
+    <a href="https://github.com/lucioaraujo/trioio/blob/main/CREDITS_AND_SOURCES.md">Crédits</a> ·
+    <a href="https://github.com/lucioaraujo/trioio/blob/main/LICENSE">Licence AGPLv3+</a>
+  </nav>
+</footer>
+</body>
+</html>

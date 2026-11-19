@@ -97,7 +97,23 @@ figure.shot figcaption { margin-top: .6rem; color: var(--muted); font: .78rem/1.
 .dialog-close { position: absolute; top: .6rem; right: .7rem; border: 0; background: transparent; color: var(--muted); font-size: 1.7rem; line-height: 1; cursor: pointer; }
 .dialog-close:hover { color: var(--response); }
 
+/* menu das páginas (nivelamento dos sites da família, 19/11/2026): o mesmo
+   desenho do seletor de língua, em texto */
+.site-menu { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; margin-left: auto; }
+.site-menu a { color: var(--muted); text-decoration: none; font: .78rem "DejaVu Sans Mono", monospace; letter-spacing: .06em; text-transform: uppercase; padding: .3rem 0; border-bottom: 1px solid transparent; }
+.site-menu a:hover { color: var(--ink); }
+.site-menu a[aria-current="page"] { color: var(--response); border-bottom-color: var(--response); }
+.section .facts { max-width: 760px; }
+.facts.toc a { text-decoration: none; }
+table.ref { border-collapse: collapse; max-width: 900px; width: 100%; margin: 1rem 0; font-size: .92rem; }
+table.ref th, table.ref td { text-align: left; vertical-align: top; padding: .6rem .8rem; border-bottom: 1px solid var(--line); color: var(--muted); }
+table.ref th { color: var(--ink); font-weight: 400; width: 34%; }
+.section code { font: .86em "DejaVu Sans Mono", monospace; color: var(--ink); }
+pre.example { max-width: 760px; padding: .8rem 1rem; overflow-x: auto; }
+
 @media (max-width: 640px) {
   .site-header { flex-direction: column; align-items: flex-start; gap: .7rem; }
+  .site-menu { margin-left: 0; }
+  table.ref th { width: auto; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
